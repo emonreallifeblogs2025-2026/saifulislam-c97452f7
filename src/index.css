@@ -50,13 +50,14 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Rubik', sans-serif;
   }
   body[data-lang="bn"] {
-    font-family: 'Noto Sans Bengali', 'Urbanist', sans-serif;
+    font-family: 'Noto Sans Bengali', 'Rubik', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
   }
   body[data-lang="bn"] h1,
   body[data-lang="bn"] h2,
