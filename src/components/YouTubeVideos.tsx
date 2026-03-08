@@ -2,14 +2,12 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 
 const videos = [
-  { id: "FrJjm7L6MoE", title: "Psychology Insights" },
-  { id: "dQw4w9WgXcQ", title: "Creative Writing Tips" },
-  { id: "jNQXAC9IVRw", title: "AI Prompt Techniques" },
-  { id: "9bZkp7q19f0", title: "Music Composition" },
-  { id: "kJQP7kiw5Fk", title: "Cinematography Basics" },
-  { id: "RgKAFK5djSk", title: "Research Methods" },
-  { id: "JGwWNGJdvx8", title: "Real Life Analysis" },
-  { id: "fJ9rUzIMcZQ", title: "Behavioral Patterns" },
+  { id: "pcsv8gicm7U", title: "Psychology Insights" },
+  { id: "9OAOGPUDcq8", title: "Creative Writing" },
+  { id: "sRo3Rd8JsGo", title: "AI Prompt Techniques" },
+  { id: "FrJjm7L6MoE", title: "Music & Composition" },
+  { id: "ovnAq3KA1UI", title: "Cinematography" },
+  { id: "K8WFoX0OBac", title: "Research Methods" },
 ];
 
 const YouTubeVideos = () => {
