@@ -122,8 +122,8 @@ const Hero = () => {
                   className="w-full"
                   loading="eager"
                   style={{
-                    WebkitMaskImage: 'radial-gradient(ellipse 70% 68% at 48% 44%, black 60%, rgba(0,0,0,0.5) 75%, transparent 90%)',
-                    maskImage: 'radial-gradient(ellipse 70% 68% at 48% 44%, black 60%, rgba(0,0,0,0.5) 75%, transparent 90%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
+                    maskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
                   }}
                 />
               </div>
