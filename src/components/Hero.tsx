@@ -44,9 +44,12 @@ const Hero = () => {
   }, [lang]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden diagonal-lines">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/30" />
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img src={heroBg} alt="" className="w-full h-full object-cover" />
+      </div>
+      <div className="absolute inset-0 bg-background/40" />
 
       <div className="container mx-auto relative z-10 pt-24 pb-16 px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
