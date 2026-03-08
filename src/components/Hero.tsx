@@ -119,13 +119,11 @@ const Hero = () => {
                 <img
                   src={heroImage}
                   alt="Saiful Islam"
-                  className="w-full mix-blend-screen"
+                  className="w-full"
                   loading="eager"
                   style={{
-                    WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 85%, transparent 100%), linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-                    WebkitMaskComposite: 'destination-in',
-                    maskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 85%, transparent 100%), linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-                    maskComposite: 'intersect',
+                    WebkitMaskImage: 'radial-gradient(ellipse 65% 62% at 48% 42%, black 65%, transparent 85%)',
+                    maskImage: 'radial-gradient(ellipse 65% 62% at 48% 42%, black 65%, transparent 85%)',
                   }}
                 />
               </div>
