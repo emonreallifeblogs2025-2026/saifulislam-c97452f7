@@ -50,13 +50,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Urbanist', sans-serif;
   }
   body[data-lang="bn"] {
-    font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
+    font-family: 'Noto Sans Bengali', 'Urbanist', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Urbanist', sans-serif;
   }
   body[data-lang="bn"] h1,
   body[data-lang="bn"] h2,
