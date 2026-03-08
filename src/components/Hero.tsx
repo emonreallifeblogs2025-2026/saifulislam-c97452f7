@@ -119,7 +119,7 @@ const Hero = () => {
                 <img
                   src={heroImage}
                   alt="Saiful Islam"
-                  className="w-full"
+                  className="w-full mix-blend-multiply invert brightness-[1.15] contrast-[1.1]"
                   loading="eager"
                   style={{
                     WebkitMaskImage: 'radial-gradient(ellipse 65% 62% at 48% 42%, black 65%, transparent 85%)',
