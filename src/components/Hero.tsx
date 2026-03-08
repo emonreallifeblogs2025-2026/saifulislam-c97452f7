@@ -116,8 +116,8 @@ const Hero = () => {
               </h2>
               {/* Hero image with gradient mask to blend white BG */}
               <div className="relative z-10" style={{
-                WebkitMaskImage: 'radial-gradient(ellipse 85% 80% at 50% 40%, black 50%, transparent 100%)',
-                maskImage: 'radial-gradient(ellipse 85% 80% at 50% 40%, black 50%, transparent 100%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 80% 75% at 50% 45%, black 55%, transparent 95%)',
+                maskImage: 'radial-gradient(ellipse 80% 75% at 50% 45%, black 55%, transparent 95%)',
               }}>
                 <img
                   src={heroImage}
