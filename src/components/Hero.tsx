@@ -111,18 +111,24 @@ const Hero = () => {
           >
             <div className="relative w-72 md:w-96 lg:w-[26rem] xl:w-[30rem]">
               {/* Floating text - BEHIND the image */}
-              <h2 className="absolute top-[15%] left-1/2 -translate-x-1/2 text-[3.5rem] md:text-[5rem] lg:text-[6rem] xl:text-[7rem] font-black uppercase text-foreground/[0.08] leading-none tracking-wider whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
+              <h2 className="absolute top-[20%] left-1/2 -translate-x-1/2 text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-black uppercase text-foreground/[0.06] leading-none tracking-[0.2em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
                 {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
               </h2>
-              {/* Hero image */}
-              <img
-                src={heroImage}
-                alt="Saiful Islam"
-                className="relative z-10 w-full drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
-                loading="eager"
-              />
+              {/* Hero image with mask to fade edges */}
+              <div className="relative z-10">
+                <img
+                  src={heroImage}
+                  alt="Saiful Islam"
+                  className="w-full"
+                  loading="eager"
+                  style={{
+                    WebkitMaskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
+                    maskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
+                  }}
+                />
+              </div>
               {/* Floating text - OVER the image */}
-              <h2 className="absolute bottom-[10%] left-1/2 -translate-x-1/2 text-[3.5rem] md:text-[5rem] lg:text-[6rem] xl:text-[7rem] font-black uppercase text-foreground/[0.12] leading-none tracking-wider whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
+              <h2 className="absolute bottom-[15%] left-1/2 -translate-x-1/2 text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-black uppercase text-foreground/[0.10] leading-none tracking-[0.2em] whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
                 {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
               </h2>
             </div>
