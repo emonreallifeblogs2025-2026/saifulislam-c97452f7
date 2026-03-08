@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ServiceCards from "@/components/ServiceCards";
+
 import YouTubeVideos from "@/components/YouTubeVideos";
 import Stats from "@/components/Stats";
 import Skills from "@/components/Skills";
