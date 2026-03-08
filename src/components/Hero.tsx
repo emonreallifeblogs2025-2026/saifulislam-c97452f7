@@ -119,7 +119,7 @@ const Hero = () => {
                 <img
                   src={heroImage}
                   alt="Saiful Islam"
-                  className="w-full mix-blend-luminosity brightness-110 contrast-110"
+                  className="w-full mix-blend-screen"
                   loading="eager"
                   style={{
                     WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 85%, transparent 100%), linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
