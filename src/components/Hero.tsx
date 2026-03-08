@@ -109,12 +109,12 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="flex justify-center relative order-1 lg:order-2"
           >
-            <div className="relative w-72 md:w-96 lg:w-[26rem] xl:w-[30rem] overflow-visible">
+            <div className="relative w-72 md:w-96 lg:w-[26rem] xl:w-[30rem]">
               {/* Floating text - BEHIND the image */}
               <h2 className="absolute top-[20%] left-1/2 -translate-x-1/2 text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-black uppercase text-foreground/[0.06] leading-none tracking-[0.2em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
                 {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
               </h2>
-              {/* Hero image with gradient mask to blend white BG */}
+              {/* Hero image with mask to fade edges */}
               <div className="relative z-10">
                 <img
                   src={heroImage}
@@ -122,8 +122,8 @@ const Hero = () => {
                   className="w-full"
                   loading="eager"
                   style={{
-                    WebkitMaskImage: 'radial-gradient(ellipse 65% 62% at 48% 42%, black 65%, transparent 85%)',
-                    maskImage: 'radial-gradient(ellipse 65% 62% at 48% 42%, black 65%, transparent 85%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 70% 68% at 48% 44%, black 60%, rgba(0,0,0,0.5) 75%, transparent 90%)',
+                    maskImage: 'radial-gradient(ellipse 70% 68% at 48% 44%, black 60%, rgba(0,0,0,0.5) 75%, transparent 90%)',
                   }}
                 />
               </div>
