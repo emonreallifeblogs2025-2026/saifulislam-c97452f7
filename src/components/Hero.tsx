@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import heroImage from "@/assets/hero-main.png";
+import heroBg from "@/assets/hero-bg.jpeg";
 import { ArrowRight } from "lucide-react";
 
 const roles = {
