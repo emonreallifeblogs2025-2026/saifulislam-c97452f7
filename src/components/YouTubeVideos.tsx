@@ -14,7 +14,7 @@ const YouTubeVideos = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="videos" className="section-padding">
+    <section id="videos" className="section-padding bg-secondary/20">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,15 +22,15 @@ const YouTubeVideos = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="gold-line mx-auto mb-4" />
-          <h2 className="text-4xl md:text-5xl font-bold gold-gradient-text mb-4">{t.videos.title}</h2>
-          <p className="text-muted-foreground text-lg">{t.videos.subtitle}</p>
+          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">My Videos</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">{t.videos.title}</h2>
+          <p className="text-muted-foreground text-base">{t.videos.subtitle}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {videos.map((v, i) => (
             <motion.div
-              key={v.id + i}
+              key={v.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -48,7 +48,7 @@ const YouTubeVideos = () => {
                 />
               </div>
               <div className="p-4">
-                <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                   {v.title}
                 </h3>
               </div>
