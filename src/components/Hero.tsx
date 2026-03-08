@@ -115,15 +115,18 @@ const Hero = () => {
                 {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
               </h2>
               {/* Hero image with gradient mask to blend white BG */}
-              <div className="relative z-10" style={{
-                WebkitMaskImage: 'radial-gradient(ellipse 75% 70% at 50% 48%, black 60%, transparent 90%)',
-                maskImage: 'radial-gradient(ellipse 75% 70% at 50% 48%, black 60%, transparent 90%)',
-              }}>
+              <div className="relative z-10">
                 <img
                   src={heroImage}
                   alt="Saiful Islam"
-                  className="w-full"
+                  className="w-full mix-blend-luminosity brightness-110 contrast-110"
                   loading="eager"
+                  style={{
+                    WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 85%, transparent 100%), linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+                    WebkitMaskComposite: 'destination-in',
+                    maskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 85%, transparent 100%), linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+                    maskComposite: 'intersect',
+                  }}
                 />
               </div>
               {/* Floating text - OVER the image */}
