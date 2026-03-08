@@ -1,72 +1,69 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Send } from "lucide-react";
 import { toast } from "sonner";
+import { Send } from "lucide-react";
 
 const Contact = () => {
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sending, setSending] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) return;
-    setSending(true);
-    setTimeout(() => {
-      toast.success(t.contact.success);
-      setForm({ name: "", email: "", message: "" });
-      setSending(false);
-    }, 1000);
+    toast.success(t.contact.success);
+    setForm({ name: "", email: "", message: "" });
   };
 
   return (
-    <section id="contact" className="section-padding bg-secondary/20">
-      <div className="container mx-auto max-w-2xl">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-          <div className="gold-line mx-auto mb-4" />
-          <h2 className="text-4xl md:text-5xl font-bold gold-gradient-text mb-4">{t.contact.title}</h2>
-          <p className="text-muted-foreground text-lg">{t.contact.subtitle}</p>
-        </motion.div>
+    <section id="contact" className="section-padding">
+      <div className="container mx-auto max-w-4xl">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">GET IN TOUCH</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+              {t.contact.subtitle}
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Let's bring your ideas to life. Contact me and let's create something amazing together.
+            </p>
+          </motion.div>
 
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-card p-8 md:p-12 space-y-6"
-        >
-          <input
-            type="text"
-            placeholder={t.contact.name}
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            maxLength={100}
-            className="w-full bg-secondary/50 border border-border rounded-lg px-5 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-            required
-          />
-          <input
-            type="email"
-            placeholder={t.contact.email}
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            maxLength={255}
-            className="w-full bg-secondary/50 border border-border rounded-lg px-5 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-            required
-          />
-          <textarea
-            placeholder={t.contact.message}
-            value={form.message}
-            onChange={(e) => setForm({ ...form, message: e.target.value })}
-            maxLength={1000}
-            rows={5}
-            className="w-full bg-secondary/50 border border-border rounded-lg px-5 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-            required
-          />
-          <button type="submit" disabled={sending} className="glass-button w-full text-center flex items-center justify-center gap-2 py-4">
-            <Send size={16} /> {sending ? "..." : t.contact.send}
-          </button>
-        </motion.form>
+          <motion.form
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            onSubmit={handleSubmit}
+            className="space-y-4"
+          >
+            <input
+              type="text"
+              placeholder={t.contact.name}
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              required
+              className="w-full px-5 py-4 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors text-sm"
+            />
+            <input
+              type="email"
+              placeholder={t.contact.email}
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              required
+              className="w-full px-5 py-4 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors text-sm"
+            />
+            <textarea
+              placeholder={t.contact.message}
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              required
+              rows={5}
+              className="w-full px-5 py-4 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors text-sm resize-none"
+            />
+            <button type="submit" className="glass-button text-sm w-full justify-center">
+              {t.contact.send} <Send size={16} />
+            </button>
+          </motion.form>
+        </div>
       </div>
     </section>
   );
