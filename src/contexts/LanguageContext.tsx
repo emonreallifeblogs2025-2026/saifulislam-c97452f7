@@ -8,7 +8,7 @@ const translations = {
     hero: {
       name: "Saiful Islam",
       titles: "Psychology & Real Life Researcher • Writer • AI Prompt Developer • Music & Composition • Cinematographer",
-      bio: "Freelancer delivering exceptional insights in psychology, writing, AI, music, and cinematography.",
+      bio: "A passionate psychology researcher, writer, AI prompt developer, cinematographer, and music composer delivering exceptional creative insights.",
       cta: "Get in Touch",
       watchVideo: "Watch Video",
     },
@@ -109,7 +109,7 @@ const translations = {
     hero: {
       name: "সাইফুল ইসলাম",
       titles: "সাইকোলজি ও রিয়েল লাইফ রিসার্চার • লেখক • AI প্রম্পট ডেভেলপার • মিউজিক ও কম্পোজিশন • সিনেমাটোগ্রাফার",
-      bio: "সাইকোলজি, লেখালেখি, AI, সংগীত এবং সিনেমাটোগ্রাফিতে অসাধারণ অন্তর্দৃষ্টি প্রদানকারী ফ্রিল্যান্সার।",
+      bio: "কখনও কি ভেবে দেখেছেন, সব থেকেও কেন মনে হয় কী যেন নেই? স্বাগত জানাচ্ছি 'Experience Diary With Saiful'-এ। এটি শুধু একটি ইউটিউব চ্যানেল নয়, এটি আপনার মনের অব্যক্ত অনুভূতির এক জাদুকরী আয়না।",
       cta: "যোগাযোগ করুন",
       watchVideo: "ভিডিও দেখুন",
     },

@@ -49,64 +49,87 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img src={heroBg} alt="" className="w-full h-full object-cover" />
       </div>
-      <div className="absolute inset-0 bg-background/40" />
+      {/* Diagonal lines overlay - Reeni style */}
+      <div className="absolute inset-0 diagonal-lines" />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-background/50" />
 
-      <div className="container mx-auto relative z-10 pt-24 pb-16 px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text */}
+      <div className="container mx-auto relative z-10 pt-28 pb-20 px-4">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left - Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="order-2 lg:order-1"
           >
-            <motion.p
+            <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4"
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-block text-xs uppercase tracking-[0.35em] text-muted-foreground font-semibold mb-6"
             >
-              Hello
-            </motion.p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight text-foreground">
+              {lang === "en" ? "Hello" : "হ্যালো"}
+            </motion.span>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] text-foreground mb-2"
+            >
               {lang === "en" ? "i'm " : "আমি "}
               <span className="text-foreground">{t.hero.name}</span>
-              {" "}{lang === "en" ? "a" : ""}
-            </h1>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8">
-              <span className="text-primary typing-cursor">{text}</span>
-            </h2>
-            <p className="text-muted-foreground text-base md:text-lg mb-10 max-w-lg leading-relaxed">
+              {lang === "en" ? " a" : ""}
+              <br />
+              <span className="clip-text gradient-text text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                {text}
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.7 }}
+              className="text-muted-foreground text-sm md:text-base lg:text-lg mb-10 max-w-md leading-relaxed mt-6"
+            >
               {t.hero.bio}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#portfolio" className="glass-button text-base">
-                View Portfolio <ArrowRight size={18} />
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.7 }}
+              className="flex flex-wrap gap-4"
+            >
+              <a href="#portfolio" className="glass-button text-sm md:text-base group">
+                <span>{lang === "en" ? "View Portfolio" : "পোর্টফোলিও দেখুন"}</span>
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Image with background text */}
+          {/* Right - Image with floating background text */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="flex justify-center relative order-1 lg:order-2"
           >
-            <div className="relative">
-              {/* Background role text */}
-              <div className="absolute inset-0 flex flex-col justify-between pointer-events-none select-none z-0 overflow-hidden">
-                <p className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-black uppercase text-foreground/[0.04] leading-none tracking-wider whitespace-nowrap">
-                  {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
-                </p>
-                <p className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-black uppercase text-foreground/[0.04] leading-none tracking-wider whitespace-nowrap text-right">
-                  {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
-                </p>
-              </div>
+            <div className="relative w-72 md:w-96 lg:w-[26rem] xl:w-[30rem]">
+              {/* Floating background text - top */}
+              <h2 className="absolute top-[5%] left-1/2 -translate-x-1/2 text-[3.5rem] md:text-[5rem] lg:text-[6rem] xl:text-[7rem] font-black uppercase text-foreground/[0.06] leading-none tracking-wider whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
+                {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
+              </h2>
+              {/* Floating background text - bottom */}
+              <h2 className="absolute bottom-[5%] left-1/2 -translate-x-1/2 text-[3.5rem] md:text-[5rem] lg:text-[6rem] xl:text-[7rem] font-black uppercase text-foreground/[0.06] leading-none tracking-wider whitespace-nowrap pointer-events-none select-none z-0 animate-up-down-2">
+                {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
+              </h2>
+              {/* Hero image */}
               <img
                 src={heroImage}
                 alt="Saiful Islam"
-                className="relative z-10 w-72 md:w-96 lg:w-[28rem] drop-shadow-2xl"
+                className="relative z-10 w-full drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
                 loading="eager"
               />
             </div>
