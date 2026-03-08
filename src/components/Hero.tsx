@@ -1,8 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import heroImage from "@/assets/hero-main.png";
-import heroBg from "@/assets/hero-bg.jpeg";
+import heroImage from "@/assets/hero-main-new.png";
 import { ArrowRight } from "lucide-react";
 
 const roles = {
@@ -44,15 +43,9 @@ const Hero = () => {
   }, [lang]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
-      </div>
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
       {/* Diagonal lines overlay - Reeni style */}
       <div className="absolute inset-0 diagonal-lines" />
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-background/50" />
 
       <div className="container mx-auto relative z-10 pt-28 pb-20 px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -117,12 +110,8 @@ const Hero = () => {
             className="flex justify-center relative order-1 lg:order-2"
           >
             <div className="relative w-72 md:w-96 lg:w-[26rem] xl:w-[30rem]">
-              {/* Floating background text - top */}
-              <h2 className="absolute top-[5%] left-1/2 -translate-x-1/2 text-[3.5rem] md:text-[5rem] lg:text-[6rem] xl:text-[7rem] font-black uppercase text-foreground/[0.06] leading-none tracking-wider whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
-                {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
-              </h2>
-              {/* Floating background text - bottom */}
-              <h2 className="absolute bottom-[5%] left-1/2 -translate-x-1/2 text-[3.5rem] md:text-[5rem] lg:text-[6rem] xl:text-[7rem] font-black uppercase text-foreground/[0.06] leading-none tracking-wider whitespace-nowrap pointer-events-none select-none z-0 animate-up-down-2">
+              {/* Floating text - BEHIND the image */}
+              <h2 className="absolute top-[15%] left-1/2 -translate-x-1/2 text-[3.5rem] md:text-[5rem] lg:text-[6rem] xl:text-[7rem] font-black uppercase text-foreground/[0.08] leading-none tracking-wider whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
                 {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
               </h2>
               {/* Hero image */}
@@ -132,6 +121,10 @@ const Hero = () => {
                 className="relative z-10 w-full drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
                 loading="eager"
               />
+              {/* Floating text - OVER the image */}
+              <h2 className="absolute bottom-[10%] left-1/2 -translate-x-1/2 text-[3.5rem] md:text-[5rem] lg:text-[6rem] xl:text-[7rem] font-black uppercase text-foreground/[0.12] leading-none tracking-wider whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
+                {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
+              </h2>
             </div>
           </motion.div>
         </div>
