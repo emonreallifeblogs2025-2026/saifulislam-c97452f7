@@ -8,7 +8,7 @@ const translations = {
     hero: {
       name: "Saiful Islam",
       titles: "Psychology & Real Life Researcher • Writer • AI Prompt Developer • Music & Composition • Cinematographer",
-      bio: "Freelancer delivering exceptional insights in psychology, writing, AI, music, and cinematography.",
+      bio: "A passionate psychology researcher, writer, AI prompt developer, cinematographer, and music composer delivering exceptional creative insights.",
       cta: "Get in Touch",
       watchVideo: "Watch Video",
     },
