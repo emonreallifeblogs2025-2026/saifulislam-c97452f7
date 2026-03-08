@@ -43,15 +43,9 @@ const Hero = () => {
   }, [lang]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
-      </div>
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
       {/* Diagonal lines overlay - Reeni style */}
       <div className="absolute inset-0 diagonal-lines" />
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-background/50" />
 
       <div className="container mx-auto relative z-10 pt-28 pb-20 px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
