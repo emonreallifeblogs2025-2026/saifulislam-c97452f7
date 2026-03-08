@@ -118,7 +118,7 @@ const Hero = () => {
               <img
                 src={heroImage}
                 alt="Saiful Islam"
-                className="relative z-10 w-full drop-shadow-[0_10px_40px_rgba(0,0,0,0.4)] mix-blend-lighten"
+                className="relative z-10 w-full drop-shadow-[0_10px_40px_rgba(0,0,0,0.4)] mix-blend-multiply brightness-150"
                 loading="eager"
               />
               {/* Floating text - OVER the image */}
