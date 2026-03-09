@@ -28,7 +28,11 @@ const Counter = ({ target, suffix = "" }: { target: number; suffix?: string }) =
 };
 
 const Stats = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+
+  const longBio = lang === "bn"
+    ? "কখনও কি ভেবে দেখেছেন, সব থেকেও কেন মনে হয় কী যেন নেই? কেন আমরা হাসির আড়ালে কান্না লুকাই? স্বাগত জানাচ্ছি 'Experience Diary With Saiful'-এ। এটি শুধু একটি ইউটিউব চ্যানেল নয়, এটি আপনার মনের অব্যক্ত অনুভূতির এক জাদুকরী আয়না।\n\nআমরা জানি, জীবন কোনো সোজা রাস্তা নয়। এখানে প্রতি মুহূর্তে আমাদের লড়াই করতে হয়—কখনও নিজের সাথে, কখনও পরিস্থিতির সাথে। কিন্তু কেন এই লড়াই? কেন আমাদের সম্পর্কগুলো ঠুনকো হয়ে যাচ্ছে?"
+    : "Have you ever wondered, even after having everything, why does it feel like something is missing? Why do we hide tears behind laughter? Welcome to 'Experience Diary With Saiful'. This is not just a YouTube channel, it is a magical mirror of your unspoken feelings.";
 
   return (
     <section className="section-padding">
@@ -40,13 +44,13 @@ const Stats = () => {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <span className="text-[8rem] md:text-[12rem] font-black text-primary/10 leading-none block">
-                <Counter target={10} />
+              <span className="text-[10rem] md:text-[14rem] font-black text-primary/15 leading-none block">
+                <Counter target={21} />
               </span>
               <div className="absolute bottom-4 left-4">
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground">{t.stats.experience}</h3>
-                <p className="text-muted-foreground mt-2 max-w-sm text-sm leading-relaxed">
-                  {t.hero.bio}
+                <h3 className="text-3xl md:text-4xl font-bold text-foreground">{t.stats.experience}</h3>
+                <p className="text-muted-foreground mt-3 max-w-sm text-sm leading-relaxed whitespace-pre-line">
+                  {longBio}
                 </p>
               </div>
             </div>

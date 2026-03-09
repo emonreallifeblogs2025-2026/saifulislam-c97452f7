@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Menu, X, Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Menu, X, Facebook } from "lucide-react";
+
+const TikTokIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.72a8.2 8.2 0 0 0 4.76 1.52V6.79a4.84 4.84 0 0 1-1-.1z"/>
+  </svg>
+);
 
 const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
@@ -18,10 +24,13 @@ const Navbar = () => {
     { href: "#about", label: t.nav.about },
     { href: "#videos", label: t.nav.videos },
     { href: "#skills", label: t.nav.skills },
-    { href: "#services", label: t.nav.services },
     { href: "#portfolio", label: t.nav.portfolio },
-    { href: "#testimonials", label: t.nav.testimonials },
     { href: "#contact", label: t.nav.contact },
+  ];
+
+  const socialLinks = [
+    { icon: <Facebook size={14} />, href: "https://www.facebook.com/realliferesearcher" },
+    { icon: <TikTokIcon />, href: "https://www.facebook.com/share/1HietSG5n6/?mibextid=wwXIfr" },
   ];
 
   return (
@@ -47,18 +56,25 @@ const Navbar = () => {
 
         {/* Right side */}
         <div className="hidden lg:flex items-center gap-3">
-          {[Instagram, Linkedin, Twitter, Facebook].map((Icon, i) => (
-            <a key={i} href="#" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
-              <Icon size={14} />
+          {socialLinks.map((s, i) => (
+            <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
+              {s.icon}
             </a>
           ))}
-          <button
-            onClick={() => setLang(lang === "en" ? "bn" : "en")}
-            className="ml-2 px-4 py-2 rounded-full border border-border text-xs font-medium text-muted-foreground hover:border-primary hover:text-primary transition-all"
-          >
-            {lang === "en" ? "বাংলা" : "EN"}
-          </button>
-          {/* Hamburger for sidebar */}
+          <div className="ml-2 flex gap-1">
+            <button
+              onClick={() => setLang("en")}
+              className={`px-3 py-2 rounded-l-full border text-xs font-medium transition-all ${lang === "en" ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary hover:text-primary"}`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLang("bn")}
+              className={`px-3 py-2 rounded-r-full border text-xs font-medium transition-all ${lang === "bn" ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary hover:text-primary"}`}
+            >
+              বাংলা
+            </button>
+          </div>
           <button className="ml-2 w-10 h-10 rounded-full bg-primary flex items-center justify-center" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={18} className="text-primary-foreground" /> : <Menu size={18} className="text-primary-foreground" />}
           </button>
@@ -87,13 +103,12 @@ const Navbar = () => {
                 Freelancer delivering exceptional insights in psychology, writing, AI, music, and cinematography.
               </p>
               <div className="space-y-2 text-sm text-muted-foreground">
-                <p>📞 <a href="#" className="hover:text-primary transition-colors">+880 1234-567890</a></p>
-                <p>✉ <a href="mailto:saiful@example.com" className="hover:text-primary transition-colors">saiful@example.com</a></p>
+                <p>📞 <a href="https://wa.me/8801999708880" className="hover:text-primary transition-colors">+880 1999-708880</a></p>
               </div>
               <div className="flex gap-3 mt-6">
-                {[Instagram, Linkedin, Twitter, Facebook].map((Icon, i) => (
-                  <a key={i} href="#" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
-                    <Icon size={14} />
+                {socialLinks.map((s, i) => (
+                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
+                    {s.icon}
                   </a>
                 ))}
               </div>
@@ -106,9 +121,12 @@ const Navbar = () => {
                   </a>
                 ))}
               </nav>
-              <div className="mt-8">
-                <button onClick={() => { setLang(lang === "en" ? "bn" : "en"); }} className="px-6 py-3 rounded-full border border-border text-sm font-medium text-muted-foreground hover:border-primary hover:text-primary transition-all">
-                  {lang === "en" ? "বাংলা" : "English"}
+              <div className="mt-8 flex gap-2">
+                <button onClick={() => setLang("en")} className={`px-6 py-3 rounded-full border text-sm font-medium transition-all ${lang === "en" ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary hover:text-primary"}`}>
+                  English
+                </button>
+                <button onClick={() => setLang("bn")} className={`px-6 py-3 rounded-full border text-sm font-medium transition-all ${lang === "bn" ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary hover:text-primary"}`}>
+                  বাংলা
                 </button>
               </div>
             </div>

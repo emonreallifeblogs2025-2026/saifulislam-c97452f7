@@ -4,11 +4,11 @@ type Lang = "en" | "bn";
 
 const translations = {
   en: {
-    nav: { home: "Home", about: "About", skills: "Skills", portfolio: "Portfolio", services: "Services", testimonials: "Testimonials", contact: "Contact", letsChat: "Let's Chat", videos: "Videos" },
+    nav: { home: "Home", about: "About", skills: "Skills", portfolio: "Portfolio", contact: "Contact", letsChat: "Let's Chat", videos: "Videos" },
     hero: {
       name: "Saiful Islam",
       titles: "Psychology & Real Life Researcher • Writer • AI Prompt Developer • Music & Composition • Cinematographer",
-      bio: "A passionate psychology researcher, writer, AI prompt developer, cinematographer, and music composer delivering exceptional creative insights.",
+      bio: "কখনও কি ভেবে দেখেছেন, সব থেকেও কেন মনে হয় কী যেন নেই? কেন আমরা হাসির আড়ালে কান্না লুকাই? স্বাগত জানাচ্ছি 'Experience Diary With Saiful'-এ। এটি শুধু একটি ইউটিউব চ্যানেল নয়, এটি আপনার মনের অব্যক্ত অনুভূতির এক জাদুকরী আয়না।",
       cta: "Get in Touch",
       watchVideo: "Watch Video",
     },
@@ -30,17 +30,6 @@ const translations = {
       musicComposition: "Music Composition",
       aiPrompt: "AI Prompt Development",
       realLifeResearch: "Real Life Research",
-    },
-    services: {
-      title: "Latest Services",
-      subtitle: "What I Offer",
-      s1Title: "Psychology & Research",
-      s1Desc: "Deep insights into human behavior, cognitive patterns, and real-life psychology research that transforms understanding.",
-      s2Title: "Writing & Composition",
-      s2Desc: "Crafting compelling narratives, articles, and compositions that resonate with audiences across cultures.",
-      s3Title: "AI & Cinematography",
-      s3Desc: "Leveraging AI prompt engineering and cinematic storytelling to create immersive visual experiences.",
-      readMore: "Read More",
     },
     videos: {
       title: "My Latest Videos",
@@ -77,18 +66,9 @@ const translations = {
       p5: "Psychology Case Studies",
       p6: "Creative Writing Collection",
     },
-    testimonials: {
-      title: "Testimonials",
-      subtitle: "What Clients Say",
-      t1: "Saiful's psychology research provided invaluable insights for our project. His depth of understanding is remarkable.",
-      t1Author: "Ahmed Rahman",
-      t1Role: "Research Director",
-      t2: "An exceptional AI prompt developer. His creative approach to problem-solving is truly innovative.",
-      t2Author: "Sarah Chen",
-      t2Role: "Tech Lead",
-      t3: "His cinematography work brought our vision to life beautifully. Highly recommended!",
-      t3Author: "Michael Torres",
-      t3Role: "Film Producer",
+    articles: {
+      title: "Articles & Writings",
+      subtitle: "Read My Latest Works",
     },
     contact: {
       title: "Get In Touch",
@@ -105,11 +85,11 @@ const translations = {
     },
   },
   bn: {
-    nav: { home: "হোম", about: "আমার সম্পর্কে", skills: "দক্ষতা", portfolio: "পোর্টফোলিও", services: "সেবাসমূহ", testimonials: "প্রশংসাপত্র", contact: "যোগাযোগ", letsChat: "যোগাযোগ করুন", videos: "ভিডিও" },
+    nav: { home: "হোম", about: "আমার সম্পর্কে", skills: "দক্ষতা", portfolio: "পোর্টফোলিও", contact: "যোগাযোগ", letsChat: "যোগাযোগ করুন", videos: "ভিডিও" },
     hero: {
       name: "সাইফুল ইসলাম",
       titles: "সাইকোলজি ও রিয়েল লাইফ রিসার্চার • লেখক • AI প্রম্পট ডেভেলপার • মিউজিক ও কম্পোজিশন • সিনেমাটোগ্রাফার",
-      bio: "কখনও কি ভেবে দেখেছেন, সব থেকেও কেন মনে হয় কী যেন নেই? স্বাগত জানাচ্ছি 'Experience Diary With Saiful'-এ। এটি শুধু একটি ইউটিউব চ্যানেল নয়, এটি আপনার মনের অব্যক্ত অনুভূতির এক জাদুকরী আয়না।",
+      bio: "কখনও কি ভেবে দেখেছেন, সব থেকেও কেন মনে হয় কী যেন নেই? কেন আমরা হাসির আড়ালে কান্না লুকাই? স্বাগত জানাচ্ছি 'Experience Diary With Saiful'-এ। এটি শুধু একটি ইউটিউব চ্যানেল নয়, এটি আপনার মনের অব্যক্ত অনুভূতির এক জাদুকরী আয়না।",
       cta: "যোগাযোগ করুন",
       watchVideo: "ভিডিও দেখুন",
     },
@@ -131,17 +111,6 @@ const translations = {
       musicComposition: "সংগীত রচনা",
       aiPrompt: "AI প্রম্পট ডেভেলপমেন্ট",
       realLifeResearch: "রিয়েল লাইফ গবেষণা",
-    },
-    services: {
-      title: "সর্বশেষ সেবাসমূহ",
-      subtitle: "আমি যা অফার করি",
-      s1Title: "সাইকোলজি ও গবেষণা",
-      s1Desc: "মানব আচরণ, জ্ঞানীয় প্যাটার্ন এবং বাস্তব জীবনের মনোবিজ্ঞান গবেষণায় গভীর অন্তর্দৃষ্টি।",
-      s2Title: "লেখালেখি ও রচনা",
-      s2Desc: "আকর্ষণীয় আখ্যান, নিবন্ধ এবং রচনা তৈরি যা সংস্কৃতি জুড়ে দর্শকদের সাথে অনুরণিত হয়।",
-      s3Title: "AI ও সিনেমাটোগ্রাফি",
-      s3Desc: "AI প্রম্পট ইঞ্জিনিয়ারিং এবং সিনেমাটিক গল্প বলার মাধ্যমে নিমগ্ন ভিজ্যুয়াল অভিজ্ঞতা তৈরি।",
-      readMore: "আরো পড়ুন",
     },
     videos: {
       title: "আমার সাম্প্রতিক ভিডিও",
@@ -178,18 +147,9 @@ const translations = {
       p5: "সাইকোলজি কেস স্টাডি",
       p6: "সৃজনশীল লেখা সংগ্রহ",
     },
-    testimonials: {
-      title: "প্রশংসাপত্র",
-      subtitle: "ক্লায়েন্টরা কী বলেন",
-      t1: "সাইফুলের সাইকোলজি গবেষণা আমাদের প্রকল্পের জন্য অমূল্য অন্তর্দৃষ্টি প্রদান করেছে।",
-      t1Author: "আহমেদ রহমান",
-      t1Role: "গবেষণা পরিচালক",
-      t2: "একজন অসাধারণ AI প্রম্পট ডেভেলপার। তার সৃজনশীল পদ্ধতি সত্যিই উদ্ভাবনী।",
-      t2Author: "সারাহ চেন",
-      t2Role: "টেক লিড",
-      t3: "তার সিনেমাটোগ্রাফি কাজ আমাদের দৃষ্টিভঙ্গিকে সুন্দরভাবে জীবন্ত করেছে।",
-      t3Author: "মাইকেল টরেস",
-      t3Role: "ফিল্ম প্রযোজক",
+    articles: {
+      title: "নিবন্ধ ও লেখালেখি",
+      subtitle: "আমার সর্বশেষ লেখা পড়ুন",
     },
     contact: {
       title: "যোগাযোগ করুন",
@@ -216,13 +176,13 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  lang: "en",
+  lang: "bn",
   setLang: () => {},
-  t: translations.en,
+  t: translations.bn,
 });
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("bn");
 
   useEffect(() => {
     document.body.setAttribute("data-lang", lang);
