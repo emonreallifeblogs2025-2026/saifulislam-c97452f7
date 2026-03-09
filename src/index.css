@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -50,10 +50,10 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
   }
   body[data-lang="bn"] {
-    font-family: 'Noto Sans Bengali', 'Rubik', sans-serif;
+    font-family: 'Noto Sans Bengali', 'Rajdhani', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Rajdhani', sans-serif;
@@ -146,7 +146,7 @@ html {
   font-weight: 100;
 }
 
-/* Diagonal lines background - Reeni style */
+/* Diagonal lines background */
 .diagonal-lines {
   background-image: repeating-linear-gradient(
     -45deg,
@@ -157,7 +157,7 @@ html {
   );
 }
 
-/* Reeni-style up-down floating animation */
+/* Floating animation */
 @keyframes up-down {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
@@ -173,7 +173,7 @@ html {
   animation: up-down-2 3s ease-in-out infinite;
 }
 
-/* Clip typing animation - Reeni style */
+/* Clip typing animation */
 @keyframes clip-in {
   0% { width: 0; }
   100% { width: 100%; }
@@ -188,4 +188,14 @@ html {
   white-space: nowrap;
   border-right: 3px solid hsl(var(--primary));
   animation: blink 0.8s step-end infinite;
+}
+
+/* WhatsApp floating button */
+@keyframes whatsapp-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+.whatsapp-float {
+  animation: whatsapp-pulse 2s infinite;
 }

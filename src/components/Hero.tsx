@@ -1,7 +1,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import heroImage from "@/assets/hero-main-new.png";
+import heroImage from "@/assets/hero-person.png";
+import heroBg from "@/assets/hero-bg-dark.jpg";
 import { ArrowRight } from "lucide-react";
 
 const roles = {
@@ -43,8 +44,12 @@ const Hero = () => {
   }, [lang]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
-      {/* Diagonal lines overlay - Reeni style */}
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img src={heroBg} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-background/60" />
+      </div>
       <div className="absolute inset-0 diagonal-lines" />
 
       <div className="container mx-auto relative z-10 pt-28 pb-20 px-4">
@@ -114,7 +119,7 @@ const Hero = () => {
               <h2 className="absolute top-[20%] left-1/2 -translate-x-1/2 text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-black uppercase text-foreground/[0.06] leading-none tracking-[0.2em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
                 {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
               </h2>
-              {/* Hero image with mask to fade edges */}
+              {/* Hero image */}
               <div className="relative z-10">
                 <img
                   src={heroImage}

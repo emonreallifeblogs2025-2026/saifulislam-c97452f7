@@ -15,8 +15,19 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="container mx-auto max-w-4xl">
+    <section id="contact" className="section-padding relative overflow-hidden">
+      {/* Netherlands map background */}
+      <div className="absolute inset-0 opacity-10">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4900000!2d5.2913!3d52.1326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snl!4v1700000000000!5m2!1sen!2snl"
+          className="w-full h-full border-0 pointer-events-none grayscale"
+          loading="lazy"
+          title="Netherlands Map"
+        />
+      </div>
+      <div className="absolute inset-0 bg-background/85" />
+
+      <div className="container mx-auto max-w-4xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">GET IN TOUCH</p>
