@@ -89,7 +89,7 @@ const Education = () => {
               viewport={{ once: true }}
               className="mt-8 rounded-2xl overflow-hidden"
             >
-              <img src={aboutSeated} alt="Experience" className="w-full h-64 object-cover rounded-2xl" loading="lazy" />
+              <img src={aboutSeated} alt="Experience" className="w-full h-72 object-cover object-top rounded-2xl" loading="lazy" />
             </motion.div>
           </div>
         </div>
