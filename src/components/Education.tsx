@@ -7,14 +7,14 @@ const Education = () => {
 
   const education = [
     { 
-      title: lang === "bn" ? "উন্নত গবেষণা পদ্ধতি" : "Advanced Research Methods", 
-      year: lang === "bn" ? "২০১৪ - ২০১৯" : "2014 - 2019", 
-      desc: lang === "bn" ? "বাস্তব জীবনের মনস্তাত্ত্বিক গবেষণার জন্য উন্নত গুণগত ও পরিমাণগত গবেষণা পদ্ধতি।" : "Advanced qualitative and quantitative research methods for real-life psychological studies." 
-    },
-    { 
       title: t.education.edu3, 
       year: t.education.edu3Year, 
       desc: lang === "bn" ? "পেশাদার সিনেমাটোগ্রাফি কৌশল, ভিজ্যুয়াল গল্প বলা এবং পোস্ট-প্রোডাকশন ওয়ার্কফ্লো।" : "Professional cinematography techniques, visual storytelling, and post-production workflows." 
+    },
+    { 
+      title: lang === "bn" ? "উন্নত গবেষণা পদ্ধতি" : "Advanced Research Methods", 
+      year: lang === "bn" ? "২০১৪ - ২০১৯" : "2014 - 2019", 
+      desc: lang === "bn" ? "বাস্তব জীবনের মনস্তাত্ত্বিক গবেষণার জন্য উন্নত গুণগত ও পরিমাণগত গবেষণা পদ্ধতি।" : "Advanced qualitative and quantitative research methods for real-life psychological studies." 
     },
     { 
       title: t.education.edu4, 
@@ -89,7 +89,7 @@ const Education = () => {
               viewport={{ once: true }}
               className="mt-8 rounded-2xl overflow-hidden"
             >
-              <img src={aboutSeated} alt="Experience" className="w-full h-64 object-cover rounded-2xl" loading="lazy" />
+              <img src={aboutSeated} alt="Experience" className="w-full h-72 object-cover object-top rounded-2xl" loading="lazy" />
             </motion.div>
           </div>
         </div>
