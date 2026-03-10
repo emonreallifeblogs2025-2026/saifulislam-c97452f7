@@ -45,7 +45,6 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0">
         <img src={heroBg} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-background/60" />
@@ -74,13 +73,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.7 }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] text-foreground mb-2"
+              className="text-foreground mb-2"
             >
-              {lang === "en" ? "i'm " : "আমি "}
-              <span className="text-foreground">{t.hero.name}</span>
-              {lang === "en" ? " a" : ""}
-              <br />
-              <span className="clip-text gradient-text text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+              <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1]">
+                {lang === "en" ? "i'm " : "আমি "}
+                <span className="text-foreground">{t.hero.name}</span>
+              </span>
+              <span className="block mt-4 clip-text gradient-text text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
                 {text}
               </span>
             </motion.h1>
@@ -101,7 +100,7 @@ const Hero = () => {
               className="flex flex-wrap gap-4"
             >
               <a href="#portfolio" className="glass-button text-sm md:text-base group">
-                <span>{lang === "en" ? "View Portfolio" : "পোর্টফোলিও দেখুন"}</span>
+                <span>{lang === "en" ? "My Writings" : "আমার কিছু লেখা"}</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>
@@ -115,9 +114,9 @@ const Hero = () => {
             className="flex justify-center relative order-1 lg:order-2"
           >
             <div className="relative w-72 md:w-96 lg:w-[26rem] xl:w-[30rem]">
-              {/* Floating text - BEHIND the image */}
-              <h2 className="absolute top-[20%] left-1/2 -translate-x-1/2 text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-black uppercase text-foreground/[0.06] leading-none tracking-[0.2em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
-                {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
+              {/* Floating text - BEHIND the image - centered vertically */}
+              <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-black uppercase text-foreground/50 leading-none tracking-[0.15em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
+                {lang === "en" ? "LIFE RESEARCHER" : "লাইফ রিসার্চার"}
               </h2>
               {/* Hero image */}
               <div className="relative z-10">
@@ -132,9 +131,9 @@ const Hero = () => {
                   }}
                 />
               </div>
-              {/* Floating text - OVER the image */}
-              <h2 className="absolute bottom-[15%] left-1/2 -translate-x-1/2 text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-black uppercase text-foreground/[0.10] leading-none tracking-[0.2em] whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
-                {lang === "en" ? "RESEARCHER" : "রিসার্চার"}
+              {/* Floating text - OVER the image - centered vertically */}
+              <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-black uppercase text-foreground/50 leading-none tracking-[0.15em] whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
+                {lang === "en" ? "LIFE RESEARCHER" : "লাইফ রিসার্চার"}
               </h2>
             </div>
           </motion.div>
