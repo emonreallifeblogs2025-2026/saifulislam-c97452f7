@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import YouTubeVideos from "@/components/YouTubeVideos";
+import SoundCloudMusic from "@/components/SoundCloudMusic";
 import Stats from "@/components/Stats";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
@@ -17,6 +18,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <YouTubeVideos />
+      <SoundCloudMusic />
       <Stats />
       <Skills />
       <Education />
