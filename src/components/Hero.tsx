@@ -43,7 +43,7 @@ const Hero = () => {
     setIsDeleting(false);
   }, [lang]);
 
-  const floatingText = lang === "en" ? "REAL LIFE" : "রিয়েল লাইফ";
+  const floatingText = lang === "en" ? "REAL LIFE RESEARCHER" : "রিয়েল লাইফ রিসার্চার";
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
