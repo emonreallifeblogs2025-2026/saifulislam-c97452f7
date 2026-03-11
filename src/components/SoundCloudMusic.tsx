@@ -4,36 +4,36 @@ import { Music, ExternalLink } from "lucide-react";
 
 const tracks = [
   {
-    url: "https://on.soundcloud.com/H32AAIDUk0kNeUDZnQ",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/H32AAIDUk0kNeUDZnQ&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
+    url: "https://on.soundcloud.com/3JxN6LGw4qJ3cwRge2",
+    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2F3JxN6LGw4qJ3cwRge2&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
   },
   {
-    url: "https://on.soundcloud.com/3lQcsbg4dRAb8NEtGj",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/3lQcsbg4dRAb8NEtGj&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
+    url: "https://on.soundcloud.com/uCZlbblKHZUE0uFPfu",
+    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FuCZlbblKHZUE0uFPfu&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
   },
   {
-    url: "https://on.soundcloud.com/id6gLePbZcCt1QvapG",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/id6gLePbZcCt1QvapG&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
+    url: "https://on.soundcloud.com/SQxJ3PFoWczWYfeoUP",
+    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FSQxJ3PFoWczWYfeoUP&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
   },
   {
-    url: "https://on.soundcloud.com/QQH68WskiumfWi2F7C",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/QQH68WskiumfWi2F7C&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
+    url: "https://on.soundcloud.com/A3NpqoLCKvSSSJodAR",
+    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FA3NpqoLCKvSSSJodAR&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
   },
   {
-    url: "https://on.soundcloud.com/c4ELETgXLapopLzKQs",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/c4ELETgXLapopLzKQs&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
+    url: "https://on.soundcloud.com/2rYA7Bc9OnuZ5fBqHE",
+    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2F2rYA7Bc9OnuZ5fBqHE&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
   },
   {
-    url: "https://on.soundcloud.com/szDPxyRiWoiziZpu2X",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/szDPxyRiWoiziZpu2X&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
+    url: "https://on.soundcloud.com/R7XOj6XrhLDtioEKff",
+    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FR7XOj6XrhLDtioEKff&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
   },
   {
-    url: "https://on.soundcloud.com/L1B20SiElaQnTmW7Zs",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/L1B20SiElaQnTmW7Zs&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
+    url: "https://on.soundcloud.com/w5D2vIIOFnohNBfOxN",
+    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2Fw5D2vIIOFnohNBfOxN&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
   },
   {
-    url: "https://on.soundcloud.com/JnIUvuvf2AmZQ43tK0",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/JnIUvuvf2AmZQ43tK0&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
+    url: "https://on.soundcloud.com/hNzNznRjopp7PERDZ5",
+    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FhNzNznRjopp7PERDZ5&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
   },
 ];
 
@@ -71,7 +71,7 @@ const SoundCloudMusic = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {tracks.map((track, i) => (
             <motion.div
               key={i}
@@ -79,15 +79,15 @@ const SoundCloudMusic = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="glass-card p-4"
+              className="glass-card p-3 sm:p-4"
             >
-              <div className="flex items-center gap-2 mb-3">
-                <Music size={14} className="text-primary" />
-                <h4 className="text-sm font-semibold text-foreground truncate">
+              <div className="flex items-center gap-2 mb-2">
+                <Music size={14} className="text-primary flex-shrink-0" />
+                <h4 className="text-xs sm:text-sm font-semibold text-foreground truncate">
                   {trackNames[lang][i]}
                 </h4>
               </div>
-              <p className="text-xs text-muted-foreground mb-3">
+              <p className="text-[10px] sm:text-xs text-muted-foreground mb-2">
                 {lang === "bn" ? "সৈয়দ সাইফুল ইসলাম" : "Syed Saiful Islam"}
               </p>
               <iframe

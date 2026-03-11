@@ -115,9 +115,9 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="flex justify-center relative order-1 lg:order-2"
           >
-            <div className="relative w-[280px] sm:w-[340px] md:w-[420px] lg:w-[500px] xl:w-[580px]">
-              {/* Floating text - BEHIND the image - 50% opacity - positioned at head level */}
-              <h2 className="absolute top-[15%] left-1/2 -translate-x-1/2 text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-black uppercase text-foreground/50 leading-none tracking-[0.15em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
+            <div className="relative w-[420px] sm:w-[510px] md:w-[630px] lg:w-[750px] xl:w-[870px]">
+              {/* Floating text - BEHIND the image - 50% opacity - positioned at neck level */}
+              <h2 className="absolute top-[25%] left-1/2 -translate-x-1/2 text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] xl:text-[4rem] font-black uppercase text-foreground/50 leading-none tracking-[0.1em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
                 {floatingText}
               </h2>
               {/* Hero image */}
@@ -133,8 +133,8 @@ const Hero = () => {
                   }}
                 />
               </div>
-              {/* Floating text - OVER the image - full opacity - positioned at hand/chest level */}
-              <h2 className="absolute top-[55%] left-1/2 -translate-x-1/2 text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-black uppercase text-foreground leading-none tracking-[0.15em] whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
+              {/* Floating text - OVER the image - full opacity - below hands */}
+              <h2 className="absolute top-[65%] left-1/2 -translate-x-1/2 text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] xl:text-[4rem] font-black uppercase text-foreground leading-none tracking-[0.1em] whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
                 {floatingText}
               </h2>
             </div>
