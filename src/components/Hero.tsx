@@ -43,6 +43,8 @@ const Hero = () => {
     setIsDeleting(false);
   }, [lang]);
 
+  const floatingText = lang === "en" ? "REAL LIFE" : "রিয়েল লাইফ";
+
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
@@ -79,7 +81,7 @@ const Hero = () => {
                 {lang === "en" ? "i'm " : "আমি "}
                 <span className="text-foreground">{t.hero.name}</span>
               </span>
-              <span className="block mt-4 clip-text gradient-text text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
+              <span className="block mt-4 clip-text gradient-text text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold">
                 {text}
               </span>
             </motion.h1>
@@ -113,10 +115,10 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="flex justify-center relative order-1 lg:order-2"
           >
-            <div className="relative w-[22rem] md:w-[30rem] lg:w-[36rem] xl:w-[42rem]">
-              {/* Floating text - BEHIND the image - 50% opacity */}
-              <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-black uppercase text-foreground/50 leading-none tracking-[0.2em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
-                {lang === "en" ? "LIFE RESEARCHER" : "লাইফ রিসার্চার"}
+            <div className="relative w-[280px] sm:w-[340px] md:w-[420px] lg:w-[500px] xl:w-[580px]">
+              {/* Floating text - BEHIND the image - 50% opacity - positioned at head level */}
+              <h2 className="absolute top-[15%] left-1/2 -translate-x-1/2 text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-black uppercase text-foreground/50 leading-none tracking-[0.15em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
+                {floatingText}
               </h2>
               {/* Hero image */}
               <div className="relative z-10">
@@ -131,9 +133,9 @@ const Hero = () => {
                   }}
                 />
               </div>
-              {/* Floating text - OVER the image - full opacity */}
-              <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-black uppercase text-foreground leading-none tracking-[0.2em] whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
-                {lang === "en" ? "LIFE RESEARCHER" : "লাইফ রিসার্চার"}
+              {/* Floating text - OVER the image - full opacity - positioned at hand/chest level */}
+              <h2 className="absolute top-[55%] left-1/2 -translate-x-1/2 text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-black uppercase text-foreground leading-none tracking-[0.15em] whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
+                {floatingText}
               </h2>
             </div>
           </motion.div>

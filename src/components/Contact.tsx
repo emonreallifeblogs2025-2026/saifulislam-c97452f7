@@ -5,11 +5,14 @@ import { toast } from "sonner";
 import { Send } from "lucide-react";
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Redirect to WhatsApp with message
+    const whatsappMessage = `নাম: ${form.name}%0Aইমেইল: ${form.email}%0Aবার্তা: ${form.message}`;
+    window.open(`https://wa.me/8801999708880?text=${whatsappMessage}`, '_blank');
     toast.success(t.contact.success);
     setForm({ name: "", email: "", message: "" });
   };
@@ -35,7 +38,7 @@ const Contact = () => {
               {t.contact.subtitle}
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Let's bring your ideas to life. Contact me and let's create something amazing together.
+              {lang === "bn" ? "আপনার ধারণাগুলো বাস্তবে রূপ দিতে যোগাযোগ করুন। একসাথে অসাধারণ কিছু তৈরি করি।" : "Let's bring your ideas to life. Contact me and let's create something amazing together."}
             </p>
           </motion.div>
 

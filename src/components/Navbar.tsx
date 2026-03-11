@@ -30,7 +30,7 @@ const Navbar = () => {
 
   const socialLinks = [
     { icon: <Facebook size={14} />, href: "https://www.facebook.com/realliferesearcher" },
-    { icon: <TikTokIcon />, href: "https://www.facebook.com/share/1HietSG5n6/?mibextid=wwXIfr" },
+    { icon: <TikTokIcon />, href: "https://www.tiktok.com/@saifulislam.live?_r=1&_t=ZS-94bFZ1rkh1g" },
   ];
 
   return (

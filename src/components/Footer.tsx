@@ -21,7 +21,7 @@ const Footer = () => {
             <a href="https://www.facebook.com/realliferesearcher" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
               <Facebook size={14} />
             </a>
-            <a href="https://www.facebook.com/share/1HietSG5n6/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
+            <a href="https://www.tiktok.com/@saifulislam.live?_r=1&_t=ZS-94bFZ1rkh1g" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
               <TikTokIcon />
             </a>
           </div>
