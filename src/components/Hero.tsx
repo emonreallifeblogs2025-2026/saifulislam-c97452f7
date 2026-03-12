@@ -78,7 +78,8 @@ const Hero = () => {
         {particles.map((p) => (
           <motion.div
             key={p.id}
-            className="absolute rounded-full bg-primary/40"
+            className="absolute rounded-full"
+            style={{ background: `hsl(40, 85%, ${50 + p.size * 5}%)` }}
             style={{
               left: `${p.x}%`,
               top: `${p.y}%`,
