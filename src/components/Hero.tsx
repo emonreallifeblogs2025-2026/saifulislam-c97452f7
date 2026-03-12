@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
 import { ArrowRight } from "lucide-react";
@@ -10,11 +10,31 @@ const roles = {
   bn: ["সাইকোলজি রিসার্চার।", "লেখক।", "AI প্রম্পট ডেভেলপার।", "সিনেমাটোগ্রাফার।", "সংগীত রচয়িতা।"],
 };
 
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  duration: number;
+  delay: number;
+}
+
+const generateParticles = (count: number): Particle[] =>
+  Array.from({ length: count }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 4 + 1,
+    duration: Math.random() * 4 + 3,
+    delay: Math.random() * 5,
+  }));
+
 const Hero = () => {
   const { t, lang } = useLanguage();
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [particles] = useState(() => generateParticles(40));
 
   useEffect(() => {
     const currentRole = roles[lang][roleIndex];
@@ -43,7 +63,7 @@ const Hero = () => {
     setIsDeleting(false);
   }, [lang]);
 
-  const floatingText = lang === "en" ? "REAL LIFE RESEARCHER" : "রিয়েল লাইফ রিসার্চার";
+  const researcherText = lang === "en" ? "REAL LIFE RESEARCHER" : "রিয়েল লাইফ রিসার্চার";
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
@@ -52,6 +72,33 @@ const Hero = () => {
         <div className="absolute inset-0 bg-background/60" />
       </div>
       <div className="absolute inset-0 diagonal-lines" />
+
+      {/* Floating particles */}
+      <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
+        {particles.map((p) => (
+          <motion.div
+            key={p.id}
+            className="absolute rounded-full bg-primary/40"
+            style={{
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+              width: p.size,
+              height: p.size,
+            }}
+            animate={{
+              y: [0, -60, -120],
+              opacity: [0, 0.8, 0],
+              scale: [0.5, 1, 0.3],
+            }}
+            transition={{
+              duration: p.duration,
+              delay: p.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
 
       <div className="container mx-auto relative z-10 pt-28 pb-20 px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -81,7 +128,7 @@ const Hero = () => {
                 {lang === "en" ? "i'm " : "আমি "}
                 <span className="text-foreground">{t.hero.name}</span>
               </span>
-              <span className="block mt-4 clip-text gradient-text text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold">
+              <span className="block mt-4 clip-text gradient-text text-lg md:text-xl lg:text-xl xl:text-2xl font-bold">
                 {text}
               </span>
             </motion.h1>
@@ -90,7 +137,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.7 }}
-              className="text-muted-foreground text-sm md:text-base lg:text-lg mb-10 max-w-md leading-relaxed mt-6"
+              className="text-muted-foreground text-sm md:text-base lg:text-lg mb-6 max-w-md leading-relaxed mt-6"
             >
               {t.hero.bio}
             </motion.p>
@@ -108,18 +155,14 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right - Image with floating background text */}
+          {/* Right - Image with researcher text below */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="flex justify-center relative order-1 lg:order-2"
+            className="flex flex-col items-center relative order-1 lg:order-2"
           >
-            <div className="relative w-[420px] sm:w-[510px] md:w-[630px] lg:w-[750px] xl:w-[870px]">
-              {/* Floating text - BEHIND the image - 50% opacity - positioned at neck level */}
-              <h2 className="absolute top-[25%] left-1/2 -translate-x-1/2 text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] xl:text-[4rem] font-black uppercase text-foreground/50 leading-none tracking-[0.1em] whitespace-nowrap pointer-events-none select-none z-0 animate-up-down">
-                {floatingText}
-              </h2>
+            <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
               {/* Hero image */}
               <div className="relative z-10">
                 <img
@@ -133,11 +176,16 @@ const Hero = () => {
                   }}
                 />
               </div>
-              {/* Floating text - OVER the image - full opacity - below hands */}
-              <h2 className="absolute top-[65%] left-1/2 -translate-x-1/2 text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] xl:text-[4rem] font-black uppercase text-foreground leading-none tracking-[0.1em] whitespace-nowrap pointer-events-none select-none z-20 animate-up-down-2">
-                {floatingText}
-              </h2>
             </div>
+            {/* Researcher text below image */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase text-foreground/80 tracking-[0.15em] mt-[-2rem] z-20"
+            >
+              {researcherText}
+            </motion.h2>
           </motion.div>
         </div>
       </div>
