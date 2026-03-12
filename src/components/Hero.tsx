@@ -79,12 +79,12 @@ const Hero = () => {
           <motion.div
             key={p.id}
             className="absolute rounded-full"
-            style={{ background: `hsl(40, 85%, ${50 + p.size * 5}%)` }}
             style={{
               left: `${p.x}%`,
               top: `${p.y}%`,
               width: p.size,
               height: p.size,
+              background: `hsl(40, 85%, ${50 + p.size * 5}%)`,
             }}
             animate={{
               y: [0, -60, -120],
