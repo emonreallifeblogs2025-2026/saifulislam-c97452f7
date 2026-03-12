@@ -8,7 +8,7 @@ const translations = {
     hero: {
       name: "Saiful Islam",
       titles: "Psychology & Real Life Researcher • Writer • AI Prompt Developer • Music & Composition • Cinematographer",
-      bio: "কখনও কি ভেবে দেখেছেন, সব থেকেও কেন মনে হয় কী যেন নেই? কেন আমরা হাসির আড়ালে কান্না লুকাই? স্বাগত জানাচ্ছি 'Experience Diary With Saiful'-এ। এটি শুধু একটি ইউটিউব চ্যানেল নয়, এটি আপনার মনের অব্যক্ত অনুভূতির এক জাদুকরী আয়না।",
+      bio: "Hello, I'm Saiful Islam. Have you ever wondered why, even when you have everything, it still feels like something is missing? Why do we hide tears behind laughter? Welcome to 'Experience Diary With Saiful'. It's not just a YouTube channel — it's a magical mirror of your unspoken emotions.",
       cta: "Get in Touch",
       watchVideo: "Watch Video",
     },

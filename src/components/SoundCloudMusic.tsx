@@ -1,52 +1,9 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { Music, ExternalLink } from "lucide-react";
+import soundcloudCover from "@/assets/soundcloud-cover.png";
 
-const tracks = [
-  {
-    url: "https://on.soundcloud.com/3JxN6LGw4qJ3cwRge2",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2F3JxN6LGw4qJ3cwRge2&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
-  },
-  {
-    url: "https://on.soundcloud.com/uCZlbblKHZUE0uFPfu",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FuCZlbblKHZUE0uFPfu&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
-  },
-  {
-    url: "https://on.soundcloud.com/SQxJ3PFoWczWYfeoUP",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FSQxJ3PFoWczWYfeoUP&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
-  },
-  {
-    url: "https://on.soundcloud.com/A3NpqoLCKvSSSJodAR",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FA3NpqoLCKvSSSJodAR&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
-  },
-  {
-    url: "https://on.soundcloud.com/2rYA7Bc9OnuZ5fBqHE",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2F2rYA7Bc9OnuZ5fBqHE&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
-  },
-  {
-    url: "https://on.soundcloud.com/R7XOj6XrhLDtioEKff",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FR7XOj6XrhLDtioEKff&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
-  },
-  {
-    url: "https://on.soundcloud.com/w5D2vIIOFnohNBfOxN",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2Fw5D2vIIOFnohNBfOxN&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
-  },
-  {
-    url: "https://on.soundcloud.com/hNzNznRjopp7PERDZ5",
-    embedUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FhNzNznRjopp7PERDZ5&color=%23e11d48&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
-  },
-];
-
-const trackNames = {
-  bn: [
-    "অনুভূতির সুর ১", "অনুভূতির সুর ২", "অনুভূতির সুর ৩", "অনুভূতির সুর ৪",
-    "অনুভূতির সুর ৫", "অনুভূতির সুর ৬", "অনুভূতির সুর ৭", "অনুভূতির সুর ৮"
-  ],
-  en: [
-    "Melody of Feelings 1", "Melody of Feelings 2", "Melody of Feelings 3", "Melody of Feelings 4",
-    "Melody of Feelings 5", "Melody of Feelings 6", "Melody of Feelings 7", "Melody of Feelings 8"
-  ],
-};
+const SOUNDCLOUD_LIBRARY = "https://on.soundcloud.com/7tA9rG7ceUPUXfSiWp";
 
 const SoundCloudMusic = () => {
   const { lang } = useLanguage();
@@ -71,47 +28,29 @@ const SoundCloudMusic = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-          {tracks.map((track, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="glass-card p-3 sm:p-4"
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <Music size={14} className="text-primary flex-shrink-0" />
-                <h4 className="text-xs sm:text-sm font-semibold text-foreground truncate">
-                  {trackNames[lang][i]}
-                </h4>
-              </div>
-              <p className="text-[10px] sm:text-xs text-muted-foreground mb-2">
-                {lang === "bn" ? "সৈয়দ সাইফুল ইসলাম" : "Syed Saiful Islam"}
-              </p>
-              <iframe
-                width="100%"
-                height="80"
-                scrolling="no"
-                frameBorder="no"
-                allow="autoplay"
-                src={track.embedUrl}
-                className="rounded-lg"
-                title={trackNames[lang][i]}
-              />
-            </motion.div>
-          ))}
-        </div>
-
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="flex flex-col items-center gap-8 max-w-md mx-auto"
         >
+          {/* Square cover with animated border */}
+          <div className="relative group">
+            <div className="absolute -inset-[3px] rounded-2xl bg-gradient-to-r from-primary via-pink-light to-primary opacity-75 blur-sm animate-pulse group-hover:opacity-100 transition-opacity" 
+              style={{ background: `linear-gradient(135deg, hsl(var(--primary)), hsl(var(--pink-light)), hsl(var(--pink-dark)), hsl(var(--primary)))`, backgroundSize: '300% 300%', animation: 'borderGlow 3s ease infinite' }} 
+            />
+            <div className="relative rounded-2xl overflow-hidden border-2 border-primary/50">
+              <img
+                src={soundcloudCover}
+                alt="SoundCloud Music Library"
+                className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover"
+              />
+            </div>
+          </div>
+
+          {/* SoundCloud button */}
           <a
-            href="https://on.soundcloud.com/6aLoWVDBeNQKpDE0yl"
+            href={SOUNDCLOUD_LIBRARY}
             target="_blank"
             rel="noopener noreferrer"
             className="glass-button text-sm md:text-base group inline-flex items-center gap-2 soundcloud-pulse"
