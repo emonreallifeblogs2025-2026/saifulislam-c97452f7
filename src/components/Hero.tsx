@@ -88,8 +88,8 @@ const Hero = () => {
             }}
             animate={{
               y: [0, -60, -120],
-              opacity: [0, 0.8, 0],
-              scale: [0.5, 1, 0.3],
+              opacity: [0, 1, 0],
+              scale: [0.5, 1.2, 0.3],
             }}
             transition={{
               duration: p.duration,
