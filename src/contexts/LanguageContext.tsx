@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type Lang = "en" | "bn";
+type Lang = "en" | "bn" | "fr" | "ar";
 
 const translations = {
   en: {
@@ -165,6 +165,168 @@ const translations = {
       madeWith: "আবেগ দিয়ে তৈরি",
     },
   },
+  fr: {
+    nav: { home: "Accueil", about: "À propos", skills: "Compétences", portfolio: "Portfolio", contact: "Contact", letsChat: "Discutons", videos: "Vidéos" },
+    hero: {
+      name: "Saiful Islam",
+      titles: "Chercheur en Psychologie • Écrivain • Développeur IA • Compositeur • Cinéaste",
+      bio: "Bonjour, je suis Saiful Islam. Vous êtes-vous déjà demandé pourquoi, même en ayant tout, on a l'impression qu'il manque quelque chose? Bienvenue dans 'Experience Diary With Saiful'.",
+      cta: "Contactez-moi",
+      watchVideo: "Voir la vidéo",
+    },
+    stats: {
+      experience: "Années d'expérience",
+      projects: "Projets terminés",
+      insights: "Perspectives naturelles",
+      reviews: "Avis clients",
+      clients: "Clients satisfaits",
+    },
+    skills: {
+      title: "Mes compétences",
+      subtitle: "Ce que je fais le mieux",
+      design: "Compétences en recherche",
+      development: "Compétences techniques",
+      psychologyResearch: "Recherche en psychologie",
+      writing: "Écriture",
+      cinematography: "Cinématographie",
+      musicComposition: "Composition musicale",
+      aiPrompt: "Développement IA",
+      realLifeResearch: "Recherche sur la vie réelle",
+    },
+    videos: {
+      title: "Mes dernières vidéos",
+      subtitle: "Regardez et apprenez",
+    },
+    education: {
+      title: "Éducation et expérience",
+      eduTitle: "Éducation",
+      expTitle: "Expérience",
+      edu1: "Diplôme en psychologie",
+      edu1Year: "2005 - 2009",
+      edu2: "Méthodes de recherche avancées",
+      edu2Year: "2009 - 2011",
+      edu3: "Certificat de cinématographie",
+      edu3Year: "2012 - 2013",
+      edu4: "IA et apprentissage automatique",
+      edu4Year: "2020 - 2022",
+      exp1: "Chercheur en psychologie",
+      exp1Year: "5 ans",
+      exp2: "Développeur IA",
+      exp2Year: "3 ans",
+      exp3: "Écrivain freelance",
+      exp3Year: "7 ans",
+      exp4: "Cinéaste",
+      exp4Year: "4 ans",
+    },
+    portfolio: {
+      title: "Dernier portfolio",
+      subtitle: "Travaux en vedette",
+      p1: "Transformer les idées en perspectives",
+      p2: "Recherche alimentée par l'IA",
+      p3: "Narration cinématique",
+      p4: "Compositions musicales",
+      p5: "Études de cas en psychologie",
+      p6: "Collection d'écriture créative",
+    },
+    articles: {
+      title: "Articles et écrits",
+      subtitle: "Lisez mes derniers travaux",
+    },
+    contact: {
+      title: "Contactez-moi",
+      subtitle: "Améliorez vos idées avec moi",
+      name: "Votre nom",
+      email: "Votre email",
+      message: "Votre message",
+      send: "Envoyer le message",
+      success: "Message envoyé avec succès!",
+    },
+    footer: {
+      rights: "Tous droits réservés",
+      madeWith: "Créé avec passion",
+    },
+  },
+  ar: {
+    nav: { home: "الرئيسية", about: "حول", skills: "المهارات", portfolio: "الأعمال", contact: "اتصل", letsChat: "تواصل معنا", videos: "فيديوهات" },
+    hero: {
+      name: "سيف الإسلام",
+      titles: "باحث في علم النفس • كاتب • مطور ذكاء اصطناعي • ملحن • مصور سينمائي",
+      bio: "مرحباً، أنا سيف الإسلام. هل تساءلت يوماً لماذا حتى عندما تملك كل شيء، لا يزال يبدو أن شيئاً ما ينقص؟ مرحباً بكم في 'Experience Diary With Saiful'.",
+      cta: "تواصل معي",
+      watchVideo: "شاهد الفيديو",
+    },
+    stats: {
+      experience: "سنوات الخبرة",
+      projects: "مشاريع مكتملة",
+      insights: "رؤى طبيعية",
+      reviews: "مراجعات العملاء",
+      clients: "عملاء راضون",
+    },
+    skills: {
+      title: "مهاراتي",
+      subtitle: "ما أفعله بشكل أفضل",
+      design: "مهارات البحث",
+      development: "المهارات التقنية",
+      psychologyResearch: "بحث علم النفس",
+      writing: "الكتابة",
+      cinematography: "التصوير السينمائي",
+      musicComposition: "التأليف الموسيقي",
+      aiPrompt: "تطوير الذكاء الاصطناعي",
+      realLifeResearch: "بحث الحياة الواقعية",
+    },
+    videos: {
+      title: "أحدث فيديوهاتي",
+      subtitle: "شاهد وتعلم",
+    },
+    education: {
+      title: "التعليم والخبرة",
+      eduTitle: "التعليم",
+      expTitle: "الخبرة",
+      edu1: "درجة في علم النفس",
+      edu1Year: "٢٠٠٥ - ٢٠٠٩",
+      edu2: "طرق بحث متقدمة",
+      edu2Year: "٢٠٠٩ - ٢٠١١",
+      edu3: "شهادة تصوير سينمائي",
+      edu3Year: "٢٠١٢ - ٢٠١٣",
+      edu4: "الذكاء الاصطناعي",
+      edu4Year: "٢٠٢٠ - ٢٠٢٢",
+      exp1: "باحث في علم النفس",
+      exp1Year: "٥ سنوات",
+      exp2: "مطور ذكاء اصطناعي",
+      exp2Year: "٣ سنوات",
+      exp3: "كاتب مستقل",
+      exp3Year: "٧ سنوات",
+      exp4: "مصور سينمائي",
+      exp4Year: "٤ سنوات",
+    },
+    portfolio: {
+      title: "أحدث الأعمال",
+      subtitle: "أعمال مميزة",
+      p1: "تحويل الأفكار إلى رؤى",
+      p2: "بحث مدعوم بالذكاء الاصطناعي",
+      p3: "سرد سينمائي",
+      p4: "مؤلفات موسيقية",
+      p5: "دراسات حالة نفسية",
+      p6: "مجموعة كتابات إبداعية",
+    },
+    articles: {
+      title: "مقالات وكتابات",
+      subtitle: "اقرأ أحدث أعمالي",
+    },
+    contact: {
+      title: "تواصل معي",
+      subtitle: "ارتقِ بأفكارك معي",
+      name: "اسمك",
+      email: "بريدك الإلكتروني",
+      message: "رسالتك",
+      send: "إرسال الرسالة",
+      success: "تم إرسال الرسالة بنجاح!",
+    },
+    footer: {
+      rights: "جميع الحقوق محفوظة",
+      madeWith: "صنع بشغف",
+    },
+  },
 };
 
 type Translations = typeof translations.en;
@@ -186,6 +348,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     document.body.setAttribute("data-lang", lang);
+    if (lang === "ar") {
+      document.body.setAttribute("dir", "rtl");
+    } else {
+      document.body.setAttribute("dir", "ltr");
+    }
   }, [lang]);
 
   return (

@@ -6,11 +6,10 @@ import { useState } from "react";
 
 const SOUNDCLOUD_LIBRARY = "https://on.soundcloud.com/7tA9rG7ceUPUXfSiWp";
 
-// Music note SVG paths
 const noteShapes = [
-  "M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z", // quarter note
-  "M9 3v10.55A4 4 0 1 0 11 17V7h4V3H9zM15 3v10.55A4 4 0 1 0 17 17V7h4V3h-6z", // beam notes
-  "M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z", // quarter note
+  "M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z",
+  "M9 3v10.55A4 4 0 1 0 11 17V7h4V3H9zM15 3v10.55A4 4 0 1 0 17 17V7h4V3h-6z",
+  "M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z",
 ];
 
 interface NoteParticle {
@@ -41,7 +40,7 @@ const SoundCloudMusic = () => {
   const [particles] = useState(() => generateNoteParticles(30));
 
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding pb-24 relative overflow-hidden">
       {/* Staff note particles */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {particles.map((p) => (
@@ -86,13 +85,13 @@ const SoundCloudMusic = () => {
           className="text-center mb-16"
         >
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">
-            {lang === "bn" ? "সংগীত" : "Music"}
+            {lang === "bn" ? "সংগীত" : lang === "ar" ? "موسيقى" : lang === "fr" ? "Musique" : "Music"}
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
-            {lang === "bn" ? "আমার সংগীত রচনা" : "My Music Compositions"}
+            {lang === "bn" ? "আমার সংগীত রচনা" : lang === "ar" ? "مؤلفاتي الموسيقية" : lang === "fr" ? "Mes compositions musicales" : "My Music Compositions"}
           </h2>
           <p className="text-muted-foreground mt-4 text-xs sm:text-sm md:text-base max-w-xs sm:max-w-sm md:max-w-md mx-auto">
-            {lang === "bn" ? "মিউজিক কম্পোজিশন: সৈয়দ সাইফুল ইসলাম" : "Music Composition: Syed Saiful Islam"}
+            {lang === "bn" ? "মিউজিক কম্পোজিশন: সৈয়দ সাইফুল ইসলাম" : lang === "ar" ? "التأليف الموسيقي: سيد سيف الإسلام" : lang === "fr" ? "Composition musicale: Syed Saiful Islam" : "Music Composition: Syed Saiful Islam"}
           </p>
         </motion.div>
 
@@ -121,10 +120,10 @@ const SoundCloudMusic = () => {
             href={SOUNDCLOUD_LIBRARY}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-button text-sm md:text-base group inline-flex items-center gap-2"
+            className="glass-button text-sm md:text-base group inline-flex items-center gap-2 mb-8"
           >
             <Music size={18} className="animate-pulse" />
-            <span>{lang === "bn" ? "আরো গান শুনুন" : "Listen More Songs"}</span>
+            <span>{lang === "bn" ? "আরো গান শুনুন" : lang === "ar" ? "استمع لمزيد" : lang === "fr" ? "Écouter plus" : "Listen More Songs"}</span>
             <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </motion.div>

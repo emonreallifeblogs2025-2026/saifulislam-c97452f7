@@ -4,13 +4,32 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
 
+interface GoldParticle {
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  duration: number;
+  delay: number;
+}
+
+const generateGoldParticles = (count: number): GoldParticle[] =>
+  Array.from({ length: count }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 5 + 2,
+    duration: Math.random() * 4 + 3,
+    delay: Math.random() * 5,
+  }));
+
 const Contact = () => {
   const { t, lang } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [particles] = useState(() => generateGoldParticles(60));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Redirect to WhatsApp with message
     const whatsappMessage = `নাম: ${form.name}%0Aইমেইল: ${form.email}%0Aবার্তা: ${form.message}`;
     window.open(`https://wa.me/8801999708880?text=${whatsappMessage}`, '_blank');
     toast.success(t.contact.success);
@@ -19,16 +38,33 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
-      {/* Netherlands map background */}
-      <div className="absolute inset-0 opacity-10">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4900000!2d5.2913!3d52.1326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snl!4v1700000000000!5m2!1sen!2snl"
-          className="w-full h-full border-0 pointer-events-none grayscale"
-          loading="lazy"
-          title="Netherlands Map"
-        />
+      {/* Gold particles background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {particles.map((p) => (
+          <motion.div
+            key={p.id}
+            className="absolute rounded-full"
+            style={{
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+              width: p.size,
+              height: p.size,
+              background: `hsl(40, 85%, ${48 + p.size * 4}%)`,
+            }}
+            animate={{
+              y: [0, -50, -100],
+              opacity: [0, 0.9, 0],
+              scale: [0.4, 1.2, 0.3],
+            }}
+            transition={{
+              duration: p.duration,
+              delay: p.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </div>
-      <div className="absolute inset-0 bg-background/85" />
 
       <div className="container mx-auto max-w-4xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -38,7 +74,7 @@ const Contact = () => {
               {t.contact.subtitle}
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              {lang === "bn" ? "আপনার ধারণাগুলো বাস্তবে রূপ দিতে যোগাযোগ করুন। একসাথে অসাধারণ কিছু তৈরি করি।" : "Let's bring your ideas to life. Contact me and let's create something amazing together."}
+              {lang === "bn" ? "আপনার ধারণাগুলো বাস্তবে রূপ দিতে যোগাযোগ করুন। একসাথে অসাধারণ কিছু তৈরি করি।" : lang === "ar" ? "تواصل معي لتحويل أفكارك إلى واقع." : lang === "fr" ? "Contactez-moi pour donner vie à vos idées." : "Let's bring your ideas to life. Contact me and let's create something amazing together."}
             </p>
           </motion.div>
 
