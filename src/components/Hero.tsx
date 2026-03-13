@@ -1,13 +1,15 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
 import { ArrowRight } from "lucide-react";
 
-const roles = {
+const roles: Record<string, string[]> = {
   en: ["Psychology Researcher.", "Writer.", "AI Prompt Developer.", "Cinematographer.", "Music Composer."],
   bn: ["সাইকোলজি রিসার্চার।", "লেখক।", "AI প্রম্পট ডেভেলপার।", "সিনেমাটোগ্রাফার।", "সংগীত রচয়িতা।"],
+  fr: ["Chercheur en psychologie.", "Écrivain.", "Développeur IA.", "Cinéaste.", "Compositeur."],
+  ar: ["باحث في علم النفس.", "كاتب.", "مطور ذكاء اصطناعي.", "مصور سينمائي.", "ملحن."],
 };
 
 interface Particle {
@@ -36,8 +38,10 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [particles] = useState(() => generateParticles(40));
 
+  const currentRoles = roles[lang] || roles.en;
+
   useEffect(() => {
-    const currentRole = roles[lang][roleIndex];
+    const currentRole = currentRoles[roleIndex];
     const speed = isDeleting ? 40 : 80;
 
     if (!isDeleting && text === currentRole) {
@@ -46,7 +50,7 @@ const Hero = () => {
     }
     if (isDeleting && text === "") {
       setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles[lang].length);
+      setRoleIndex((prev) => (prev + 1) % currentRoles.length);
       return;
     }
 
@@ -55,7 +59,7 @@ const Hero = () => {
     }, speed);
 
     return () => clearTimeout(timer);
-  }, [text, isDeleting, roleIndex, lang]);
+  }, [text, isDeleting, roleIndex, currentRoles]);
 
   useEffect(() => {
     setText("");
@@ -63,7 +67,10 @@ const Hero = () => {
     setIsDeleting(false);
   }, [lang]);
 
-  const researcherText = lang === "en" ? "REAL LIFE RESEARCHER" : "রিয়েল লাইফ রিসার্চার";
+  const researcherText = lang === "bn" ? "রিয়েল লাইফ রিসার্চার" : lang === "ar" ? "باحث الحياة الواقعية" : lang === "fr" ? "CHERCHEUR DE VIE RÉELLE" : "REAL LIFE RESEARCHER";
+  const helloText = lang === "bn" ? "হ্যালো" : lang === "ar" ? "مرحباً" : lang === "fr" ? "Bonjour" : "Hello";
+  const imText = lang === "bn" ? "আমি " : lang === "ar" ? "أنا " : lang === "fr" ? "je suis " : "i'm ";
+  const writingsText = lang === "bn" ? "আমার কিছু লেখা" : lang === "ar" ? "كتاباتي" : lang === "fr" ? "Mes écrits" : "My Writings";
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
@@ -103,7 +110,6 @@ const Hero = () => {
 
       <div className="container mx-auto relative z-10 pt-28 pb-20 px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
@@ -116,7 +122,7 @@ const Hero = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="inline-block text-xs uppercase tracking-[0.35em] text-muted-foreground font-semibold mb-6"
             >
-              {lang === "en" ? "Hello" : "হ্যালো"}
+              {helloText}
             </motion.span>
 
             <motion.h1
@@ -126,10 +132,10 @@ const Hero = () => {
               className="text-foreground mb-2"
             >
               <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1]">
-                {lang === "en" ? "i'm " : "আমি "}
+                {imText}
                 <span className="text-foreground">{t.hero.name}</span>
               </span>
-              <span className="block mt-4 clip-text gradient-text text-lg md:text-xl lg:text-xl xl:text-2xl font-bold">
+              <span className="block mt-4 clip-text gradient-text text-lg md:text-xl lg:text-xl xl:text-2xl font-bold min-h-[2em]">
                 {text}
               </span>
             </motion.h1>
@@ -150,13 +156,12 @@ const Hero = () => {
               className="flex flex-wrap gap-4"
             >
               <a href="#portfolio" className="glass-button text-sm md:text-base group">
-                <span>{lang === "en" ? "My Writings" : "আমার কিছু লেখা"}</span>
+                <span>{writingsText}</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>
           </motion.div>
 
-          {/* Right - Image with researcher text below */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -164,7 +169,6 @@ const Hero = () => {
             className="flex flex-col items-center relative order-1 lg:order-2"
           >
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
-              {/* Hero image */}
               <div className="relative z-10">
                 <img
                   src={heroImage}
@@ -178,7 +182,6 @@ const Hero = () => {
                 />
               </div>
             </div>
-            {/* Researcher text below image */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

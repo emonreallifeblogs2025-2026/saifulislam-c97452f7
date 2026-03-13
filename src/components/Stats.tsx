@@ -32,10 +32,14 @@ const Stats = () => {
 
   const longBio = lang === "bn"
     ? "কখনও কি ভেবে দেখেছেন, সব থেকেও কেন মনে হয় কী যেন নেই? কেন আমরা হাসির আড়ালে কান্না লুকাই? স্বাগত জানাচ্ছি 'Experience Diary With Saiful'-এ। এটি শুধু একটি ইউটিউব চ্যানেল নয়, এটি আপনার মনের অব্যক্ত অনুভূতির এক জাদুকরী আয়না।\n\nআমরা জানি, জীবন কোনো সোজা রাস্তা নয়। এখানে প্রতি মুহূর্তে আমাদের লড়াই করতে হয়—কখনও নিজের সাথে, কখনও পরিস্থিতির সাথে। কিন্তু কেন এই লড়াই? কেন আমাদের সম্পর্কগুলো ঠুনকো হয়ে যাচ্ছে?"
+    : lang === "ar"
+    ? "هل تساءلت يوماً، حتى عندما تملك كل شيء، لماذا لا يزال يبدو أن شيئاً ما ينقص؟"
+    : lang === "fr"
+    ? "Vous êtes-vous déjà demandé, même en ayant tout, pourquoi il semble toujours manquer quelque chose?"
     : "Have you ever wondered, even after having everything, why does it feel like something is missing? Why do we hide tears behind laughter? Welcome to 'Experience Diary With Saiful'. This is not just a YouTube channel, it is a magical mirror of your unspoken feelings.";
 
   return (
-    <section className="section-padding">
+    <section className="section-padding pt-20">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
