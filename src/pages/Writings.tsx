@@ -257,7 +257,7 @@ const Writings = () => {
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             disabled
           >
-            {waitText}
+            {t.writings.waitMore}
           </motion.button>
         </motion.div>
       </div>
