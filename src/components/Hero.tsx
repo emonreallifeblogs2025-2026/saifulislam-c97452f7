@@ -47,10 +47,6 @@ const Hero = () => {
 
   useEffect(() => { setText(""); setRoleIndex(0); setIsDeleting(false); }, [lang]);
 
-  const helloText = lang === "bn" ? "হ্যালো" : lang === "ar" ? "مرحباً" : lang === "fr" ? "Bonjour" : lang === "de" ? "Hallo" : lang === "zh" ? "你好" : lang === "ru" ? "Здравствуйте" : "Hello";
-  const imText = lang === "bn" ? "আমি " : lang === "ar" ? "أنا " : lang === "fr" ? "je suis " : lang === "de" ? "ich bin " : lang === "zh" ? "我是 " : lang === "ru" ? "я " : "i'm ";
-  const researcherText = lang === "bn" ? "রিয়েল লাইফ রিসার্চার" : lang === "ar" ? "باحث الحياة الواقعية" : lang === "fr" ? "CHERCHEUR DE VIE RÉELLE" : lang === "de" ? "LEBENSERFORSCHER" : lang === "zh" ? "现实生活研究员" : lang === "ru" ? "ИССЛЕДОВАТЕЛЬ ЖИЗНИ" : "REAL LIFE RESEARCHER";
-
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
@@ -84,7 +80,7 @@ const Hero = () => {
             >
               <BookOpen size={16} />
             </motion.span>
-            {t.hero.myWritings}
+            {t.hero.writingsBtn}
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
@@ -92,12 +88,12 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="order-2 lg:order-1">
             <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="inline-block text-xs uppercase tracking-[0.35em] text-muted-foreground font-semibold mb-6">
-              {helloText}
+              {t.hero.hello}
             </motion.span>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="text-foreground mb-2">
               <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1]">
-                {imText}
+                {t.hero.im}
                 <span className="text-foreground">{t.hero.name}</span>
               </span>
               <span className="block mt-4 clip-text gradient-text text-lg md:text-xl lg:text-xl xl:text-2xl font-bold min-h-[2em]">
@@ -111,7 +107,7 @@ const Hero = () => {
 
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.7 }} className="flex flex-wrap gap-4">
               <a href="#portfolio" className="glass-button text-sm md:text-base group">
-                <span>{lang === "bn" ? "আমার কিছু লেখা" : lang === "ar" ? "كتاباتي" : lang === "fr" ? "Mes écrits" : lang === "de" ? "Meine Schriften" : lang === "zh" ? "我的著作" : lang === "ru" ? "Мои сочинения" : "My Writings"}</span>
+                <span>{t.hero.myWritings}</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>
@@ -129,7 +125,7 @@ const Hero = () => {
             </div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }}
               className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase text-foreground/80 tracking-[0.15em] mt-[-2rem] z-20">
-              {researcherText}
+              {t.hero.researcher}
             </motion.h2>
           </motion.div>
         </div>
