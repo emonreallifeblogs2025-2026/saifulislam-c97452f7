@@ -144,7 +144,7 @@ const Writings = () => {
       {/* Back button & Language toggle */}
       <div className="fixed top-6 left-6 z-50">
         <Link to="/" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-xl border border-border text-foreground hover:text-primary hover:border-primary transition-all text-sm">
-          <ArrowLeft size={16} /> {backText}
+          <ArrowLeft size={16} /> {t.writings.goBack}
         </Link>
       </div>
       <div className="fixed top-6 right-6 z-50">
