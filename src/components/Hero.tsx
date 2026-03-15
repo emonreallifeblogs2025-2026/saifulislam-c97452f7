@@ -9,6 +9,7 @@ import { ArrowRight, BookOpen } from "lucide-react";
 const roles: Record<string, string[]> = {
   en: ["Psychology Researcher.", "Writer.", "AI Prompt Developer.", "Cinematographer.", "Music Composer."],
   bn: ["সাইকোলজি রিসার্চার।", "লেখক।", "AI প্রম্পট ডেভেলপার।", "সিনেমাটোগ্রাফার।", "সংগীত রচয়িতা।"],
+  hi: ["मनोविज्ञान शोधकर्ता।", "लेखक।", "AI प्रॉम्प्ट डेवलपर।", "सिनेमैटोग्राफर।", "संगीत रचयिता।"],
   fr: ["Chercheur en psychologie.", "Écrivain.", "Développeur IA.", "Cinéaste.", "Compositeur."],
   ar: ["باحث في علم النفس.", "كاتب.", "مطور ذكاء اصطناعي.", "مصور سينمائي.", "ملحن."],
   de: ["Psychologieforscher.", "Autor.", "KI-Entwickler.", "Kameramann.", "Komponist."],
@@ -64,20 +65,9 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto relative z-10 pt-20 pb-20 px-4">
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="mb-8"
-        >
-          <Link
-            to="/writings"
-            className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-foreground/5 backdrop-blur-2xl border border-foreground/10 text-foreground text-sm font-semibold hover:bg-foreground/10 hover:border-primary/30 transition-all duration-300 group shadow-lg shadow-background/10"
-          >
-            <motion.span
-              animate={{ scale: [1, 1.15, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-8">
+          <Link to="/writings" className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-foreground/5 backdrop-blur-2xl border border-foreground/10 text-foreground text-sm font-semibold hover:bg-foreground/10 hover:border-primary/30 transition-all duration-300 group shadow-lg shadow-background/10">
+            <motion.span animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
               <BookOpen size={16} />
             </motion.span>
             {t.hero.writingsBtn}
