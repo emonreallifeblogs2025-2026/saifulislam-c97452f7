@@ -223,7 +223,7 @@ const Writings = () => {
                 {ch.content ? (
                   openChapter === i ? <ChevronUp size={18} className="text-primary flex-shrink-0" /> : <ChevronDown size={18} className="text-muted-foreground flex-shrink-0" />
                 ) : (
-                  <span className="text-xs text-muted-foreground flex-shrink-0">শীঘ্রই আসছে</span>
+                  <span className="text-xs text-muted-foreground flex-shrink-0">{t.writings.comingSoon}</span>
                 )}
               </button>
               {openChapter === i && ch.content && (
