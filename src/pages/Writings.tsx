@@ -6,7 +6,6 @@ import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
 import authorImg from "@/assets/author-writings.png";
 import bookCover from "@/assets/book-cover.jpeg";
 import LanguageToggle from "@/components/LanguageToggle";
-import bookCover from "@/assets/book-cover.jpeg";
 
 interface FloatingBook {
   id: number; x: number; y: number; size: number; duration: number; delay: number; rotate: number; direction: number;
