@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, Lang } from "@/contexts/LanguageContext";
 import { Menu, X, Facebook, ChevronDown } from "lucide-react";
 
 const TikTokIcon = () => (
@@ -13,6 +13,9 @@ const langLabels: Record<string, string> = {
   en: "EN",
   fr: "FR",
   ar: "عربي",
+  de: "DE",
+  zh: "中文",
+  ru: "RU",
 };
 
 const Navbar = () => {
@@ -50,32 +53,24 @@ const Navbar = () => {
     { icon: <TikTokIcon />, href: "https://www.tiktok.com/@saifulislam.live?_r=1&_t=ZS-94bFZ1rkh1g" },
   ];
 
-  const allLangs = ["bn", "en", "fr", "ar"] as const;
+  const allLangs: Lang[] = ["bn", "en", "fr", "ar", "de", "zh", "ru"];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-xl shadow-lg shadow-background/50" : "bg-transparent"}`}>
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
-        {/* Logo */}
         <a href="#home" className="text-2xl font-bold text-foreground flex items-center gap-2">
           <span className="text-primary">⟐</span> Saiful
         </a>
 
-        {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-            >
+            <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
               {l.label}
             </a>
           ))}
         </div>
 
-        {/* Right side */}
         <div className="flex items-center gap-2">
-          {/* Social links - desktop only */}
           <div className="hidden lg:flex items-center gap-2">
             {socialLinks.map((s, i) => (
               <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
@@ -84,23 +79,15 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Language dropdown - visible on all devices, left of menu button */}
           <div className="relative" ref={langRef}>
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 px-3 py-2 rounded-full border border-border text-xs font-medium text-foreground hover:border-primary hover:text-primary transition-all"
-            >
+            <button onClick={() => setLangOpen(!langOpen)} className="flex items-center gap-1 px-3 py-2 rounded-full border border-border text-xs font-medium text-foreground hover:border-primary hover:text-primary transition-all">
               {langLabels[lang]}
               <ChevronDown size={12} className={`transition-transform ${langOpen ? "rotate-180" : ""}`} />
             </button>
             {langOpen && (
-              <div className="absolute top-full mt-1 right-0 bg-background border border-border rounded-xl shadow-lg overflow-hidden z-50 min-w-[100px]">
+              <div className="absolute top-full mt-1 right-0 bg-background border border-border rounded-xl shadow-lg overflow-hidden z-50 min-w-[100px] max-h-[280px] overflow-y-auto">
                 {allLangs.map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => { setLang(l); setLangOpen(false); }}
-                    className={`w-full px-4 py-2.5 text-xs font-medium text-left transition-colors ${lang === l ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-secondary"}`}
-                  >
+                  <button key={l} onClick={() => { setLang(l); setLangOpen(false); }} className={`w-full px-4 py-2.5 text-xs font-medium text-left transition-colors ${lang === l ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-secondary"}`}>
                     {langLabels[l]}
                   </button>
                 ))}
@@ -108,14 +95,12 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Menu button */}
           <button className="w-10 h-10 rounded-full bg-primary flex items-center justify-center" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={18} className="text-primary-foreground" /> : <Menu size={18} className="text-primary-foreground" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile / Sidebar menu */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-background/98 backdrop-blur-xl animate-fade-in">
           <div className="flex justify-end p-6">
@@ -152,11 +137,7 @@ const Navbar = () => {
               </nav>
               <div className="mt-8 flex flex-wrap gap-2">
                 {allLangs.map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => setLang(l)}
-                    className={`px-5 py-3 rounded-full border text-sm font-medium transition-all ${lang === l ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary hover:text-primary"}`}
-                  >
+                  <button key={l} onClick={() => setLang(l)} className={`px-4 py-2.5 rounded-full border text-sm font-medium transition-all ${lang === l ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary hover:text-primary"}`}>
                     {langLabels[l]}
                   </button>
                 ))}
