@@ -14,12 +14,12 @@ interface FloatingBook {
 const generateFloatingBooks = (count: number): FloatingBook[] =>
   Array.from({ length: count }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 60 + 40,
-    duration: Math.random() * 8 + 10,
-    delay: Math.random() * 8,
-    rotate: Math.random() * 40 - 20,
+    x: Math.random() * 90 + 5,
+    y: Math.random() * 90 + 5,
+    size: Math.random() * 80 + 100,
+    duration: Math.random() * 10 + 14,
+    delay: Math.random() * 10,
+    rotate: Math.random() * 20 - 10,
     direction: Math.random() > 0.5 ? 1 : -1,
   }));
 
