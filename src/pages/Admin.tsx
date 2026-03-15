@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useContent } from "@/contexts/ContentContext";
-import { useLanguage, Lang } from "@/contexts/LanguageContext";
+import { useLanguage, Lang, translations } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Lock, LogOut, Save, RotateCcw, ChevronDown, ChevronRight } from "lucide-react";
 import { toast } from "sonner";

@@ -229,6 +229,7 @@ const translations: Record<Lang, any> = {
   },
 };
 
+export { translations };
 type Translations = typeof translations.en;
 
 interface LanguageContextType {
