@@ -112,6 +112,35 @@ const Writings = () => {
             animate={{ y: [0, -50, -100], opacity: [0, 0.8, 0], scale: [0.4, 1.2, 0.3] }}
             transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }} />
         ))}
+
+        {/* Floating book covers */}
+        {floatingBooks.map((b) => (
+          <motion.div
+            key={`book-${b.id}`}
+            className="absolute pointer-events-none"
+            style={{ left: `${b.x}%`, top: `${b.y}%` }}
+            animate={{
+              x: [0, b.direction * 80, b.direction * -40, 0],
+              y: [0, -120, -60, 0],
+              opacity: [0, 0.25, 0.2, 0],
+              rotate: [b.rotate, b.rotate + 15, b.rotate - 10, b.rotate],
+              scale: [0.3, 0.7, 0.5, 0.3],
+            }}
+            transition={{
+              duration: b.duration,
+              delay: b.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <img
+              src={bookCover}
+              alt=""
+              className="rounded-lg shadow-2xl shadow-primary/10"
+              style={{ width: b.size, height: "auto", opacity: 0.6 }}
+            />
+          </motion.div>
+        ))}
       </div>
 
       {/* Back button */}
