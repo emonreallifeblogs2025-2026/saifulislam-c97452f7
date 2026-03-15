@@ -107,8 +107,7 @@ const Admin = () => {
   const getDisplayValue = (section: string, key: string) => {
     const override = getOverride(selectedLang, section, key);
     if (override !== undefined) return override;
-    // Get default from translations
-    const defaults = (t as any);
+    const defaults = (translations as any)[selectedLang];
     return defaults?.[section]?.[key] || "";
   };
 
