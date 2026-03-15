@@ -3,10 +3,10 @@ import { useLanguage, Lang } from "@/contexts/LanguageContext";
 import { ChevronDown } from "lucide-react";
 
 const langLabels: Record<string, string> = {
-  bn: "বাংলা", en: "EN", fr: "FR", ar: "عربي", de: "DE", zh: "中文", ru: "RU",
+  bn: "বাংলা", en: "EN", hi: "हिन्दी", fr: "FR", ar: "عربي", de: "DE", zh: "中文", ru: "RU",
 };
 
-const allLangs: Lang[] = ["bn", "en", "fr", "ar", "de", "zh", "ru"];
+const allLangs: Lang[] = ["bn", "en", "hi", "fr", "ar", "de", "zh", "ru"];
 
 const LanguageToggle = () => {
   const { lang, setLang } = useLanguage();

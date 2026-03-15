@@ -9,13 +9,7 @@ const TikTokIcon = () => (
 );
 
 const langLabels: Record<string, string> = {
-  bn: "বাংলা",
-  en: "EN",
-  fr: "FR",
-  ar: "عربي",
-  de: "DE",
-  zh: "中文",
-  ru: "RU",
+  bn: "বাংলা", en: "EN", hi: "हिन्दी", fr: "FR", ar: "عربي", de: "DE", zh: "中文", ru: "RU",
 };
 
 const Navbar = () => {
@@ -53,7 +47,7 @@ const Navbar = () => {
     { icon: <TikTokIcon />, href: "https://www.tiktok.com/@saifulislam.live?_r=1&_t=ZS-94bFZ1rkh1g" },
   ];
 
-  const allLangs: Lang[] = ["bn", "en", "fr", "ar", "de", "zh", "ru"];
+  const allLangs: Lang[] = ["bn", "en", "hi", "fr", "ar", "de", "zh", "ru"];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-xl shadow-lg shadow-background/50" : "bg-transparent"}`}>
@@ -114,7 +108,7 @@ const Navbar = () => {
                 <span className="text-primary">⟐</span> Saiful
               </a>
               <p className="text-muted-foreground text-sm mb-6 max-w-sm leading-relaxed">
-                Freelancer delivering exceptional insights in psychology, writing, AI, music, and cinematography.
+                {t.hero.bio}
               </p>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p>📞 <a href="https://wa.me/8801999708880" className="hover:text-primary transition-colors">+880 1999-708880</a></p>
