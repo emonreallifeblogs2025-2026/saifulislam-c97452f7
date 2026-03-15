@@ -203,7 +203,7 @@ const Writings = () => {
           transition={{ delay: 0.8 }}
           className="text-xl sm:text-2xl font-bold text-foreground mb-8 text-center"
         >
-          অধ্যায়সমূহ
+          {t.writings.chapters}
         </motion.h2>
 
         <div className="space-y-3">
