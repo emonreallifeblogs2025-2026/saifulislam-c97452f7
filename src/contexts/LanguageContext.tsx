@@ -264,8 +264,25 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [lang]);
 
+  const { overrides } = useContent();
+
+  const mergedTranslations = useMemo(() => {
+    const base = { ...translations[lang] };
+    const langOverrides = overrides[lang];
+    if (!langOverrides) return base;
+    
+    const merged: any = {};
+    for (const section of Object.keys(base)) {
+      merged[section] = { ...(base as any)[section] };
+      if (langOverrides[section]) {
+        merged[section] = { ...merged[section], ...langOverrides[section] };
+      }
+    }
+    return merged as Translations;
+  }, [lang, overrides]);
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] }}>
+    <LanguageContext.Provider value={{ lang, setLang, t: mergedTranslations }}>
       {children}
     </LanguageContext.Provider>
   );
