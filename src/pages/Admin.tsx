@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useContent } from "@/contexts/ContentContext";
-import { useLanguage, Lang } from "@/contexts/LanguageContext";
+import { useLanguage, Lang, translations } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Lock, LogOut, Save, RotateCcw, ChevronDown, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
@@ -107,8 +107,7 @@ const Admin = () => {
   const getDisplayValue = (section: string, key: string) => {
     const override = getOverride(selectedLang, section, key);
     if (override !== undefined) return override;
-    // Get default from translations
-    const defaults = (t as any);
+    const defaults = (translations as any)[selectedLang];
     return defaults?.[section]?.[key] || "";
   };
 
