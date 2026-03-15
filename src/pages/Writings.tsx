@@ -4,6 +4,23 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
 import authorImg from "@/assets/author-writings.png";
+import bookCover from "@/assets/book-cover.jpeg";
+
+interface FloatingBook {
+  id: number; x: number; y: number; size: number; duration: number; delay: number; rotate: number; direction: number;
+}
+
+const generateFloatingBooks = (count: number): FloatingBook[] =>
+  Array.from({ length: count }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 60 + 40,
+    duration: Math.random() * 8 + 10,
+    delay: Math.random() * 8,
+    rotate: Math.random() * 40 - 20,
+    direction: Math.random() > 0.5 ? 1 : -1,
+  }));
 
 interface GoldParticle {
   id: number; x: number; y: number; size: number; duration: number; delay: number;
@@ -80,6 +97,8 @@ const Writings = () => {
   const [openChapter, setOpenChapter] = useState<number | null>(null);
   const [particles] = useState(() => generateGoldParticles(80));
 
+  const [floatingBooks] = useState(() => generateFloatingBooks(12));
+
   const backText = lang === "bn" ? "ফিরে যান" : lang === "ar" ? "العودة" : lang === "fr" ? "Retour" : lang === "de" ? "Zurück" : lang === "zh" ? "返回" : lang === "ru" ? "Назад" : "Go Back";
   const waitText = lang === "bn" ? "আরো পড়তে অপেক্ষা করুন" : "More chapters coming soon";
 
@@ -92,6 +111,35 @@ const Writings = () => {
             style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: `hsl(40, 85%, ${48 + p.size * 4}%)` }}
             animate={{ y: [0, -50, -100], opacity: [0, 0.8, 0], scale: [0.4, 1.2, 0.3] }}
             transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }} />
+        ))}
+
+        {/* Floating book covers */}
+        {floatingBooks.map((b) => (
+          <motion.div
+            key={`book-${b.id}`}
+            className="absolute pointer-events-none"
+            style={{ left: `${b.x}%`, top: `${b.y}%` }}
+            animate={{
+              x: [0, b.direction * 80, b.direction * -40, 0],
+              y: [0, -120, -60, 0],
+              opacity: [0, 0.25, 0.2, 0],
+              rotate: [b.rotate, b.rotate + 15, b.rotate - 10, b.rotate],
+              scale: [0.3, 0.7, 0.5, 0.3],
+            }}
+            transition={{
+              duration: b.duration,
+              delay: b.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <img
+              src={bookCover}
+              alt=""
+              className="rounded-lg shadow-2xl shadow-primary/10"
+              style={{ width: b.size, height: "auto", opacity: 0.6 }}
+            />
+          </motion.div>
         ))}
       </div>
 
