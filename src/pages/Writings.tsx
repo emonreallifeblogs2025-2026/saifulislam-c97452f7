@@ -97,6 +97,8 @@ const Writings = () => {
   const [openChapter, setOpenChapter] = useState<number | null>(null);
   const [particles] = useState(() => generateGoldParticles(80));
 
+  const [floatingBooks] = useState(() => generateFloatingBooks(12));
+
   const backText = lang === "bn" ? "ফিরে যান" : lang === "ar" ? "العودة" : lang === "fr" ? "Retour" : lang === "de" ? "Zurück" : lang === "zh" ? "返回" : lang === "ru" ? "Назад" : "Go Back";
   const waitText = lang === "bn" ? "আরো পড়তে অপেক্ষা করুন" : "More chapters coming soon";
 
