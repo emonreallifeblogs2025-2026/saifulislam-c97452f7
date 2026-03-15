@@ -4,6 +4,23 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
 import authorImg from "@/assets/author-writings.png";
+import bookCover from "@/assets/book-cover.jpeg";
+
+interface FloatingBook {
+  id: number; x: number; y: number; size: number; duration: number; delay: number; rotate: number; direction: number;
+}
+
+const generateFloatingBooks = (count: number): FloatingBook[] =>
+  Array.from({ length: count }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 60 + 40,
+    duration: Math.random() * 8 + 10,
+    delay: Math.random() * 8,
+    rotate: Math.random() * 40 - 20,
+    direction: Math.random() > 0.5 ? 1 : -1,
+  }));
 
 interface GoldParticle {
   id: number; x: number; y: number; size: number; duration: number; delay: number;
