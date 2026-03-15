@@ -13,12 +13,7 @@ const ProgressBar = ({ label, percent }: { label: string; percent: number }) => 
         <span className="text-xs text-primary font-semibold">{percent}%</span>
       </div>
       <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={isInView ? { width: `${percent}%` } : { width: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="h-full rounded-full progress-bar-fill"
-        />
+        <motion.div initial={{ width: 0 }} animate={isInView ? { width: `${percent}%` } : { width: 0 }} transition={{ duration: 1.2, ease: "easeOut" }} className="h-full rounded-full progress-bar-fill" />
       </div>
     </div>
   );
@@ -47,8 +42,8 @@ const Skills = () => {
             </h3>
             <ProgressBar label={t.skills.aiPrompt} percent={100} />
             <ProgressBar label={t.skills.realLifeResearch} percent={95} />
-            <ProgressBar label="Content Creation" percent={88} />
-            <ProgressBar label="Video Editing" percent={80} />
+            <ProgressBar label={t.skills.contentCreation} percent={88} />
+            <ProgressBar label={t.skills.videoEditing} percent={80} />
           </motion.div>
         </div>
       </div>

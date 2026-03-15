@@ -94,14 +94,11 @@ const chapters = [
 ];
 
 const Writings = () => {
-  const { lang } = useLanguage();
+  const { t } = useLanguage();
   const [openChapter, setOpenChapter] = useState<number | null>(null);
   const [particles] = useState(() => generateGoldParticles(80));
 
   const [floatingBooks] = useState(() => generateFloatingBooks(12));
-
-  const backText = lang === "bn" ? "ফিরে যান" : lang === "ar" ? "العودة" : lang === "fr" ? "Retour" : lang === "de" ? "Zurück" : lang === "zh" ? "返回" : lang === "ru" ? "Назад" : "Go Back";
-  const waitText = lang === "bn" ? "আরো পড়তে অপেক্ষা করুন" : "More chapters coming soon";
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -147,7 +144,7 @@ const Writings = () => {
       {/* Back button & Language toggle */}
       <div className="fixed top-6 left-6 z-50">
         <Link to="/" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-xl border border-border text-foreground hover:text-primary hover:border-primary transition-all text-sm">
-          <ArrowLeft size={16} /> {backText}
+          <ArrowLeft size={16} /> {t.writings.goBack}
         </Link>
       </div>
       <div className="fixed top-6 right-6 z-50">
@@ -186,7 +183,7 @@ const Writings = () => {
           transition={{ delay: 0.4 }}
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mt-6 text-center"
         >
-          সৈয়দ সাইফুল ইসলাম
+          {t.writings.author}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -194,7 +191,7 @@ const Writings = () => {
           transition={{ delay: 0.6 }}
           className="text-muted-foreground text-sm mt-2 text-center"
         >
-          রিয়েল লাইফ রিসার্চার • লেখক
+          {t.writings.authorRole}
         </motion.p>
       </div>
 
@@ -206,7 +203,7 @@ const Writings = () => {
           transition={{ delay: 0.8 }}
           className="text-xl sm:text-2xl font-bold text-foreground mb-8 text-center"
         >
-          অধ্যায়সমূহ
+          {t.writings.chapters}
         </motion.h2>
 
         <div className="space-y-3">
@@ -226,7 +223,7 @@ const Writings = () => {
                 {ch.content ? (
                   openChapter === i ? <ChevronUp size={18} className="text-primary flex-shrink-0" /> : <ChevronDown size={18} className="text-muted-foreground flex-shrink-0" />
                 ) : (
-                  <span className="text-xs text-muted-foreground flex-shrink-0">শীঘ্রই আসছে</span>
+                  <span className="text-xs text-muted-foreground flex-shrink-0">{t.writings.comingSoon}</span>
                 )}
               </button>
               {openChapter === i && ch.content && (
@@ -260,7 +257,7 @@ const Writings = () => {
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             disabled
           >
-            {waitText}
+            {t.writings.waitMore}
           </motion.button>
         </motion.div>
       </div>
