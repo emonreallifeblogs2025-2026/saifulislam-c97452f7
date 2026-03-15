@@ -191,7 +191,7 @@ const Writings = () => {
           transition={{ delay: 0.6 }}
           className="text-muted-foreground text-sm mt-2 text-center"
         >
-          রিয়েল লাইফ রিসার্চার • লেখক
+          {t.writings.authorRole}
         </motion.p>
       </div>
 
