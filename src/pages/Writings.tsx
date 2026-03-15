@@ -14,12 +14,12 @@ interface FloatingBook {
 const generateFloatingBooks = (count: number): FloatingBook[] =>
   Array.from({ length: count }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 60 + 40,
-    duration: Math.random() * 8 + 10,
-    delay: Math.random() * 8,
-    rotate: Math.random() * 40 - 20,
+    x: Math.random() * 90 + 5,
+    y: Math.random() * 90 + 5,
+    size: Math.random() * 80 + 100,
+    duration: Math.random() * 10 + 14,
+    delay: Math.random() * 10,
+    rotate: Math.random() * 20 - 10,
     direction: Math.random() > 0.5 ? 1 : -1,
   }));
 
@@ -118,11 +118,11 @@ const Writings = () => {
             className="absolute pointer-events-none"
             style={{ left: `${b.x}%`, top: `${b.y}%` }}
             animate={{
-              x: [0, b.direction * 80, b.direction * -40, 0],
-              y: [0, -120, -60, 0],
-              opacity: [0, 0.25, 0.2, 0],
-              rotate: [b.rotate, b.rotate + 15, b.rotate - 10, b.rotate],
-              scale: [0.3, 0.7, 0.5, 0.3],
+              x: [0, b.direction * 60, b.direction * -30, 0],
+              y: [0, -80, -40, 0],
+              opacity: [0, 0.55, 0.45, 0],
+              rotate: [b.rotate, b.rotate + 8, b.rotate - 5, b.rotate],
+              scale: [0.6, 1, 0.8, 0.6],
             }}
             transition={{
               duration: b.duration,
@@ -133,9 +133,9 @@ const Writings = () => {
           >
             <img
               src={bookCover}
-              alt=""
-              className="rounded-lg shadow-2xl shadow-primary/10"
-              style={{ width: b.size, height: "auto", opacity: 0.6 }}
+              alt="Book Cover"
+              className="rounded-lg shadow-2xl shadow-primary/20 border border-border/30"
+              style={{ width: b.size, height: "auto", opacity: 0.85 }}
             />
           </motion.div>
         ))}
