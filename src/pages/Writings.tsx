@@ -94,7 +94,7 @@ const chapters = [
 ];
 
 const Writings = () => {
-  const { lang, t } = useLanguage();
+  const { t } = useLanguage();
   const [openChapter, setOpenChapter] = useState<number | null>(null);
   const [particles] = useState(() => generateGoldParticles(80));
 
