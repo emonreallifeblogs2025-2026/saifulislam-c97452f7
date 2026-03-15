@@ -47,12 +47,27 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
   }
   body {
     @apply bg-background text-foreground;
     font-family: 'Rajdhani', sans-serif;
   }
-  body[data-lang="bn"] {
+  body[data-lang="bn"],
+  body[data-lang="ar"],
+  body[data-lang="zh"],
+  body[data-lang="ru"],
+  body[data-lang="de"] {
     font-family: 'Noto Sans Bengali', 'Rajdhani', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {

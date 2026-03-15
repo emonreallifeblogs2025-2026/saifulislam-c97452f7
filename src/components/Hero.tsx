@@ -1,34 +1,28 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 
 const roles: Record<string, string[]> = {
   en: ["Psychology Researcher.", "Writer.", "AI Prompt Developer.", "Cinematographer.", "Music Composer."],
   bn: ["সাইকোলজি রিসার্চার।", "লেখক।", "AI প্রম্পট ডেভেলপার।", "সিনেমাটোগ্রাফার।", "সংগীত রচয়িতা।"],
   fr: ["Chercheur en psychologie.", "Écrivain.", "Développeur IA.", "Cinéaste.", "Compositeur."],
   ar: ["باحث في علم النفس.", "كاتب.", "مطور ذكاء اصطناعي.", "مصور سينمائي.", "ملحن."],
+  de: ["Psychologieforscher.", "Autor.", "KI-Entwickler.", "Kameramann.", "Komponist."],
+  zh: ["心理学研究员。", "作家。", "AI开发者。", "摄影师。", "作曲家。"],
+  ru: ["Исследователь психологии.", "Писатель.", "Разработчик ИИ.", "Кинематографист.", "Композитор."],
 };
 
 interface Particle {
-  id: number;
-  x: number;
-  y: number;
-  size: number;
-  duration: number;
-  delay: number;
+  id: number; x: number; y: number; size: number; duration: number; delay: number;
 }
 
 const generateParticles = (count: number): Particle[] =>
   Array.from({ length: count }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 4 + 1,
-    duration: Math.random() * 4 + 3,
-    delay: Math.random() * 5,
+    id: i, x: Math.random() * 100, y: Math.random() * 100, size: Math.random() * 4 + 1, duration: Math.random() * 4 + 3, delay: Math.random() * 5,
   }));
 
 const Hero = () => {
@@ -43,34 +37,19 @@ const Hero = () => {
   useEffect(() => {
     const currentRole = currentRoles[roleIndex];
     const speed = isDeleting ? 40 : 80;
-
-    if (!isDeleting && text === currentRole) {
-      setTimeout(() => setIsDeleting(true), 1800);
-      return;
-    }
-    if (isDeleting && text === "") {
-      setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % currentRoles.length);
-      return;
-    }
-
+    if (!isDeleting && text === currentRole) { setTimeout(() => setIsDeleting(true), 1800); return; }
+    if (isDeleting && text === "") { setIsDeleting(false); setRoleIndex((prev) => (prev + 1) % currentRoles.length); return; }
     const timer = setTimeout(() => {
       setText(isDeleting ? currentRole.substring(0, text.length - 1) : currentRole.substring(0, text.length + 1));
     }, speed);
-
     return () => clearTimeout(timer);
   }, [text, isDeleting, roleIndex, currentRoles]);
 
-  useEffect(() => {
-    setText("");
-    setRoleIndex(0);
-    setIsDeleting(false);
-  }, [lang]);
+  useEffect(() => { setText(""); setRoleIndex(0); setIsDeleting(false); }, [lang]);
 
-  const researcherText = lang === "bn" ? "রিয়েল লাইফ রিসার্চার" : lang === "ar" ? "باحث الحياة الواقعية" : lang === "fr" ? "CHERCHEUR DE VIE RÉELLE" : "REAL LIFE RESEARCHER";
-  const helloText = lang === "bn" ? "হ্যালো" : lang === "ar" ? "مرحباً" : lang === "fr" ? "Bonjour" : "Hello";
-  const imText = lang === "bn" ? "আমি " : lang === "ar" ? "أنا " : lang === "fr" ? "je suis " : "i'm ";
-  const writingsText = lang === "bn" ? "আমার কিছু লেখা" : lang === "ar" ? "كتاباتي" : lang === "fr" ? "Mes écrits" : "My Writings";
+  const helloText = lang === "bn" ? "হ্যালো" : lang === "ar" ? "مرحباً" : lang === "fr" ? "Bonjour" : lang === "de" ? "Hallo" : lang === "zh" ? "你好" : lang === "ru" ? "Здравствуйте" : "Hello";
+  const imText = lang === "bn" ? "আমি " : lang === "ar" ? "أنا " : lang === "fr" ? "je suis " : lang === "de" ? "ich bin " : lang === "zh" ? "我是 " : lang === "ru" ? "я " : "i'm ";
+  const researcherText = lang === "bn" ? "রিয়েল লাইফ রিসার্চার" : lang === "ar" ? "باحث الحياة الواقعية" : lang === "fr" ? "CHERCHEUR DE VIE RÉELLE" : lang === "de" ? "LEBENSERFORSCHER" : lang === "zh" ? "现实生活研究员" : lang === "ru" ? "ИССЛЕДОВАТЕЛЬ ЖИЗНИ" : "REAL LIFE RESEARCHER";
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
@@ -80,57 +59,44 @@ const Hero = () => {
       </div>
       <div className="absolute inset-0 diagonal-lines" />
 
-      {/* Floating particles */}
       <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
         {particles.map((p) => (
-          <motion.div
-            key={p.id}
-            className="absolute rounded-full"
-            style={{
-              left: `${p.x}%`,
-              top: `${p.y}%`,
-              width: p.size,
-              height: p.size,
-              background: `hsl(40, 85%, ${50 + p.size * 5}%)`,
-            }}
-            animate={{
-              y: [0, -60, -120],
-              opacity: [0, 1, 0],
-              scale: [0.5, 1.2, 0.3],
-            }}
-            transition={{
-              duration: p.duration,
-              delay: p.delay,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+          <motion.div key={p.id} className="absolute rounded-full" style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: `hsl(40, 85%, ${50 + p.size * 5}%)` }}
+            animate={{ y: [0, -60, -120], opacity: [0, 1, 0], scale: [0.5, 1.2, 0.3] }}
+            transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }} />
         ))}
       </div>
 
       <div className="container mx-auto relative z-10 pt-28 pb-20 px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="order-2 lg:order-1"
-          >
-            <motion.span
+          <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="order-2 lg:order-1">
+            {/* "আমার লেখা" animated button */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-block text-xs uppercase tracking-[0.35em] text-muted-foreground font-semibold mb-6"
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="mb-4"
             >
+              <Link
+                to="/writings"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/50 text-primary text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 group"
+              >
+                <motion.span
+                  animate={{ scale: [1, 1.15, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <BookOpen size={16} />
+                </motion.span>
+                {t.hero.myWritings}
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+
+            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="inline-block text-xs uppercase tracking-[0.35em] text-muted-foreground font-semibold mb-6">
               {helloText}
             </motion.span>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.7 }}
-              className="text-foreground mb-2"
-            >
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="text-foreground mb-2">
               <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1]">
                 {imText}
                 <span className="text-foreground">{t.hero.name}</span>
@@ -140,54 +106,30 @@ const Hero = () => {
               </span>
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
-              className="text-muted-foreground text-sm md:text-base lg:text-lg mb-6 max-w-md leading-relaxed mt-6"
-            >
+            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.7 }} className="text-muted-foreground text-sm md:text-base lg:text-lg mb-6 max-w-md leading-relaxed mt-6">
               {t.hero.bio}
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.7 }}
-              className="flex flex-wrap gap-4"
-            >
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.7 }} className="flex flex-wrap gap-4">
               <a href="#portfolio" className="glass-button text-sm md:text-base group">
-                <span>{writingsText}</span>
+                <span>{lang === "bn" ? "আমার কিছু লেখা" : lang === "ar" ? "كتاباتي" : lang === "fr" ? "Mes écrits" : lang === "de" ? "Meine Schriften" : lang === "zh" ? "我的著作" : lang === "ru" ? "Мои сочинения" : "My Writings"}</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="flex flex-col items-center relative order-1 lg:order-2"
-          >
+          <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.3, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
               <div className="relative z-10">
-                <img
-                  src={heroImage}
-                  alt="Saiful Islam"
-                  className="w-full"
-                  loading="eager"
+                <img src={heroImage} alt="Saiful Islam - Psychology & Real Life Researcher" className="w-full" loading="eager"
                   style={{
                     WebkitMaskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
                     maskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
-                  }}
-                />
+                  }} />
               </div>
             </div>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase text-foreground/80 tracking-[0.15em] mt-[-2rem] z-20"
-            >
+            <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase text-foreground/80 tracking-[0.15em] mt-[-2rem] z-20">
               {researcherText}
             </motion.h2>
           </motion.div>
