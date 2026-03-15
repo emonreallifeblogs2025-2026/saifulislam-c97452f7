@@ -183,7 +183,7 @@ const Writings = () => {
           transition={{ delay: 0.4 }}
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mt-6 text-center"
         >
-          সৈয়দ সাইফুল ইসলাম
+          {t.writings.author}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
