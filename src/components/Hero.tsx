@@ -28,6 +28,19 @@ const generateParticles = (count: number): Particle[] =>
 
 const Hero = () => {
   const { t, lang } = useLanguage();
+
+  const handleRipple = useCallback((e: MouseEvent<HTMLAnchorElement>) => {
+    const btn = e.currentTarget;
+    const circle = document.createElement("span");
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    circle.style.width = circle.style.height = `${size}px`;
+    circle.style.left = `${e.clientX - rect.left - size / 2}px`;
+    circle.style.top = `${e.clientY - rect.top - size / 2}px`;
+    circle.className = "hero-ripple";
+    btn.appendChild(circle);
+    setTimeout(() => circle.remove(), 600);
+  }, []);
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
