@@ -1,8 +1,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { ArrowLeft, Play, Pause, Music } from "lucide-react";
+import { ArrowLeft, Music } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState, useRef, useCallback, useEffect } from "react";
+import songsCover from "@/assets/songs-cover.png";
 import songsCover from "@/assets/songs-cover.png";
 
 interface Track {
