@@ -227,10 +227,10 @@ const Hero = () => {
                   style={{
                     width: '50%',
                     height: '40%',
-                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(var(--gold-light) / 0.45), hsl(var(--gold) / 0.25) 30%, transparent 60%)',
-                    filter: 'blur(20px)',
+                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(var(--gold-light) / 0.7), hsl(var(--gold) / 0.45) 30%, transparent 60%)',
+                    filter: 'blur(18px)',
                   }}
-                  animate={{ opacity: [0.25, 0.4, 0.3, 0.42, 0.25] }}
+                  animate={{ opacity: [0.45, 0.7, 0.5, 0.72, 0.45] }}
                   transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Main fire core - subtle */}
