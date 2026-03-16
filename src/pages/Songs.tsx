@@ -208,14 +208,14 @@ const SoundCloudPlayer = memo(({ track, t, currentPlaying, onPlay }: { track: Tr
         )}
 
         {/* Custom Player UI */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           {/* Play/Pause Button */}
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={togglePlay}
             disabled={!ready && isVisible}
-            className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
+            className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
               isPlaying
                 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
                 : ready
