@@ -60,7 +60,7 @@ const translations: Record<Lang, any> = {
       s3Title: "Music & Composition", s3Count: "30 Done", s3Desc: "Crafting compelling musical compositions that resonate with emotion and storytelling.",
     },
     writings: { goBack: "Go Back", waitMore: "More chapters coming soon", chapters: "Chapters", author: "Syed Saiful Islam", authorRole: "Real Life Researcher • Writer", comingSoon: "Coming Soon" },
-    songs: { pageTitle: "My Melodies", pageSubtitle: "Compositions & Original Songs", comingSoon: "Coming soon...", artist: "Syed Saiful Islam", linkCopied: "Link copied!", trackLabel: "Track" },
+    songs: { pageTitle: "My Melodies", pageSubtitle: "Compositions & Original Songs", comingSoon: "Coming soon...", artist: "Syed Saiful Islam", linkCopied: "Link copied!", trackLabel: "Track", sharePageLabel: "Share" },
   },
   bn: {
     nav: { home: "হোম", about: "আমার সম্পর্কে", skills: "দক্ষতা", portfolio: "পোর্টফোলিও", contact: "যোগাযোগ", letsChat: "যোগাযোগ করুন", videos: "ভিডিও" },
