@@ -131,17 +131,64 @@ const Hero = () => {
 
           <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
-              {/* Glow behind hero pic */}
-              {/* Glow behind hero pic */}
-              <motion.div
-                className="absolute inset-0 z-0 rounded-full"
-                style={{
-                  background: 'radial-gradient(ellipse 60% 55% at 50% 45%, hsl(var(--primary) / 0.25), hsl(var(--primary) / 0.08) 50%, transparent 75%)',
-                  filter: 'blur(40px)',
-                }}
-                animate={{ opacity: [0.4, 0.7, 0.4] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
+              {/* Fire effect behind hero */}
+              <div className="absolute z-0" style={{ inset: '-30%', pointerEvents: 'none' }}>
+                {/* Main fire core */}
+                <motion.div
+                  className="absolute bottom-[15%] left-1/2 -translate-x-1/2"
+                  style={{
+                    width: '80%',
+                    height: '90%',
+                    background: 'radial-gradient(ellipse 70% 80% at 50% 80%, hsl(30 100% 50% / 0.7), hsl(20 100% 45% / 0.5) 30%, hsl(10 100% 40% / 0.3) 50%, transparent 70%)',
+                    filter: 'blur(20px)',
+                  }}
+                  animate={{ 
+                    opacity: [0.6, 0.9, 0.7, 1, 0.6],
+                    scaleX: [1, 1.05, 0.95, 1.08, 1],
+                    scaleY: [1, 1.1, 0.95, 1.15, 1],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                />
+                {/* Rising flames */}
+                {[...Array(8)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute rounded-full"
+                    style={{
+                      left: `${20 + Math.random() * 60}%`,
+                      bottom: `${10 + Math.random() * 20}%`,
+                      width: `${30 + Math.random() * 40}px`,
+                      height: `${60 + Math.random() * 100}px`,
+                      background: `radial-gradient(ellipse at 50% 90%, hsl(${35 - i * 4} 100% ${55 - i * 3}% / 0.8), hsl(${20 - i * 2} 100% 45% / 0.4) 40%, transparent 70%)`,
+                      filter: 'blur(8px)',
+                    }}
+                    animate={{
+                      y: [0, -80 - Math.random() * 120, -200 - Math.random() * 100],
+                      opacity: [0, 0.9, 0],
+                      scaleX: [0.8, 1.2, 0.3],
+                      scaleY: [1, 1.5, 0.5],
+                    }}
+                    transition={{
+                      duration: 1.5 + Math.random() * 1.5,
+                      repeat: Infinity,
+                      delay: Math.random() * 2,
+                      ease: "easeOut",
+                    }}
+                  />
+                ))}
+                {/* Outer glow */}
+                <motion.div
+                  className="absolute bottom-[10%] left-1/2 -translate-x-1/2"
+                  style={{
+                    width: '120%',
+                    height: '80%',
+                    background: 'radial-gradient(ellipse 60% 70% at 50% 85%, hsl(var(--gold) / 0.35), hsl(var(--primary) / 0.15) 40%, transparent 65%)',
+                    filter: 'blur(30px)',
+                  }}
+                  animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.05, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </div>
               <div className="relative z-10">
                 <img src={heroImage} alt="Saiful Islam - Psychology & Real Life Researcher" className="w-full" loading="eager"
                   fetchPriority="high"
