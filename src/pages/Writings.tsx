@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
 import authorImg from "@/assets/author-writings.png";
@@ -115,8 +115,9 @@ const chapters = [
 ];
 
 const Writings = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [openChapter, setOpenChapter] = useState<number | null>(null);
+  const displayChapters = useMemo(() => lang === "bn" ? chapters : getTranslatedChapters(lang), [lang]);
   const [particles] = useState(() => generateGoldParticles(80));
 
   const [floatingBooks] = useState(() => generateFloatingBooks(12));
@@ -228,7 +229,7 @@ const Writings = () => {
         </motion.h2>
 
         <div className="space-y-3">
-          {chapters.map((ch, i) => (
+          {displayChapters.map((ch, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
