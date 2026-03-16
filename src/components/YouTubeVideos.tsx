@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 import { Eye } from "lucide-react";
 
 const videos = [
-  { id: "pcsv8gicm7U", title: "জীবনের অব্যক্ত কথা | Unspoken Words of Life", views: "12K" },
-  { id: "9OAOGPUDcq8", title: "মনের গভীরে লুকানো সত্য | Hidden Truth Within", views: "8.5K" },
-  { id: "sRo3Rd8JsGo", title: "সম্পর্কের মনস্তত্ত্ব | Psychology of Relationships", views: "15K" },
-  { id: "FrJjm7L6MoE", title: "একাকীত্বের শক্তি | Power of Solitude", views: "6.2K" },
-  { id: "ovnAq3KA1UI", title: "আত্মবিশ্বাস গড়ে তোলা | Building Self-Confidence", views: "9.8K" },
-  { id: "K8WFoX0OBac", title: "জীবন যুদ্ধের কৌশল | Life Battle Strategy", views: "11K" },
-  { id: "eF-uIlp548k", title: "মানসিক শান্তির সন্ধানে | Seeking Inner Peace", views: "7.3K" },
-  { id: "R__BMe95qF4", title: "পরিবর্তনের সাহস | Courage to Change", views: "5.1K" },
-  { id: "ecUpbCnX4QE", title: "সফলতার গোপন সূত্র | Secret Formula of Success", views: "13K" },
+  { id: "pcsv8gicm7U", titleKey: "v1", views: "12K" },
+  { id: "9OAOGPUDcq8", titleKey: "v2", views: "8.5K" },
+  { id: "sRo3Rd8JsGo", titleKey: "v3", views: "15K" },
+  { id: "FrJjm7L6MoE", titleKey: "v4", views: "6.2K" },
+  { id: "ovnAq3KA1UI", titleKey: "v5", views: "9.8K" },
+  { id: "K8WFoX0OBac", titleKey: "v6", views: "11K" },
+  { id: "eF-uIlp548k", titleKey: "v7", views: "7.3K" },
+  { id: "R__BMe95qF4", titleKey: "v8", views: "5.1K" },
+  { id: "ecUpbCnX4QE", titleKey: "v9", views: "13K" },
 ];
 
 const YouTubeVideos = () => {
