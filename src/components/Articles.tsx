@@ -1,6 +1,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import articlesPhoto from "@/assets/articles-photo.png";
+import { staggerContainer, fadeUpItem, scaleUpItem } from "@/lib/animations";
+import { TiltCard, FloatingOrbs, AnimatedTitle } from "@/components/AnimatedSection";
 
 const Articles = () => {
   const { t } = useLanguage();
@@ -12,29 +14,49 @@ const Articles = () => {
   ];
 
   return (
-    <section id="articles" className="section-padding">
-      <div className="container mx-auto">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+    <section id="articles" className="section-padding relative overflow-hidden">
+      <FloatingOrbs colors={["hsl(var(--gold) / 0.05)", "hsl(var(--primary) / 0.04)"]} />
+
+      <div className="container mx-auto relative z-10">
+        <AnimatedTitle className="text-center mb-16">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">{t.articles.title}</p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">{t.articles.subtitle}</h2>
-        </motion.div>
+        </AnimatedTitle>
 
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="flex justify-center mb-12">
-          <img src={articlesPhoto} alt="Saiful Islam" className="w-48 md:w-64 rounded-2xl object-cover" loading="lazy"
+        <motion.div variants={scaleUpItem} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex justify-center mb-12">
+          <motion.img
+            src={articlesPhoto}
+            alt="Saiful Islam"
+            className="w-48 md:w-64 rounded-2xl object-cover"
+            loading="lazy"
+            whileHover={{ scale: 1.05, rotate: 2 }}
+            transition={{ type: "spring", stiffness: 200 }}
             style={{
               WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 40%, black 60%, transparent 85%)',
               maskImage: 'radial-gradient(ellipse 80% 80% at 50% 40%, black 60%, transparent 85%)',
-            }} />
+            }}
+          />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {columns.map((col, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} className="glass-card p-6">
-              <h3 className="text-lg font-bold text-primary mb-4">{col.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{col.content}</p>
+            <motion.div key={i} variants={fadeUpItem}>
+              <TiltCard className="glass-card p-6 relative overflow-hidden group">
+                <motion.div
+                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
+                />
+                <h3 className="text-lg font-bold text-primary mb-4">{col.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{col.content}</p>
+              </TiltCard>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

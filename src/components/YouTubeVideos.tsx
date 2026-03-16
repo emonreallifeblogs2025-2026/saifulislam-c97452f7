@@ -1,6 +1,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { Eye } from "lucide-react";
+import { staggerContainer, fadeUpItem } from "@/lib/animations";
+import { FloatingOrbs, AnimatedTitle } from "@/components/AnimatedSection";
 
 const videos = [
   { id: "pcsv8gicm7U", titleKey: "v1", views: "12K" },
@@ -21,15 +23,7 @@ const YouTubePlayButton = () => (
     animate={{ opacity: [0.4, 0.9, 0.4] }}
     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
   >
-    <div
-      className="relative flex items-center justify-center"
-      style={{
-        width: '70%',
-        maxWidth: '72px',
-        aspectRatio: '1',
-        perspective: '600px',
-      }}
-    >
+    <div className="relative flex items-center justify-center" style={{ width: '70%', maxWidth: '72px', aspectRatio: '1', perspective: '600px' }}>
       <motion.div
         className="w-full h-full rounded-2xl flex items-center justify-center"
         style={{
@@ -37,10 +31,7 @@ const YouTubePlayButton = () => (
           boxShadow: '0 8px 32px hsl(0 80% 40% / 0.5), 0 2px 8px hsl(0 0% 0% / 0.3), inset 0 1px 2px hsl(0 0% 100% / 0.2)',
           transformStyle: 'preserve-3d',
         }}
-        animate={{
-          rotateX: [2, -2, 2],
-          rotateY: [-3, 3, -3],
-        }}
+        animate={{ rotateX: [2, -2, 2], rotateY: [-3, 3, -3] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
         <svg viewBox="0 0 24 24" fill="white" className="w-[40%] h-[40%] ml-[6%]">
@@ -55,17 +46,31 @@ const YouTubeVideos = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="videos" className="section-padding bg-secondary/20">
-      <div className="container mx-auto">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+    <section id="videos" className="section-padding bg-secondary/20 relative overflow-hidden">
+      <FloatingOrbs colors={["hsl(0 70% 45% / 0.04)", "hsl(var(--primary) / 0.03)"]} />
+
+      <div className="container mx-auto relative z-10">
+        <AnimatedTitle className="text-center mb-16">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">{t.videos.myVideos}</p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">{t.videos.title}</h2>
           <p className="text-muted-foreground text-base">{t.videos.subtitle}</p>
-        </motion.div>
+        </AnimatedTitle>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {videos.map((v, i) => (
-            <motion.div key={v.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card overflow-hidden group">
+            <motion.div
+              key={v.id}
+              variants={fadeUpItem}
+              className="glass-card overflow-hidden group"
+              whileHover={{ y: -5, boxShadow: "0 20px 40px hsl(0 0% 0% / 0.15)" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               <div className="relative aspect-video">
                 <iframe src={`https://www.youtube.com/embed/${v.id}`} title={(t.videos as any)[v.titleKey] || v.titleKey} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" loading="lazy" />
                 <YouTubePlayButton />
@@ -79,7 +84,7 @@ const YouTubeVideos = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
