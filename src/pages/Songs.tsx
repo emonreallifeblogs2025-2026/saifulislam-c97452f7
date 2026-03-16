@@ -88,7 +88,7 @@ const generateInstruments = (count: number): FloatingInstrument[] =>
     id: i,
     x: Math.random() * 95 + 2,
     y: Math.random() * 95 + 2,
-    size: (Math.random() * 18 + 14) * 0.7, // 70% size
+    size: (Math.random() * 18 + 14) * 0.85, // 85% size
     duration: Math.random() * 6 + 5,
     delay: Math.random() * 8,
     pathIndex: Math.floor(Math.random() * instrumentPaths.length),
