@@ -29,79 +29,55 @@ const tracks: Track[] = [
 const generateWaveform = (count: number) =>
   Array.from({ length: count }, () => Math.random() * 0.7 + 0.3);
 
-const WaveformPlayer = ({ track, isPlaying, onToggle }: { track: Track; isPlaying: boolean; onToggle: () => void }) => {
-  const [bars] = useState(() => generateWaveform(80));
-  const [progress, setProgress] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (isPlaying) {
-      intervalRef.current = setInterval(() => {
-        setProgress((p) => {
-          if (p >= 100) {
-            onToggle();
-            return 0;
-          }
-          return p + 0.5;
-        });
-      }, 100);
-    } else if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
-  }, [isPlaying, onToggle]);
+const SoundCloudPlayer = ({ track }: { track: Track }) => {
+  if (track.soundcloudUrl) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 hover:border-primary/30 transition-all duration-300"
+      >
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+            {String(track.id).padStart(2, "0")}
+          </span>
+          <h3 className="text-sm sm:text-base font-semibold text-foreground">{track.title}</h3>
+        </div>
+        <iframe
+          width="100%"
+          height="166"
+          scrolling="no"
+          frameBorder="no"
+          allow="autoplay"
+          src={track.soundcloudUrl}
+          className="rounded-lg"
+        />
+        <p className="text-xs text-muted-foreground mt-2">Syed Saiful Islam</p>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 hover:border-primary/30 transition-all duration-300"
+      className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 opacity-60"
     >
       <div className="flex items-center gap-3 sm:gap-4">
-        {/* Play Button */}
-        <button
-          onClick={onToggle}
-          className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-        >
-          {isPlaying ? (
-            <Pause size={20} className="text-primary-foreground" />
-          ) : (
-            <Play size={20} className="text-primary-foreground ml-0.5" />
-          )}
-        </button>
-
-        {/* Waveform + Info */}
+        <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-muted flex items-center justify-center">
+          <Music size={20} className="text-muted-foreground" />
+        </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mb-1">
             <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
               {String(track.id).padStart(2, "0")}
             </span>
             <h3 className="text-sm sm:text-base font-semibold text-foreground truncate">{track.title}</h3>
           </div>
-
-          {/* Waveform visualization */}
-          <div className="flex items-end gap-[1.5px] h-10 sm:h-12 overflow-hidden">
-            {bars.map((height, i) => {
-              const barProgress = (i / bars.length) * 100;
-              const isActive = barProgress <= progress;
-              return (
-                <div
-                  key={i}
-                  className="flex-1 min-w-[1.5px] max-w-[3px] rounded-full transition-colors duration-150"
-                  style={{
-                    height: `${height * 100}%`,
-                    backgroundColor: isActive
-                      ? "hsl(var(--primary))"
-                      : "hsl(var(--muted-foreground) / 0.3)",
-                  }}
-                />
-              );
-            })}
-          </div>
-
-          {/* Author name */}
-          <p className="text-xs text-muted-foreground mt-1.5">Syed Saiful Islam</p>
+          <p className="text-xs text-muted-foreground">Coming soon...</p>
+          <p className="text-xs text-muted-foreground mt-1">Syed Saiful Islam</p>
         </div>
       </div>
     </motion.div>
