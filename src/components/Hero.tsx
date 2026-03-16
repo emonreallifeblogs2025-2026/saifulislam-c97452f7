@@ -221,75 +221,95 @@ const Hero = () => {
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
               {/* Fire effect behind hero */}
               <div className="absolute z-0" style={{ inset: '-30%', pointerEvents: 'none' }}>
-                {/* Full-image warm ambient glow */}
+                {/* Amber warm ambient - base layer */}
                 <motion.div
                   className="absolute inset-0"
                   style={{
-                    background: 'radial-gradient(ellipse 90% 90% at 50% 60%, hsl(var(--gold) / 0.3), hsl(var(--gold-light) / 0.18) 30%, hsl(25 100% 45% / 0.12) 50%, hsl(var(--primary) / 0.06) 70%, transparent 90%)',
-                    filter: 'blur(18px)',
+                    background: 'radial-gradient(ellipse 90% 90% at 50% 60%, hsl(35 90% 55% / 0.2), hsl(45 85% 50% / 0.12) 30%, hsl(20 80% 40% / 0.08) 55%, transparent 85%)',
+                    filter: 'blur(20px)',
                   }}
-                  animate={{ opacity: [0.3, 0.55, 0.35, 0.58, 0.3] }}
-                  transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.2, 0.38, 0.25, 0.4, 0.22, 0.36, 0.2] }}
+                  transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* White-hot core at bottom center */}
+                {/* Deep orange core - shifts to crimson */}
                 <motion.div
                   className="absolute bottom-[8%] left-1/2 -translate-x-1/2"
                   style={{
                     width: '70%',
                     height: '50%',
-                    background: 'radial-gradient(ellipse 60% 70% at 50% 85%, hsl(var(--gold-light) / 0.55), hsl(var(--gold) / 0.35) 30%, hsl(25 100% 50% / 0.18) 55%, transparent 75%)',
-                    filter: 'blur(18px)',
+                    background: 'radial-gradient(ellipse 60% 70% at 50% 85%, hsl(15 95% 55% / 0.35), hsl(30 90% 50% / 0.2) 35%, hsl(45 80% 45% / 0.1) 60%, transparent 80%)',
+                    filter: 'blur(20px)',
                   }}
-                  animate={{ opacity: [0.35, 0.6, 0.4, 0.62, 0.35] }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.25, 0.45, 0.3, 0.48, 0.28, 0.42, 0.25] }}
+                  transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Main fire core */}
+                {/* Golden yellow layer */}
                 <motion.div
                   className="absolute bottom-[5%] left-1/2 -translate-x-1/2"
                   style={{
                     width: '100%',
                     height: '90%',
-                    background: 'radial-gradient(ellipse 85% 90% at 50% 75%, hsl(var(--gold-light) / 0.35), hsl(var(--gold) / 0.25) 25%, hsl(25 90% 50% / 0.14) 45%, hsl(var(--primary) / 0.08) 65%, transparent 85%)',
-                    filter: 'blur(22px)',
+                    background: 'radial-gradient(ellipse 85% 90% at 50% 75%, hsl(50 90% 60% / 0.2), hsl(40 85% 50% / 0.14) 25%, hsl(25 80% 45% / 0.08) 50%, transparent 80%)',
+                    filter: 'blur(24px)',
                   }}
-                  animate={{ opacity: [0.3, 0.5, 0.35, 0.52, 0.3] }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.18, 0.35, 0.22, 0.38, 0.2, 0.33, 0.18] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Left side glow */}
+                {/* Left side - warm red-orange */}
                 <motion.div
                   className="absolute bottom-[15%] left-[5%]"
                   style={{
                     width: '45%',
                     height: '70%',
-                    background: 'radial-gradient(ellipse 80% 80% at 30% 70%, hsl(25 100% 50% / 0.22), hsl(var(--gold) / 0.14) 40%, transparent 70%)',
-                    filter: 'blur(22px)',
+                    background: 'radial-gradient(ellipse 80% 80% at 30% 70%, hsl(10 90% 48% / 0.18), hsl(30 85% 45% / 0.1) 40%, transparent 70%)',
+                    filter: 'blur(24px)',
                   }}
-                  animate={{ opacity: [0.2, 0.4, 0.25, 0.42, 0.2] }}
-                  transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.15, 0.3, 0.18, 0.32, 0.16, 0.28, 0.15] }}
+                  transition={{ duration: 17, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                 />
-                {/* Right side glow */}
+                {/* Right side - amber-gold */}
                 <motion.div
                   className="absolute bottom-[15%] right-[5%]"
                   style={{
                     width: '45%',
                     height: '70%',
-                    background: 'radial-gradient(ellipse 80% 80% at 70% 70%, hsl(25 100% 50% / 0.22), hsl(var(--gold) / 0.14) 40%, transparent 70%)',
-                    filter: 'blur(22px)',
+                    background: 'radial-gradient(ellipse 80% 80% at 70% 70%, hsl(40 95% 55% / 0.18), hsl(50 85% 50% / 0.1) 40%, transparent 70%)',
+                    filter: 'blur(24px)',
                   }}
-                  animate={{ opacity: [0.18, 0.38, 0.22, 0.4, 0.18] }}
-                  transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                  animate={{ opacity: [0.12, 0.28, 0.16, 0.3, 0.14, 0.26, 0.12] }}
+                  transition={{ duration: 19, repeat: Infinity, ease: "easeInOut", delay: 3 }}
                 />
-                {/* Top warm haze */}
+                {/* Top crimson haze */}
                 <motion.div
                   className="absolute top-[5%] left-1/2 -translate-x-1/2"
                   style={{
                     width: '80%',
                     height: '50%',
-                    background: 'radial-gradient(ellipse 70% 60% at 50% 40%, hsl(var(--primary) / 0.12), hsl(25 80% 40% / 0.07) 40%, transparent 70%)',
-                    filter: 'blur(28px)',
+                    background: 'radial-gradient(ellipse 70% 60% at 50% 40%, hsl(5 75% 42% / 0.1), hsl(20 70% 38% / 0.06) 40%, transparent 70%)',
+                    filter: 'blur(30px)',
                   }}
-                  animate={{ opacity: [0.12, 0.28, 0.15, 0.3, 0.12] }}
-                  transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.08, 0.2, 0.1, 0.22, 0.09, 0.18, 0.08] }}
+                  transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+                />
+                {/* Color-shifting center glow (gold → orange → crimson) */}
+                <motion.div
+                  className="absolute bottom-[10%] left-1/2 -translate-x-1/2"
+                  style={{
+                    width: '60%',
+                    height: '60%',
+                    filter: 'blur(22px)',
+                  }}
+                  animate={{
+                    opacity: [0.15, 0.3, 0.2, 0.32, 0.15],
+                    background: [
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(45 90% 58% / 0.25), transparent 75%)',
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(25 90% 50% / 0.25), transparent 75%)',
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(8 85% 45% / 0.22), transparent 75%)',
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(35 90% 55% / 0.25), transparent 75%)',
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(45 90% 58% / 0.25), transparent 75%)',
+                    ],
+                  }}
+                  transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Flame layers */}
                 {fireParticles.map((particle, i) => (
