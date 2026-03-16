@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Music, Copy, Check, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import songsCover from "@/assets/songs-cover.png";
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, memo, useMemo } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 interface Track {
