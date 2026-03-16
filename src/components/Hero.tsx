@@ -103,11 +103,11 @@ const generateSmokeParticles = (count: number): SmokeParticle[] =>
     id: i,
     left: 10 + Math.random() * 80,
     bottom: 15 + Math.random() * 30,
-    width: 100 + Math.random() * 140,
-    height: 100 + Math.random() * 140,
-    opacity: 0.25 + Math.random() * 0.2,
-    blur: 25 + Math.random() * 20,
-    duration: 8 + Math.random() * 5,
+    width: 80 + Math.random() * 100,
+    height: 80 + Math.random() * 100,
+    opacity: 0.12 + Math.random() * 0.1,
+    blur: 30 + Math.random() * 20,
+    duration: 10 + Math.random() * 6,
     delay: Math.random() * 6,
   }));
 
