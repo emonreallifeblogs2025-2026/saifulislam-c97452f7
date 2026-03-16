@@ -203,7 +203,7 @@ const SoundCloudPlayer = ({ track, t }: { track: Track; t: any }) => {
 };
 
 const Songs = () => {
-  const { t } = useLanguage();
+  const { t, lang, setLang } = useLanguage();
   const instruments = useMemo(() => generateInstruments(35), []);
 
   return (
@@ -242,16 +242,33 @@ const Songs = () => {
         ))}
       </div>
 
-      {/* Header */}
+      {/* Header with Language Bar */}
       <div className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex items-center gap-4">
+        <div className="container mx-auto px-3 py-3 flex items-center justify-between gap-2">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
+            className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors text-xs sm:text-sm font-medium flex-shrink-0"
           >
-            <ArrowLeft size={18} />
-            {t.writings.goBack}
+            <ArrowLeft size={16} />
+            <span className="hidden sm:inline">{t.writings.goBack}</span>
           </Link>
+          
+          {/* Horizontal Language Bar */}
+          <div className="flex items-center gap-0.5 sm:gap-1 flex-wrap justify-end">
+            {allLangs.map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium transition-all whitespace-nowrap ${
+                  lang === l
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                }`}
+              >
+                {langLabels[l]}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -265,7 +282,7 @@ const Songs = () => {
         <div className="relative rounded-2xl overflow-hidden max-w-3xl mx-auto shadow-2xl shadow-background/50">
           <img
             src={songsCover}
-            alt="Syed Saiful Islam - Music Compositions"
+            alt={t.songs?.pageTitle || "My Melodies"}
             className="w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
@@ -294,7 +311,7 @@ const Songs = () => {
       <div className="container mx-auto px-4 py-8 max-w-3xl relative z-10">
         <div className="grid gap-4">
           {tracks.map((track) => (
-            <SoundCloudPlayer key={track.id} track={track} />
+            <SoundCloudPlayer key={track.id} track={track} t={t} />
           ))}
         </div>
       </div>
