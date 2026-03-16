@@ -1,4 +1,4 @@
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, Lang } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowLeft, Music, Copy, Check } from "lucide-react";
 import { Link } from "react-router-dom";
