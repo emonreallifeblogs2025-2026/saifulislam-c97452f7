@@ -342,8 +342,8 @@ const Songs = () => {
       </motion.div>
 
       {/* Players */}
-      <div className="container mx-auto px-4 py-8 max-w-3xl relative z-10">
-        <div className="grid gap-4">
+      <div className="container mx-auto px-4 sm:px-6 py-8 max-w-2xl relative z-10">
+        <div className="grid gap-3">
           {tracks.map((track) => (
             <SoundCloudPlayer key={track.id} track={track} t={t} />
           ))}
