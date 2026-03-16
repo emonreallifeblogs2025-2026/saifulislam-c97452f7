@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, memo, useCallback, MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
@@ -28,6 +28,19 @@ const generateParticles = (count: number): Particle[] =>
 
 const Hero = () => {
   const { t, lang } = useLanguage();
+
+  const handleRipple = useCallback((e: MouseEvent<HTMLAnchorElement>) => {
+    const btn = e.currentTarget;
+    const circle = document.createElement("span");
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    circle.style.width = circle.style.height = `${size}px`;
+    circle.style.left = `${e.clientX - rect.left - size / 2}px`;
+    circle.style.top = `${e.clientY - rect.top - size / 2}px`;
+    circle.className = "hero-ripple";
+    btn.appendChild(circle);
+    setTimeout(() => circle.remove(), 600);
+  }, []);
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -66,7 +79,7 @@ const Hero = () => {
 
       <div className="container mx-auto relative z-10 pt-20 pb-20 px-4">
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-8 flex flex-wrap gap-2.5">
-          <Link to="/writings" className="hero-3d-btn group">
+          <Link to="/writings" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
             <span className="hero-3d-btn-inner">
               <motion.span animate={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
@@ -76,7 +89,7 @@ const Hero = () => {
               <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-          <Link to="/songs" className="hero-3d-btn group">
+          <Link to="/songs" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
             <span className="hero-3d-btn-inner">
               <motion.span animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
