@@ -204,7 +204,24 @@ const SoundCloudPlayer = ({ track, t }: { track: Track; t: any }) => {
 
 const Songs = () => {
   const { t, lang, setLang } = useLanguage();
-  const instruments = useMemo(() => generateInstruments(35), []);
+  const instruments = useMemo(() => generateInstruments(40), []);
+  const [pageShareCopied, setPageShareCopied] = useState(false);
+  const { toast } = useToast();
+
+  const pageShareText = `🎵 ${t.songs?.pageTitle || "আমার সুর"} — ${t.songs?.artist || "Syed Saiful Islam"}`;
+
+  const handlePageWhatsApp = () => {
+    window.open(`https://wa.me/?text=${encodeURIComponent(pageShareText + " " + PAGE_URL)}`, "_blank");
+  };
+  const handlePageMessenger = () => {
+    window.open(`https://www.facebook.com/dialog/send?link=${encodeURIComponent(PAGE_URL)}&app_id=966242223397117&redirect_uri=${encodeURIComponent(PAGE_URL)}`, "_blank");
+  };
+  const handlePageCopy = async () => {
+    await navigator.clipboard.writeText(PAGE_URL);
+    setPageShareCopied(true);
+    toast({ title: t.songs?.linkCopied || "Link copied!" });
+    setTimeout(() => setPageShareCopied(false), 2000);
+  };
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
