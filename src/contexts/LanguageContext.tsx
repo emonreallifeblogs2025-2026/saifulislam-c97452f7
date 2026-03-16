@@ -362,6 +362,7 @@ const translations: Record<Lang, any> = {
       s3Title: "Музыка и композиция", s3Count: "30 готово", s3Desc: "Захватывающие музыкальные композиции полные эмоций.",
     },
     writings: { goBack: "Назад", waitMore: "Ещё главы скоро", chapters: "Главы", author: "Саифул Ислам", authorRole: "Исследователь • Писатель", comingSoon: "Скоро" },
+    songs: { pageTitle: "Мои мелодии", pageSubtitle: "Композиции и авторские песни" },
   },
 };
 
