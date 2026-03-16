@@ -341,11 +341,11 @@ const Hero = () => {
                   style={{
                     width: '130%',
                     height: '85%',
-                    background: 'radial-gradient(ellipse 75% 80% at 50% 80%, hsl(var(--gold) / 0.45), hsl(25 90% 45% / 0.25) 35%, hsl(var(--primary) / 0.12) 55%, transparent 80%)',
-                    filter: 'blur(22px)',
+                    background: 'radial-gradient(ellipse 75% 80% at 50% 80%, hsl(var(--gold) / 0.25), hsl(25 90% 45% / 0.14) 35%, hsl(var(--primary) / 0.07) 55%, transparent 80%)',
+                    filter: 'blur(25px)',
                   }}
-                  animate={{ opacity: [0.35, 0.6, 0.4, 0.62, 0.35] }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.2, 0.4, 0.25, 0.42, 0.2] }}
+                  transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Smoke */}
                 {smokeParticles.map((particle) => (
@@ -357,12 +357,12 @@ const Hero = () => {
                       bottom: `${particle.bottom}%`,
                       width: `${particle.width * 1.3}px`,
                       height: `${particle.height * 1.3}px`,
-                      background: `radial-gradient(circle, hsl(25 15% 25% / ${particle.opacity * 1.2}), hsl(25 10% 18% / 0.15) 45%, transparent 70%)`,
-                      filter: `blur(${particle.blur}px)`,
+                      background: `radial-gradient(circle, hsl(25 15% 25% / ${particle.opacity * 0.8}), hsl(25 10% 18% / 0.1) 45%, transparent 70%)`,
+                      filter: `blur(${particle.blur + 5}px)`,
                     }}
-                    animate={{ opacity: [0, 0.18, 0.1, 0], scale: [0.9, 1.08, 1.2] }}
+                    animate={{ opacity: [0, 0.1, 0.06, 0], scale: [0.9, 1.05, 1.15] }}
                     transition={{
-                      duration: particle.duration,
+                      duration: particle.duration + 4,
                       repeat: Infinity,
                       delay: particle.delay,
                       ease: "easeInOut",
