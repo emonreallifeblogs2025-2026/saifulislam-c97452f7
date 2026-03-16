@@ -130,6 +130,9 @@ const Hero = () => {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [particles] = useState(() => generateParticles(40));
+  const fireParticles = useMemo(() => generateFireParticles(12), []);
+  const sparkParticles = useMemo(() => generateSparkParticles(20), []);
+  const smokeParticles = useMemo(() => generateSmokeParticles(14), []);
 
   const currentRoles = roles[lang] || roles.en;
 
