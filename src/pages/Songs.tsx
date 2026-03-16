@@ -503,7 +503,7 @@ const Songs = () => {
       <div className="container mx-auto px-4 sm:px-6 py-8 max-w-2xl relative z-10">
         <div className="grid gap-3">
           {tracks.map((track) => (
-            <SoundCloudPlayer key={track.id} track={track} t={t} />
+            <SoundCloudPlayer key={track.id} track={track} t={t} currentPlaying={currentPlaying} onPlay={setCurrentPlaying} />
           ))}
         </div>
       </div>
