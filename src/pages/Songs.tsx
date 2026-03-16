@@ -43,9 +43,6 @@ const ShareButtons = ({ track, t }: { track: Track; t: any }) => {
     window.open(`https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`, "_blank");
   };
 
-  const handleFacebook = () => {
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`, "_blank");
-  };
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
