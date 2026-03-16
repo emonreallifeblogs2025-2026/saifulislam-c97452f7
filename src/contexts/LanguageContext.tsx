@@ -19,6 +19,7 @@ const translations: Record<Lang, any> = {
       im: "i'm ",
       researcher: "REAL LIFE RESEARCHER",
       writingsBtn: "My Writings",
+      songsBtn: "My Songs",
     },
     stats: { experience: "Years Of Experience", projects: "Projects Complete", insights: "Natural Insights", reviews: "Client Reviews", clients: "Satisfied Clients", longBio: "Have you ever wondered, even after having everything, why does it feel like something is missing? Why do we hide tears behind laughter? Welcome to 'Experience Diary With Saiful'. This is not just a YouTube channel, it is a magical mirror of your unspoken feelings." },
     skills: { title: "My Skills", subtitle: "What I Do Best", design: "Research Skills", development: "Technical Skills", psychologyResearch: "Psychology Research", writing: "Writing", cinematography: "Cinematography", musicComposition: "Music Composition", aiPrompt: "AI Prompt Development", realLifeResearch: "Real Life Research", contentCreation: "Content Creation", videoEditing: "Video Editing" },
