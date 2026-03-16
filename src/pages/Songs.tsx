@@ -159,7 +159,7 @@ const SoundCloudPlayer = memo(({ track, t }: { track: Track; t: any }) => {
       </div>
     </div>
   );
-};
+});
 
 // CSS-only floating instruments background
 const FloatingInstrumentsCSS = () => (

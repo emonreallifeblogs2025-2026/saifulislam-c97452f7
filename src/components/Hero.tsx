@@ -143,4 +143,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);
