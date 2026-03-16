@@ -220,30 +220,30 @@ const Hero = () => {
           <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
               {/* Fire effect behind hero */}
-              <div className="absolute z-0" style={{ inset: '-35%', pointerEvents: 'none' }}>
-                {/* White-hot core */}
+              <div className="absolute z-0" style={{ inset: '-25%', pointerEvents: 'none' }}>
+                {/* White-hot core - subtle */}
                 <motion.div
                   className="absolute bottom-[12%] left-1/2 -translate-x-1/2"
                   style={{
-                    width: '60%',
-                    height: '50%',
-                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(var(--gold-light) / 0.95), hsl(var(--gold) / 0.65) 30%, transparent 60%)',
-                    filter: 'blur(15px)',
+                    width: '50%',
+                    height: '40%',
+                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(var(--gold-light) / 0.45), hsl(var(--gold) / 0.25) 30%, transparent 60%)',
+                    filter: 'blur(20px)',
                   }}
-                  animate={{ opacity: [0.5, 0.8, 0.58, 0.82, 0.5] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.25, 0.4, 0.3, 0.42, 0.25] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Main fire core */}
+                {/* Main fire core - subtle */}
                 <motion.div
                   className="absolute bottom-[10%] left-1/2 -translate-x-1/2"
                   style={{
-                    width: '90%',
-                    height: '95%',
-                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(var(--gold-light) / 0.88), hsl(var(--gold) / 0.72) 25%, hsl(var(--primary) / 0.42) 52%, transparent 75%)',
-                    filter: 'blur(18px)',
+                    width: '75%',
+                    height: '80%',
+                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(var(--gold-light) / 0.35), hsl(var(--gold) / 0.22) 25%, hsl(var(--primary) / 0.12) 52%, transparent 75%)',
+                    filter: 'blur(22px)',
                   }}
-                  animate={{ opacity: [0.48, 0.74, 0.55, 0.78, 0.48] }}
-                  transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.2, 0.35, 0.25, 0.38, 0.2] }}
+                  transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Stable flame layers */}
                 {fireParticles.map((particle, i) => (
@@ -255,12 +255,12 @@ const Hero = () => {
                       bottom: `${particle.bottom}%`,
                       width: `${particle.width}px`,
                       height: `${particle.height}px`,
-                      background: `radial-gradient(ellipse at 50% 90%, hsl(var(--gold-light) / ${particle.opacity}), hsl(var(--gold) / 0.45) 38%, hsl(var(--primary) / 0.16) 62%, transparent 78%)`,
+                      background: `radial-gradient(ellipse at 50% 90%, hsl(var(--gold-light) / ${particle.opacity}), hsl(var(--gold) / 0.18) 38%, hsl(var(--primary) / 0.06) 62%, transparent 78%)`,
                       filter: `blur(${particle.blur}px)`,
                     }}
-                    animate={{ opacity: [0.16, 0.38, 0.22, 0.4, 0.16] }}
+                    animate={{ opacity: [0.08, 0.2, 0.12, 0.22, 0.08] }}
                     transition={{
-                      duration: particle.duration + i * 0.15,
+                      duration: particle.duration + i * 0.2,
                       repeat: Infinity,
                       delay: particle.delay,
                       ease: "easeInOut",
@@ -278,28 +278,28 @@ const Hero = () => {
                       width: `${particle.size}px`,
                       height: `${particle.size}px`,
                       background: particle.color,
-                      boxShadow: `0 0 ${particle.glow}px ${particle.glowColor}`,
+                      boxShadow: `0 0 ${particle.glow * 0.5}px ${particle.glowColor}`,
                     }}
-                    animate={{ opacity: [0.1, 0.55, 0.18, 0.6, 0.1], scale: [0.95, 1.08, 0.98, 1.12, 0.95] }}
+                    animate={{ opacity: [0.05, 0.25, 0.1, 0.28, 0.05], scale: [0.97, 1.04, 0.98, 1.05, 0.97] }}
                     transition={{
-                      duration: particle.duration,
+                      duration: particle.duration + 2,
                       repeat: Infinity,
                       delay: particle.delay,
                       ease: "easeInOut",
                     }}
                   />
                 ))}
-                {/* Outer glow */}
+                {/* Outer glow - subtle */}
                 <motion.div
                   className="absolute bottom-[5%] left-1/2 -translate-x-1/2"
                   style={{
-                    width: '130%',
-                    height: '85%',
-                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.42), hsl(var(--primary) / 0.18) 40%, transparent 70%)',
-                    filter: 'blur(25px)',
+                    width: '110%',
+                    height: '70%',
+                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.18), hsl(var(--primary) / 0.08) 40%, transparent 70%)',
+                    filter: 'blur(30px)',
                   }}
-                  animate={{ opacity: [0.24, 0.46, 0.28, 0.5, 0.24] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.12, 0.22, 0.15, 0.24, 0.12] }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Smoke / Dhoa effect - dense & slow */}
                 {smokeParticles.map((particle) => (
