@@ -287,7 +287,7 @@ const translations: Record<Lang, any> = {
   },
   zh: {
     nav: { home: "首页", about: "关于", skills: "技能", portfolio: "作品集", contact: "联系", letsChat: "联系我们", videos: "视频" },
-    hero: { name: "赛福尔·伊斯兰", titles: "心理学研究员 • 作家 • AI开发者 • 作曲家 • 摄影师", bio: "你好，我是赛福尔·伊斯兰。你有没有想过，即使拥有一切，为什么仍然感觉缺少什么？欢迎来到'Experience Diary With Saiful'。", cta: "联系我", watchVideo: "观看视频", myWritings: "我的著作", hello: "你好", im: "我是 ", researcher: "现实生活研究员", writingsBtn: "我的著作" },
+    hero: { name: "赛福尔·伊斯兰", titles: "心理学研究员 • 作家 • AI开发者 • 作曲家 • 摄影师", bio: "你好，我是赛福尔·伊斯兰。你有没有想过，即使拥有一切，为什么仍然感觉缺少什么？欢迎来到'Experience Diary With Saiful'。", cta: "联系我", watchVideo: "观看视频", myWritings: "我的著作", hello: "你好", im: "我是 ", researcher: "现实生活研究员", writingsBtn: "我的著作", songsBtn: "我的歌曲" },
     stats: { experience: "年经验", projects: "完成项目", insights: "自然洞察", reviews: "客户评价", clients: "满意客户", longBio: "你有没有想过，即使拥有一切，为什么仍然感觉缺少什么？欢迎来到'Experience Diary With Saiful'。" },
     skills: { title: "我的技能", subtitle: "我最擅长的", design: "研究技能", development: "技术技能", psychologyResearch: "心理学研究", writing: "写作", cinematography: "摄影", musicComposition: "音乐创作", aiPrompt: "AI开发", realLifeResearch: "现实生活研究", contentCreation: "内容创作", videoEditing: "视频编辑" },
     videos: { title: "我的最新视频", subtitle: "观看与学习", myVideos: "我的视频", views: "观看" },
