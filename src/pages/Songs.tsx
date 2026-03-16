@@ -275,10 +275,10 @@ const SoundCloudPlayer = memo(({ track, t, currentPlaying, onPlay }: { track: Tr
 
   // Placeholder track (no URL)
   return (
-    <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 opacity-60 mx-auto w-full">
-      <div className="flex items-center gap-3 sm:gap-4">
-        <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-muted flex items-center justify-center">
-          <Music size={20} className="text-muted-foreground" />
+    <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-3 sm:p-4 opacity-60 mx-auto w-full overflow-hidden">
+      <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-muted flex items-center justify-center">
+          <Music size={18} className="text-muted-foreground" />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-2 mb-1">
