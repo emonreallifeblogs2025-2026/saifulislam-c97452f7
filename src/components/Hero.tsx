@@ -231,29 +231,29 @@ const Hero = () => {
                   animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.06, 1] }}
                   transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Smoke / Dhoa effect */}
-                {[...Array(6)].map((_, i) => (
+                {/* Smoke / Dhoa effect - dense & slow */}
+                {[...Array(14)].map((_, i) => (
                   <motion.div
                     key={`smoke-${i}`}
                     className="absolute rounded-full"
                     style={{
-                      left: `${15 + Math.random() * 70}%`,
-                      bottom: `${20 + Math.random() * 25}%`,
-                      width: `${80 + Math.random() * 100}px`,
-                      height: `${80 + Math.random() * 100}px`,
-                      background: `radial-gradient(circle, hsl(220 10% 30% / ${0.15 + Math.random() * 0.15}), hsl(220 10% 20% / 0.08) 50%, transparent 70%)`,
-                      filter: `blur(${20 + Math.random() * 15}px)`,
+                      left: `${10 + Math.random() * 80}%`,
+                      bottom: `${15 + Math.random() * 30}%`,
+                      width: `${100 + Math.random() * 140}px`,
+                      height: `${100 + Math.random() * 140}px`,
+                      background: `radial-gradient(circle, hsl(220 8% 25% / ${0.25 + Math.random() * 0.2}), hsl(220 8% 18% / 0.12) 45%, transparent 70%)`,
+                      filter: `blur(${25 + Math.random() * 20}px)`,
                     }}
                     animate={{
-                      y: [0, -150 - Math.random() * 200, -350 - Math.random() * 150],
-                      x: [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 100],
-                      opacity: [0, 0.5, 0.3, 0],
-                      scale: [0.5, 1.5, 2.5],
+                      y: [0, -100 - Math.random() * 120, -280 - Math.random() * 180],
+                      x: [(Math.random() - 0.5) * 20, (Math.random() - 0.5) * 70],
+                      opacity: [0, 0.6, 0.4, 0],
+                      scale: [0.4, 1.8, 3.2],
                     }}
                     transition={{
-                      duration: 3 + Math.random() * 3,
+                      duration: 6 + Math.random() * 5,
                       repeat: Infinity,
-                      delay: Math.random() * 4,
+                      delay: Math.random() * 6,
                       ease: "easeOut",
                     }}
                   />
