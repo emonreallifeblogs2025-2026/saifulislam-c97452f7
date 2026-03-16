@@ -295,10 +295,10 @@ const Hero = () => {
                   style={{
                     width: '110%',
                     height: '70%',
-                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.18), hsl(var(--primary) / 0.08) 40%, transparent 70%)',
-                    filter: 'blur(30px)',
+                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.35), hsl(var(--primary) / 0.18) 40%, transparent 70%)',
+                    filter: 'blur(25px)',
                   }}
-                  animate={{ opacity: [0.12, 0.22, 0.15, 0.24, 0.12] }}
+                  animate={{ opacity: [0.25, 0.45, 0.3, 0.48, 0.25] }}
                   transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Smoke / Dhoa effect - dense & slow */}
