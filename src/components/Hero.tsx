@@ -220,32 +220,78 @@ const Hero = () => {
           <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
               {/* Fire effect behind hero */}
-              <div className="absolute z-0" style={{ inset: '-25%', pointerEvents: 'none' }}>
-                {/* White-hot core - subtle */}
+              <div className="absolute z-0" style={{ inset: '-30%', pointerEvents: 'none' }}>
+                {/* Full-image warm ambient glow */}
                 <motion.div
-                  className="absolute bottom-[12%] left-1/2 -translate-x-1/2"
+                  className="absolute inset-0"
                   style={{
-                    width: '50%',
-                    height: '40%',
-                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(var(--gold-light) / 0.7), hsl(var(--gold) / 0.45) 30%, transparent 60%)',
-                    filter: 'blur(18px)',
+                    background: 'radial-gradient(ellipse 90% 90% at 50% 60%, hsl(var(--gold) / 0.5), hsl(var(--gold-light) / 0.3) 30%, hsl(25 100% 45% / 0.2) 50%, hsl(var(--primary) / 0.1) 70%, transparent 90%)',
+                    filter: 'blur(15px)',
+                  }}
+                  animate={{ opacity: [0.5, 0.75, 0.55, 0.8, 0.5] }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                />
+                {/* White-hot core at bottom center */}
+                <motion.div
+                  className="absolute bottom-[8%] left-1/2 -translate-x-1/2"
+                  style={{
+                    width: '70%',
+                    height: '50%',
+                    background: 'radial-gradient(ellipse 60% 70% at 50% 85%, hsl(var(--gold-light) / 0.85), hsl(var(--gold) / 0.6) 30%, hsl(25 100% 50% / 0.3) 55%, transparent 75%)',
+                    filter: 'blur(15px)',
+                  }}
+                  animate={{ opacity: [0.55, 0.85, 0.6, 0.88, 0.55] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                />
+                {/* Main fire core - covers most of image */}
+                <motion.div
+                  className="absolute bottom-[5%] left-1/2 -translate-x-1/2"
+                  style={{
+                    width: '100%',
+                    height: '90%',
+                    background: 'radial-gradient(ellipse 85% 90% at 50% 75%, hsl(var(--gold-light) / 0.6), hsl(var(--gold) / 0.45) 25%, hsl(25 90% 50% / 0.25) 45%, hsl(var(--primary) / 0.15) 65%, transparent 85%)',
+                    filter: 'blur(20px)',
                   }}
                   animate={{ opacity: [0.45, 0.7, 0.5, 0.72, 0.45] }}
-                  transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-                />
-                {/* Main fire core - subtle */}
-                <motion.div
-                  className="absolute bottom-[10%] left-1/2 -translate-x-1/2"
-                  style={{
-                    width: '75%',
-                    height: '80%',
-                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(var(--gold-light) / 0.55), hsl(var(--gold) / 0.4) 25%, hsl(var(--primary) / 0.2) 52%, transparent 75%)',
-                    filter: 'blur(18px)',
-                  }}
-                  animate={{ opacity: [0.4, 0.6, 0.45, 0.65, 0.4] }}
                   transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Stable flame layers */}
+                {/* Left side glow */}
+                <motion.div
+                  className="absolute bottom-[15%] left-[5%]"
+                  style={{
+                    width: '45%',
+                    height: '70%',
+                    background: 'radial-gradient(ellipse 80% 80% at 30% 70%, hsl(25 100% 50% / 0.4), hsl(var(--gold) / 0.25) 40%, transparent 70%)',
+                    filter: 'blur(20px)',
+                  }}
+                  animate={{ opacity: [0.35, 0.6, 0.4, 0.62, 0.35] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+                />
+                {/* Right side glow */}
+                <motion.div
+                  className="absolute bottom-[15%] right-[5%]"
+                  style={{
+                    width: '45%',
+                    height: '70%',
+                    background: 'radial-gradient(ellipse 80% 80% at 70% 70%, hsl(25 100% 50% / 0.4), hsl(var(--gold) / 0.25) 40%, transparent 70%)',
+                    filter: 'blur(20px)',
+                  }}
+                  animate={{ opacity: [0.3, 0.55, 0.38, 0.58, 0.3] }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                />
+                {/* Top warm haze */}
+                <motion.div
+                  className="absolute top-[5%] left-1/2 -translate-x-1/2"
+                  style={{
+                    width: '80%',
+                    height: '50%',
+                    background: 'radial-gradient(ellipse 70% 60% at 50% 40%, hsl(var(--primary) / 0.2), hsl(25 80% 40% / 0.12) 40%, transparent 70%)',
+                    filter: 'blur(25px)',
+                  }}
+                  animate={{ opacity: [0.2, 0.4, 0.25, 0.42, 0.2] }}
+                  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                />
+                {/* Flame layers */}
                 {fireParticles.map((particle, i) => (
                   <motion.div
                     key={`flame-${particle.id}`}
@@ -253,12 +299,12 @@ const Hero = () => {
                     style={{
                       left: `${particle.left}%`,
                       bottom: `${particle.bottom}%`,
-                      width: `${particle.width}px`,
-                      height: `${particle.height}px`,
-                      background: `radial-gradient(ellipse at 50% 90%, hsl(var(--gold-light) / ${particle.opacity * 1.8}), hsl(var(--gold) / 0.35) 38%, hsl(var(--primary) / 0.15) 62%, transparent 78%)`,
+                      width: `${particle.width * 1.5}px`,
+                      height: `${particle.height * 1.5}px`,
+                      background: `radial-gradient(ellipse at 50% 90%, hsl(var(--gold-light) / ${particle.opacity * 2}), hsl(var(--gold) / 0.45) 35%, hsl(25 100% 50% / 0.2) 55%, transparent 78%)`,
                       filter: `blur(${particle.blur}px)`,
                     }}
-                    animate={{ opacity: [0.2, 0.45, 0.3, 0.48, 0.2] }}
+                    animate={{ opacity: [0.25, 0.55, 0.35, 0.58, 0.25] }}
                     transition={{
                       duration: particle.duration + i * 0.2,
                       repeat: Infinity,
@@ -267,7 +313,7 @@ const Hero = () => {
                     }}
                   />
                 ))}
-                {/* Stable ember glow */}
+                {/* Ember sparks */}
                 {sparkParticles.map((particle) => (
                   <motion.div
                     key={`spark-${particle.id}`}
@@ -275,12 +321,12 @@ const Hero = () => {
                     style={{
                       left: `${particle.left}%`,
                       bottom: `${particle.bottom}%`,
-                      width: `${particle.size}px`,
-                      height: `${particle.size}px`,
+                      width: `${particle.size * 1.3}px`,
+                      height: `${particle.size * 1.3}px`,
                       background: particle.color,
-                      boxShadow: `0 0 ${particle.glow * 0.5}px ${particle.glowColor}`,
+                      boxShadow: `0 0 ${particle.glow}px ${particle.glowColor}`,
                     }}
-                    animate={{ opacity: [0.15, 0.5, 0.25, 0.55, 0.15], scale: [0.97, 1.06, 0.98, 1.07, 0.97] }}
+                    animate={{ opacity: [0.2, 0.6, 0.3, 0.65, 0.2], scale: [0.97, 1.08, 0.98, 1.1, 0.97] }}
                     transition={{
                       duration: particle.duration + 2,
                       repeat: Infinity,
@@ -289,19 +335,19 @@ const Hero = () => {
                     }}
                   />
                 ))}
-                {/* Outer glow - subtle */}
+                {/* Outer glow - full spread */}
                 <motion.div
-                  className="absolute bottom-[5%] left-1/2 -translate-x-1/2"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2"
                   style={{
-                    width: '110%',
-                    height: '70%',
-                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.35), hsl(var(--primary) / 0.18) 40%, transparent 70%)',
-                    filter: 'blur(25px)',
+                    width: '130%',
+                    height: '85%',
+                    background: 'radial-gradient(ellipse 75% 80% at 50% 80%, hsl(var(--gold) / 0.45), hsl(25 90% 45% / 0.25) 35%, hsl(var(--primary) / 0.12) 55%, transparent 80%)',
+                    filter: 'blur(22px)',
                   }}
-                  animate={{ opacity: [0.25, 0.45, 0.3, 0.48, 0.25] }}
+                  animate={{ opacity: [0.35, 0.6, 0.4, 0.62, 0.35] }}
                   transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Smoke / Dhoa effect - dense & slow */}
+                {/* Smoke */}
                 {smokeParticles.map((particle) => (
                   <motion.div
                     key={`smoke-${particle.id}`}
@@ -309,12 +355,12 @@ const Hero = () => {
                     style={{
                       left: `${particle.left}%`,
                       bottom: `${particle.bottom}%`,
-                      width: `${particle.width}px`,
-                      height: `${particle.height}px`,
-                      background: `radial-gradient(circle, hsl(220 8% 25% / ${particle.opacity}), hsl(220 8% 18% / 0.12) 45%, transparent 70%)`,
+                      width: `${particle.width * 1.3}px`,
+                      height: `${particle.height * 1.3}px`,
+                      background: `radial-gradient(circle, hsl(25 15% 25% / ${particle.opacity * 1.2}), hsl(25 10% 18% / 0.15) 45%, transparent 70%)`,
                       filter: `blur(${particle.blur}px)`,
                     }}
-                    animate={{ opacity: [0, 0.12, 0.08, 0], scale: [0.9, 1.05, 1.15] }}
+                    animate={{ opacity: [0, 0.18, 0.1, 0], scale: [0.9, 1.08, 1.2] }}
                     transition={{
                       duration: particle.duration,
                       repeat: Infinity,
