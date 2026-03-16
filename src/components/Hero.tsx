@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
 import { ArrowRight, BookOpen, Music } from "lucide-react";
+import OrbitingPlanets from "@/components/OrbitingPlanets";
 
 const roles: Record<string, string[]> = {
   en: ["Psychology Researcher.", "Writer.", "AI Prompt Developer.", "Cinematographer.", "Music Composer."],
@@ -131,6 +132,8 @@ const Hero = () => {
 
           <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
+              {/* Orbiting golden planets */}
+              <OrbitingPlanets />
               {/* Glow behind hero pic */}
               <motion.div
                 className="absolute inset-0 z-0 rounded-full"
