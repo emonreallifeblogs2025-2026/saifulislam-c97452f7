@@ -189,7 +189,7 @@ const SoundCloudPlayer = memo(({ track, t, currentPlaying, onPlay }: { track: Tr
     return (
       <div
         ref={containerRef}
-        className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 hover:border-primary/30 transition-all duration-300 mx-auto w-full"
+        className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-3 sm:p-4 hover:border-primary/30 transition-all duration-300 mx-auto w-full overflow-hidden"
       >
         {/* Hidden iframe for SC Widget API */}
         {isVisible && (
