@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, Music } from "lucide-react";
 
 const roles: Record<string, string[]> = {
   en: ["Psychology Researcher.", "Writer.", "AI Prompt Developer.", "Cinematographer.", "Music Composer."],
@@ -65,12 +65,19 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto relative z-10 pt-20 pb-20 px-4">
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-8">
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-8 flex flex-wrap gap-3">
           <Link to="/writings" className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-foreground/5 backdrop-blur-2xl border border-foreground/10 text-foreground text-sm font-semibold hover:bg-foreground/10 hover:border-primary/30 transition-all duration-300 group shadow-lg shadow-background/10">
             <motion.span animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
               <BookOpen size={16} />
             </motion.span>
             {t.hero.writingsBtn}
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link to="/songs" className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-foreground/5 backdrop-blur-2xl border border-foreground/10 text-foreground text-sm font-semibold hover:bg-foreground/10 hover:border-primary/30 transition-all duration-300 group shadow-lg shadow-background/10">
+            <motion.span animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+              <Music size={16} />
+            </motion.span>
+            {t.hero.songsBtn || "আমার রচিত গান"}
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>

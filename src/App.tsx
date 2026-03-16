@@ -7,6 +7,7 @@ import { ContentProvider } from "@/contexts/ContentContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Writings from "./pages/Writings";
+import Songs from "./pages/Songs";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/writings" element={<Writings />} />
+              <Route path="/songs" element={<Songs />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
