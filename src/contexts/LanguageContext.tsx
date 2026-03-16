@@ -206,7 +206,7 @@ const translations: Record<Lang, any> = {
       s3Title: "Musique et composition", s3Count: "30 terminés", s3Desc: "Compositions musicales captivantes qui résonnent avec émotion.",
     },
     writings: { goBack: "Retour", waitMore: "Plus de chapitres bientôt", chapters: "Chapitres", author: "Syed Saiful Islam", authorRole: "Chercheur • Écrivain", comingSoon: "Bientôt" },
-    songs: { pageTitle: "Mes mélodies", pageSubtitle: "Compositions et chansons originales" },
+    songs: { pageTitle: "Mes mélodies", pageSubtitle: "Compositions et chansons originales", comingSoon: "Bientôt disponible...", artist: "Syed Saiful Islam", linkCopied: "Lien copié !", trackLabel: "Piste" },
   },
   ar: {
     nav: { home: "الرئيسية", about: "حول", skills: "المهارات", portfolio: "الأعمال", contact: "اتصل", letsChat: "تواصل معنا", videos: "فيديوهات" },
