@@ -83,7 +83,8 @@ const scApiLoaded = (() => {
 })();
 
 const SoundCloudPlayer = memo(({ track, t, currentPlaying, onPlay }: { track: Track; t: any; currentPlaying: number | null; onPlay: (id: number | null) => void }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const hasUrl = !!track.soundcloudUrl;
+  const [isVisible, setIsVisible] = useState(hasUrl); // Real tracks load immediately
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -102,9 +103,9 @@ const SoundCloudPlayer = memo(({ track, t, currentPlaying, onPlay }: { track: Tr
     }
   }, [currentPlaying, track.id, isPlaying]);
 
-  // IntersectionObserver
+  // IntersectionObserver only for placeholder tracks
   useEffect(() => {
-    if (!track.soundcloudUrl || !containerRef.current) return;
+    if (hasUrl || !containerRef.current) return; // Skip for real tracks (already visible)
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -116,7 +117,7 @@ const SoundCloudPlayer = memo(({ track, t, currentPlaying, onPlay }: { track: Tr
     );
     observer.observe(containerRef.current);
     return () => observer.disconnect();
-  }, [track.soundcloudUrl]);
+  }, [hasUrl]);
 
   // Init widget
   useEffect(() => {
