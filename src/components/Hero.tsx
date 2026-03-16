@@ -110,10 +110,22 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.3, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
+          <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
+              {/* Glow behind hero pic */}
+              <motion.div
+                className="absolute inset-0 z-0 rounded-full"
+                style={{
+                  background: 'radial-gradient(ellipse 60% 55% at 50% 45%, hsl(var(--primary) / 0.25), hsl(var(--primary) / 0.08) 50%, transparent 75%)',
+                  filter: 'blur(40px)',
+                }}
+                animate={{ opacity: [0.4, 0.7, 0.4] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
               <div className="relative z-10">
                 <img src={heroImage} alt="Saiful Islam - Psychology & Real Life Researcher" className="w-full" loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   style={{
                     WebkitMaskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
                     maskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
