@@ -258,7 +258,7 @@ const Hero = () => {
                       background: `radial-gradient(ellipse at 50% 90%, hsl(var(--gold-light) / ${particle.opacity * 1.8}), hsl(var(--gold) / 0.35) 38%, hsl(var(--primary) / 0.15) 62%, transparent 78%)`,
                       filter: `blur(${particle.blur}px)`,
                     }}
-                    animate={{ opacity: [0.08, 0.2, 0.12, 0.22, 0.08] }}
+                    animate={{ opacity: [0.2, 0.45, 0.3, 0.48, 0.2] }}
                     transition={{
                       duration: particle.duration + i * 0.2,
                       repeat: Infinity,
