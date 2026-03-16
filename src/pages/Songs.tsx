@@ -74,17 +74,32 @@ const ShareButtons = ({ track, t }: { track: Track; t: any }) => {
 };
 
 const SoundCloudPlayer = memo(({ track, t }: { track: Track; t: any }) => {
-  const [loadPlayer, setLoadPlayer] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // IntersectionObserver: only load iframe when card scrolls into view
   useEffect(() => {
-    if (!track.soundcloudUrl) return;
-    const timer = setTimeout(() => setLoadPlayer(true), 100);
-    return () => clearTimeout(timer);
+    if (!track.soundcloudUrl || !containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px 0px", threshold: 0.01 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
   }, [track.soundcloudUrl]);
 
   if (track.soundcloudUrl) {
     return (
-      <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 hover:border-primary/30 transition-all duration-300">
+      <div
+        ref={containerRef}
+        className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 hover:border-primary/30 transition-all duration-300 mx-auto w-full"
+      >
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2 min-w-0">
             <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
@@ -94,29 +109,33 @@ const SoundCloudPlayer = memo(({ track, t }: { track: Track; t: any }) => {
           </div>
           <ShareButtons track={track} t={t} />
         </div>
-        {loadPlayer ? (
-          <iframe
-            width="100%"
-            height="166"
-            scrolling="no"
-            frameBorder="no"
-            allow="autoplay"
-            loading="lazy"
-            src={track.soundcloudUrl}
-            className="rounded-lg"
-          />
-        ) : (
-          <div className="w-full h-[166px] rounded-lg bg-muted animate-pulse flex items-center justify-center">
-            <Music size={24} className="text-muted-foreground" />
-          </div>
-        )}
+        <div className="relative w-full h-[166px] rounded-lg overflow-hidden">
+          {isVisible && (
+            <iframe
+              width="100%"
+              height="166"
+              scrolling="no"
+              frameBorder="no"
+              allow="autoplay"
+              src={track.soundcloudUrl}
+              className="rounded-lg absolute inset-0 z-10"
+              onLoad={() => setIframeLoaded(true)}
+              style={{ opacity: iframeLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
+            />
+          )}
+          {!iframeLoaded && (
+            <div className="absolute inset-0 rounded-lg bg-muted animate-pulse flex items-center justify-center z-0">
+              <Music size={24} className="text-muted-foreground" />
+            </div>
+          )}
+        </div>
         <p className="text-xs text-muted-foreground mt-2">{t.songs?.artist || "Syed Saiful Islam"}</p>
       </div>
     );
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 opacity-60">
+    <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 opacity-60 mx-auto w-full">
       <div className="flex items-center gap-3 sm:gap-4">
         <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-muted flex items-center justify-center">
           <Music size={20} className="text-muted-foreground" />
