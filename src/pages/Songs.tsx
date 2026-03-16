@@ -170,7 +170,7 @@ const FloatingInstrumentsCSS = () => (
       }
     `}</style>
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      {Array.from({ length: 20 }, (_, i) => {
+      {Array.from({ length: 35 }, (_, i) => {
         const symbol = instrumentSymbols[i % instrumentSymbols.length];
         const left = ((i * 37 + 13) % 90) + 3;
         const top = ((i * 53 + 7) % 85) + 5;
