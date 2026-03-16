@@ -7,6 +7,7 @@ import { ContentProvider } from "@/contexts/ContentContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Writings from "./pages/Writings";
+import Songs from "./pages/Songs";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
