@@ -131,6 +131,7 @@ const translations: Record<Lang, any> = {
       im: "मैं हूँ ",
       researcher: "रियल लाइफ रिसर्चर",
       writingsBtn: "मेरी रचनाएँ",
+      songsBtn: "मेरे गीत",
     },
     stats: { experience: "वर्षों का अनुभव", projects: "परियोजनाएँ पूर्ण", insights: "प्राकृतिक अंतर्दृष्टि", reviews: "ग्राहक समीक्षाएँ", clients: "संतुष्ट ग्राहक", longBio: "क्या आपने कभी सोचा है, सब कुछ होने के बावजूद भी क्यों कुछ अधूरा लगता है? 'Experience Diary With Saiful' में आपका स्वागत है।" },
     skills: { title: "मेरे कौशल", subtitle: "मैं जो सबसे अच्छा करता हूँ", design: "शोध कौशल", development: "तकनीकी कौशल", psychologyResearch: "मनोविज्ञान शोध", writing: "लेखन", cinematography: "सिनेमैटोग्राफी", musicComposition: "संगीत रचना", aiPrompt: "AI प्रॉम्प्ट डेवलपमेंट", realLifeResearch: "वास्तविक जीवन शोध", contentCreation: "कंटेंट क्रिएशन", videoEditing: "वीडियो एडिटिंग" },
