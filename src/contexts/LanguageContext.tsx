@@ -118,7 +118,7 @@ const translations: Record<Lang, any> = {
       s3Title: "সংগীত ও রচনা", s3Count: "৩০ সম্পন্ন", s3Desc: "আবেগ এবং গল্প বলার সাথে অনুরণিত চিত্তাকর্ষক সংগীত রচনা তৈরি।",
     },
     writings: { goBack: "ফিরে যান", waitMore: "আরো পড়তে অপেক্ষা করুন", chapters: "অধ্যায়সমূহ", author: "সৈয়দ সাইফুল ইসলাম", authorRole: "রিয়েল লাইফ রিসার্চার • লেখক", comingSoon: "শীঘ্রই আসছে" },
-    songs: { pageTitle: "আমার সুর", pageSubtitle: "কম্পোজিশন ও রচিত গান সমূহ", comingSoon: "শীঘ্রই আসছে...", artist: "সৈয়দ সাইফুল ইসলাম", linkCopied: "লিংক কপি হয়েছে!", trackLabel: "ট্র্যাক", sharePageLabel: "শেয়ার করুন" },
+    songs: { pageTitle: "আমার সুর", pageSubtitle: "কম্পোজিশন ও রচিত গান সমূহ", comingSoon: "শীঘ্রই আসছে...", artist: "সৈয়দ সাইফুল ইসলাম", linkCopied: "লিংক কপি হয়েছে!", trackLabel: "ট্র্যাক", sharePageLabel: "শেয়ার করুন", songPrefix: "গান" },
   },
   hi: {
     nav: { home: "होम", about: "परिचय", skills: "कौशल", portfolio: "पोर्टफोलियो", contact: "संपर्क", letsChat: "बात करें", videos: "वीडियो" },
