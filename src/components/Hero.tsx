@@ -280,7 +280,7 @@ const Hero = () => {
                       background: particle.color,
                       boxShadow: `0 0 ${particle.glow * 0.5}px ${particle.glowColor}`,
                     }}
-                    animate={{ opacity: [0.05, 0.25, 0.1, 0.28, 0.05], scale: [0.97, 1.04, 0.98, 1.05, 0.97] }}
+                    animate={{ opacity: [0.15, 0.5, 0.25, 0.55, 0.15], scale: [0.97, 1.06, 0.98, 1.07, 0.97] }}
                     transition={{
                       duration: particle.duration + 2,
                       repeat: Infinity,
