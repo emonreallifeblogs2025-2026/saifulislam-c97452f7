@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
+import { fadeLeftItem, fadeRightItem } from "@/lib/animations";
 
 interface GoldParticle {
   id: number; x: number; y: number; size: number; duration: number; delay: number;
@@ -39,19 +40,53 @@ const Contact = () => {
 
       <div className="container mx-auto max-w-4xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+          <motion.div variants={fadeLeftItem} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">{t.contact.getInTouch}</p>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">{t.contact.subtitle}</h2>
             <p className="text-muted-foreground text-sm leading-relaxed">{t.contact.contactDesc}</p>
           </motion.div>
 
-          <motion.form initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} onSubmit={handleSubmit} className="space-y-4">
-            <input type="text" placeholder={t.contact.name} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required className="w-full px-5 py-4 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors text-sm" />
-            <input type="email" placeholder={t.contact.email} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required className="w-full px-5 py-4 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors text-sm" />
-            <textarea placeholder={t.contact.message} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required rows={5} className="w-full px-5 py-4 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors text-sm resize-none" />
-            <button type="submit" className="glass-button text-sm w-full justify-center">
+          <motion.form variants={fadeRightItem} initial="hidden" whileInView="visible" viewport={{ once: true }} onSubmit={handleSubmit} className="space-y-4">
+            {[
+              { type: "text", placeholder: t.contact.name, key: "name" as const },
+              { type: "email", placeholder: t.contact.email, key: "email" as const },
+            ].map((field, i) => (
+              <motion.input
+                key={field.key}
+                type={field.type}
+                placeholder={field.placeholder}
+                value={form[field.key]}
+                onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
+                required
+                className="w-full px-5 py-4 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-all text-sm"
+                whileFocus={{ scale: 1.01, boxShadow: "0 0 20px hsl(var(--primary) / 0.15)" }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 + 0.2 }}
+              />
+            ))}
+            <motion.textarea
+              placeholder={t.contact.message}
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              required
+              rows={5}
+              className="w-full px-5 py-4 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-all text-sm resize-none"
+              whileFocus={{ scale: 1.01, boxShadow: "0 0 20px hsl(var(--primary) / 0.15)" }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            />
+            <motion.button
+              type="submit"
+              className="glass-button text-sm w-full justify-center"
+              whileHover={{ scale: 1.03, boxShadow: "0 10px 30px hsl(var(--primary) / 0.3)" }}
+              whileTap={{ scale: 0.97 }}
+            >
               {t.contact.send} <Send size={16} />
-            </button>
+            </motion.button>
           </motion.form>
         </div>
       </div>

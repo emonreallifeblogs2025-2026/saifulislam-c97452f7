@@ -1,5 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
 import { ArrowUp, Facebook } from "lucide-react";
+import { staggerContainer, fadeUpItem } from "@/lib/animations";
 
 const TikTokIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -10,56 +12,69 @@ const TikTokIcon = () => (
 const Footer = () => {
   const { t } = useLanguage();
 
+  const socialLinks = [
+    { icon: <Facebook size={16} />, href: "https://www.facebook.com/realliferesearcher" },
+    { icon: <TikTokIcon />, href: "https://www.tiktok.com/@saifulislam.live?_r=1&_t=ZS-94bFZ1rkh1g" },
+  ];
+
   return (
     <footer className="py-10 relative overflow-hidden" style={{ background: "hsl(0, 70%, 45%)" }}>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+      {/* Animated background shimmer */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.03), transparent)" }}
+        animate={{ x: ["-100%", "100%"] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+      />
+
+      <motion.div
+        className="container mx-auto px-4 relative z-10"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.div variants={fadeUpItem} className="flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-white/90 text-sm">
             © Saiful Islam 2026 | {t.footer.rights}
           </p>
           <div className="flex items-center gap-4">
-            <a
-              href="https://www.facebook.com/realliferesearcher"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all hover:scale-110"
-              style={{
-                background: "linear-gradient(145deg, hsl(0, 60%, 55%), hsl(0, 70%, 38%))",
-                boxShadow: "3px 3px 6px hsl(0, 70%, 30%), -2px -2px 5px hsl(0, 60%, 55%), inset 1px 1px 2px hsl(0, 50%, 65%)",
-                border: "1px solid hsl(0, 50%, 60%)",
-              }}
-            >
-              <Facebook size={16} />
-            </a>
-            <a
-              href="https://www.tiktok.com/@saifulislam.live?_r=1&_t=ZS-94bFZ1rkh1g"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all hover:scale-110"
-              style={{
-                background: "linear-gradient(145deg, hsl(0, 60%, 55%), hsl(0, 70%, 38%))",
-                boxShadow: "3px 3px 6px hsl(0, 70%, 30%), -2px -2px 5px hsl(0, 60%, 55%), inset 1px 1px 2px hsl(0, 50%, 65%)",
-                border: "1px solid hsl(0, 50%, 60%)",
-              }}
-            >
-              <TikTokIcon />
-            </a>
+            {socialLinks.map((s, i) => (
+              <motion.a
+                key={i}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all"
+                style={{
+                  background: "linear-gradient(145deg, hsl(0, 60%, 55%), hsl(0, 70%, 38%))",
+                  boxShadow: "3px 3px 6px hsl(0, 70%, 30%), -2px -2px 5px hsl(0, 60%, 55%), inset 1px 1px 2px hsl(0, 50%, 65%)",
+                  border: "1px solid hsl(0, 50%, 60%)",
+                }}
+                whileHover={{ scale: 1.15, rotate: 10, boxShadow: "0 0 20px hsl(0 0% 100% / 0.3)" }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {s.icon}
+              </motion.a>
+            ))}
           </div>
-        </div>
-        <div className="flex justify-center mt-8">
-          <a
+        </motion.div>
+        <motion.div variants={fadeUpItem} className="flex justify-center mt-8">
+          <motion.a
             href="#home"
-            className="w-11 h-11 rounded-full flex items-center justify-center transition-all hover:-translate-y-1 text-white hover:scale-110"
+            className="w-11 h-11 rounded-full flex items-center justify-center text-white"
             style={{
               background: "linear-gradient(145deg, hsl(0, 60%, 55%), hsl(0, 70%, 38%))",
               boxShadow: "3px 3px 6px hsl(0, 70%, 30%), -2px -2px 5px hsl(0, 60%, 55%), inset 1px 1px 2px hsl(0, 50%, 65%)",
               border: "1px solid hsl(0, 50%, 60%)",
             }}
+            whileHover={{ y: -5, scale: 1.15, boxShadow: "0 8px 25px hsl(0 0% 100% / 0.3)" }}
+            whileTap={{ scale: 0.9 }}
           >
             <ArrowUp size={16} />
-          </a>
-        </div>
-      </div>
+          </motion.a>
+        </motion.div>
+      </motion.div>
     </footer>
   );
 };

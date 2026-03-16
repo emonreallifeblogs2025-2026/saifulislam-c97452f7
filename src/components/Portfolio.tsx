@@ -1,6 +1,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { staggerContainer, fadeUpItem } from "@/lib/animations";
+import { TiltCard, FloatingOrbs, AnimatedTitle } from "@/components/AnimatedSection";
 
 const articlesBn = [
   `আজ আমি আপনাদের কোনো রূপকথার গল্প শোনাতে আসিনি, এসেছি আপনাদের ঘুমন্ত মগজে একটি শব্দবোমা ফাটাতে! আপনারা যারা আজ এখানে খুব শান্তিতে বসে আছেন, বুকে হাত দিয়ে একবার নিজেদের প্রশ্ন করুন তো—আপনারা কি সত্যিই বেঁচে আছেন? নাকি শ্বাস নেওয়া আর খাবার হজম করাকেই আপনারা 'বেঁচে থাকা' বলে ধরে নিয়েছেন? আজ আমাদের স্বীকার করতেই হবে, আমরা সবাই এই বিকারগ্রস্ত মহামারীতে আক্রান্ত! তাই আজ জেগে উঠুন! পচে যাওয়া এই বিকারগ্রস্ত মানসিকতা থেকে নিজেকে টেনে তুলুন।`,
@@ -68,28 +70,65 @@ const Portfolio = () => {
   const titles = [t.portfolio.t1, t.portfolio.t2, t.portfolio.t3, t.portfolio.t4];
 
   return (
-    <section id="portfolio" className="section-padding bg-secondary/20">
-      <div className="container mx-auto">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+    <section id="portfolio" className="section-padding bg-secondary/20 relative overflow-hidden">
+      <FloatingOrbs colors={["hsl(var(--primary) / 0.05)", "hsl(var(--gold) / 0.04)", "hsl(var(--primary) / 0.03)"]} />
+
+      <div className="container mx-auto relative z-10">
+        <AnimatedTitle className="text-center mb-16">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">{t.portfolio.sectionLabel}</p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">{t.portfolio.sectionTitle}</h2>
           <p className="text-muted-foreground text-base mt-4 max-w-2xl mx-auto">{t.portfolio.sectionSubtitle}</p>
-        </motion.div>
+        </AnimatedTitle>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {articles.map((article, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card p-6 cursor-pointer group" onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center text-lg font-bold">{i + 1}</span>
-                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">{titles[i]}</h3>
-              </div>
-              <p className={`text-muted-foreground text-sm leading-relaxed whitespace-pre-line ${expandedIndex === i ? "" : "line-clamp-6"}`}>{article}</p>
-              <button className="mt-4 text-primary text-sm font-medium hover:underline">
-                {expandedIndex === i ? t.portfolio.showLess : t.portfolio.readMore}
-              </button>
+            <motion.div key={i} variants={fadeUpItem}>
+              <TiltCard className="glass-card p-6 cursor-pointer group relative overflow-hidden">
+                {/* Hover gradient */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                  style={{ background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.06), transparent 70%)" }}
+                />
+                <div className="relative z-10" onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <motion.span
+                      className="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center text-lg font-bold"
+                      whileHover={{ scale: 1.2, rotate: 360 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {i + 1}
+                    </motion.span>
+                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">{titles[i]}</h3>
+                  </div>
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={expandedIndex === i ? "expanded" : "collapsed"}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className={`text-muted-foreground text-sm leading-relaxed whitespace-pre-line ${expandedIndex === i ? "" : "line-clamp-6"}`}
+                    >
+                      {article}
+                    </motion.p>
+                  </AnimatePresence>
+                  <motion.button
+                    className="mt-4 text-primary text-sm font-medium hover:underline"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
+                    {expandedIndex === i ? t.portfolio.showLess : t.portfolio.readMore}
+                  </motion.button>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
