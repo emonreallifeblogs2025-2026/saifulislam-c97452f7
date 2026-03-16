@@ -57,7 +57,7 @@ const Hero = () => {
       <div className="absolute inset-0 diagonal-lines" />
 
       <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
-        {particles.map((p) => (
+        {particles.slice(0, 20).map((p) => (
           <motion.div key={p.id} className="absolute rounded-full" style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: `hsl(40, 85%, ${50 + p.size * 5}%)` }}
             animate={{ y: [0, -60, -120], opacity: [0, 1, 0], scale: [0.5, 1.2, 0.3] }}
             transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }} />
