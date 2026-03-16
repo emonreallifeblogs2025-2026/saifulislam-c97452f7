@@ -223,3 +223,64 @@ html {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* Hero 3D Smart Buttons */
+.hero-3d-btn {
+  position: relative;
+  display: inline-flex;
+  border-radius: 9999px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-3d-btn:hover {
+  transform: translateY(-3px) rotateX(6deg);
+}
+.hero-3d-btn:active {
+  transform: translateY(0px) scale(0.97);
+}
+
+.hero-3d-btn-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--pink-light)), hsl(var(--gold)), hsl(var(--primary)));
+  background-size: 300% 300%;
+  animation: borderGlow 3s ease infinite;
+  opacity: 0.7;
+  filter: blur(3px);
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+.hero-3d-btn:hover .hero-3d-btn-glow {
+  opacity: 1;
+  filter: blur(5px);
+}
+
+.hero-3d-btn-inner {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--secondary)));
+  border: 1px solid hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
+  font-weight: 600;
+  box-shadow:
+    0 2px 8px hsl(var(--primary) / 0.2),
+    inset 0 1px 0 hsl(var(--foreground) / 0.08),
+    0 4px 12px hsl(var(--background) / 0.5);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+.hero-3d-btn:hover .hero-3d-btn-inner {
+  border-color: hsl(var(--primary) / 0.6);
+  box-shadow:
+    0 4px 20px hsl(var(--primary) / 0.35),
+    inset 0 1px 0 hsl(var(--foreground) / 0.1),
+    0 8px 24px hsl(var(--background) / 0.6);
+}
