@@ -73,12 +73,44 @@ const ShareButtons = ({ track, t }: { track: Track; t: any }) => {
   );
 };
 
-const SoundCloudPlayer = memo(({ track, t }: { track: Track; t: any }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [iframeLoaded, setIframeLoaded] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+// Load SC Widget API once
+const scApiLoaded = (() => {
+  let promise: Promise<void> | null = null;
+  return () => {
+    if (!promise) {
+      promise = new Promise<void>((resolve) => {
+        if ((window as any).SC) { resolve(); return; }
+        const s = document.createElement("script");
+        s.src = "https://w.soundcloud.com/player/api.js";
+        s.onload = () => resolve();
+        document.head.appendChild(s);
+      });
+    }
+    return promise;
+  };
+})();
 
-  // IntersectionObserver: only load iframe when card scrolls into view
+const SoundCloudPlayer = memo(({ track, t, currentPlaying, onPlay }: { track: Track; t: any; currentPlaying: number | null; onPlay: (id: number | null) => void }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [ready, setReady] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const widgetRef = useRef<any>(null);
+  const progressInterval = useRef<ReturnType<typeof setInterval>>();
+
+  // Pause if another track starts playing
+  useEffect(() => {
+    if (currentPlaying !== null && currentPlaying !== track.id && isPlaying) {
+      widgetRef.current?.pause();
+      setIsPlaying(false);
+    }
+  }, [currentPlaying, track.id, isPlaying]);
+
+  // IntersectionObserver
   useEffect(() => {
     if (!track.soundcloudUrl || !containerRef.current) return;
     const observer = new IntersectionObserver(
@@ -88,11 +120,78 @@ const SoundCloudPlayer = memo(({ track, t }: { track: Track; t: any }) => {
           observer.disconnect();
         }
       },
-      { rootMargin: "200px 0px", threshold: 0.01 }
+      { rootMargin: "300px 0px", threshold: 0.01 }
     );
     observer.observe(containerRef.current);
     return () => observer.disconnect();
   }, [track.soundcloudUrl]);
+
+  // Init widget
+  useEffect(() => {
+    if (!isVisible || !iframeRef.current) return;
+    scApiLoaded().then(() => {
+      const SC = (window as any).SC;
+      if (!SC || !iframeRef.current) return;
+      const widget = SC.Widget(iframeRef.current);
+      widgetRef.current = widget;
+      widget.bind(SC.Widget.Events.READY, () => {
+        setReady(true);
+        widget.getDuration((d: number) => setDuration(d));
+      });
+      widget.bind(SC.Widget.Events.PLAY, () => setIsPlaying(true));
+      widget.bind(SC.Widget.Events.PAUSE, () => setIsPlaying(false));
+      widget.bind(SC.Widget.Events.FINISH, () => {
+        setIsPlaying(false);
+        setProgress(0);
+        setCurrentTime(0);
+        onPlay(null);
+      });
+    });
+    return () => {
+      if (progressInterval.current) clearInterval(progressInterval.current);
+    };
+  }, [isVisible, onPlay]);
+
+  // Progress polling
+  useEffect(() => {
+    if (progressInterval.current) clearInterval(progressInterval.current);
+    if (isPlaying && widgetRef.current) {
+      progressInterval.current = setInterval(() => {
+        widgetRef.current?.getPosition((pos: number) => {
+          setCurrentTime(pos);
+          if (duration > 0) setProgress((pos / duration) * 100);
+        });
+      }, 250);
+    }
+    return () => { if (progressInterval.current) clearInterval(progressInterval.current); };
+  }, [isPlaying, duration]);
+
+  const togglePlay = () => {
+    if (!widgetRef.current || !ready) return;
+    if (isPlaying) {
+      widgetRef.current.pause();
+      onPlay(null);
+    } else {
+      widgetRef.current.play();
+      onPlay(track.id);
+    }
+  };
+
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!widgetRef.current || !ready || duration === 0) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    widgetRef.current.seekTo(pct * duration);
+    setProgress(pct * 100);
+    setCurrentTime(pct * duration);
+  };
+
+  const formatTime = (ms: number) => {
+    const s = Math.floor(ms / 1000);
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return `${m}:${String(sec).padStart(2, "0")}`;
+  };
 
   if (track.soundcloudUrl) {
     return (
@@ -100,40 +199,89 @@ const SoundCloudPlayer = memo(({ track, t }: { track: Track; t: any }) => {
         ref={containerRef}
         className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 hover:border-primary/30 transition-all duration-300 mx-auto w-full"
       >
-        <div className="flex items-center justify-between gap-2 mb-3">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-              {String(track.id).padStart(2, "0")}
-            </span>
-            <h3 className="text-sm sm:text-base font-semibold text-foreground truncate">{track.title}</h3>
-          </div>
-          <ShareButtons track={track} t={t} />
-        </div>
-        <div className="relative w-full h-[166px] rounded-lg overflow-hidden">
-          {isVisible && (
-            <iframe
-              width="100%"
-              height="166"
-              scrolling="no"
-              frameBorder="no"
-              allow="autoplay"
-              src={track.soundcloudUrl}
-              className="rounded-lg absolute inset-0 z-10"
-              onLoad={() => setIframeLoaded(true)}
-              style={{ opacity: iframeLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}
-            />
-          )}
-          {!iframeLoaded && (
-            <div className="absolute inset-0 rounded-lg bg-muted animate-pulse flex items-center justify-center z-0">
-              <Music size={24} className="text-muted-foreground" />
+        {/* Hidden iframe for SC Widget API */}
+        {isVisible && (
+          <iframe
+            ref={iframeRef}
+            width="0"
+            height="0"
+            scrolling="no"
+            frameBorder="no"
+            allow="autoplay"
+            src={track.soundcloudUrl}
+            className="absolute w-0 h-0 opacity-0 pointer-events-none"
+            tabIndex={-1}
+            aria-hidden="true"
+          />
+        )}
+
+        {/* Custom Player UI */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Play/Pause Button */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={togglePlay}
+            disabled={!ready && isVisible}
+            className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
+              isPlaying
+                ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                : ready
+                ? "bg-primary/15 text-primary hover:bg-primary/25"
+                : "bg-muted text-muted-foreground"
+            }`}
+          >
+            {!isVisible || !ready ? (
+              <Music size={20} className="animate-pulse" />
+            ) : isPlaying ? (
+              <Pause size={20} fill="currentColor" />
+            ) : (
+              <Play size={20} fill="currentColor" className="ml-0.5" />
+            )}
+          </motion.button>
+
+          {/* Track Info + Progress */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center justify-between gap-2 mb-1.5">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+                  {String(track.id).padStart(2, "0")}
+                </span>
+                <h3 className="text-sm sm:text-base font-semibold text-foreground truncate">{track.title}</h3>
+              </div>
+              <ShareButtons track={track} t={t} />
             </div>
-          )}
+
+            {/* Progress Bar */}
+            <div
+              className="w-full h-1.5 sm:h-2 rounded-full bg-muted cursor-pointer group relative"
+              onClick={handleSeek}
+            >
+              <motion.div
+                className="h-full rounded-full bg-primary relative"
+                style={{ width: `${progress}%` }}
+                transition={{ duration: 0.1 }}
+              >
+                <span className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-primary shadow-md shadow-primary/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+            </div>
+
+            {/* Time + Artist */}
+            <div className="flex items-center justify-between mt-1">
+              <span className="text-[10px] sm:text-xs text-muted-foreground tabular-nums">
+                {ready ? `${formatTime(currentTime)} / ${formatTime(duration)}` : "—:—"}
+              </span>
+              <span className="text-[10px] sm:text-xs text-muted-foreground truncate ml-2">
+                {t.songs?.artist || "Syed Saiful Islam"}
+              </span>
+            </div>
+          </div>
         </div>
-        <p className="text-xs text-muted-foreground mt-2">{t.songs?.artist || "Syed Saiful Islam"}</p>
       </div>
     );
   }
 
+  // Placeholder track (no URL)
   return (
     <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 opacity-60 mx-auto w-full">
       <div className="flex items-center gap-3 sm:gap-4">
