@@ -95,7 +95,15 @@ const ShareButtons = ({ track, t }: { track: Track; t: any }) => {
   );
 };
 
-const SoundCloudPlayer = ({ track, t }: { track: Track; t: any }) => {
+const SoundCloudPlayer = memo(({ track, t }: { track: Track; t: any }) => {
+  const [loadPlayer, setLoadPlayer] = useState(false);
+
+  useEffect(() => {
+    if (!track.soundcloudUrl) return;
+    const timer = setTimeout(() => setLoadPlayer(true), 100);
+    return () => clearTimeout(timer);
+  }, [track.soundcloudUrl]);
+
   if (track.soundcloudUrl) {
     return (
       <div className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 hover:border-primary/30 transition-all duration-300">
@@ -108,16 +116,22 @@ const SoundCloudPlayer = ({ track, t }: { track: Track; t: any }) => {
           </div>
           <ShareButtons track={track} t={t} />
         </div>
-        <iframe
-          width="100%"
-          height="166"
-          scrolling="no"
-          frameBorder="no"
-          allow="autoplay"
-          loading="lazy"
-          src={track.soundcloudUrl}
-          className="rounded-lg"
-        />
+        {loadPlayer ? (
+          <iframe
+            width="100%"
+            height="166"
+            scrolling="no"
+            frameBorder="no"
+            allow="autoplay"
+            loading="lazy"
+            src={track.soundcloudUrl}
+            className="rounded-lg"
+          />
+        ) : (
+          <div className="w-full h-[166px] rounded-lg bg-muted animate-pulse flex items-center justify-center">
+            <Music size={24} className="text-muted-foreground" />
+          </div>
+        )}
         <p className="text-xs text-muted-foreground mt-2">{t.songs?.artist || "Syed Saiful Islam"}</p>
       </div>
     );
