@@ -3,31 +3,25 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Music } from "lucide-react";
 import { Link } from "react-router-dom";
 import songsCover from "@/assets/songs-cover.png";
-import songsCover from "@/assets/songs-cover.png";
 
 interface Track {
   id: number;
   title: string;
-  url: string;
   soundcloudUrl: string;
 }
 
 const tracks: Track[] = [
-  { id: 1, title: "Bhool Manush Ke Bhalobasha Oporadh", url: "", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Fbhool-manush-ke-bhalobasha&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-  { id: 2, title: "গান ২", url: "", soundcloudUrl: "" },
-  { id: 3, title: "গান ৩", url: "", soundcloudUrl: "" },
-  { id: 4, title: "গান ৪", url: "", soundcloudUrl: "" },
-  { id: 5, title: "গান ৫", url: "", soundcloudUrl: "" },
-  { id: 6, title: "গান ৬", url: "", soundcloudUrl: "" },
-  { id: 7, title: "গান ৭", url: "", soundcloudUrl: "" },
-  { id: 8, title: "গান ৮", url: "", soundcloudUrl: "" },
-  { id: 9, title: "গান ৯", url: "", soundcloudUrl: "" },
-  { id: 10, title: "গান ১০", url: "", soundcloudUrl: "" },
+  { id: 1, title: "Bhool Manush Ke Bhalobasha Oporadh", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Fbhool-manush-ke-bhalobasha&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+  { id: 2, title: "গান ২", soundcloudUrl: "" },
+  { id: 3, title: "গান ৩", soundcloudUrl: "" },
+  { id: 4, title: "গান ৪", soundcloudUrl: "" },
+  { id: 5, title: "গান ৫", soundcloudUrl: "" },
+  { id: 6, title: "গান ৬", soundcloudUrl: "" },
+  { id: 7, title: "গান ৭", soundcloudUrl: "" },
+  { id: 8, title: "গান ৮", soundcloudUrl: "" },
+  { id: 9, title: "গান ৯", soundcloudUrl: "" },
+  { id: 10, title: "গান ১০", soundcloudUrl: "" },
 ];
-
-// Generate random waveform bars
-const generateWaveform = (count: number) =>
-  Array.from({ length: count }, () => Math.random() * 0.7 + 0.3);
 
 const SoundCloudPlayer = ({ track }: { track: Track }) => {
   if (track.soundcloudUrl) {
@@ -86,11 +80,6 @@ const SoundCloudPlayer = ({ track }: { track: Track }) => {
 
 const Songs = () => {
   const { t } = useLanguage();
-  const [playingId, setPlayingId] = useState<number | null>(null);
-
-  const handleToggle = useCallback((id: number) => {
-    setPlayingId((prev) => (prev === id ? null : id));
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -146,12 +135,7 @@ const Songs = () => {
       <div className="container mx-auto px-4 py-8 max-w-3xl">
         <div className="grid gap-4">
           {tracks.map((track) => (
-            <WaveformPlayer
-              key={track.id}
-              track={track}
-              isPlaying={playingId === track.id}
-              onToggle={() => handleToggle(track.id)}
-            />
+            <SoundCloudPlayer key={track.id} track={track} />
           ))}
         </div>
       </div>
