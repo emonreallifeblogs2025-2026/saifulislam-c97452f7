@@ -132,61 +132,104 @@ const Hero = () => {
           <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
               {/* Fire effect behind hero */}
-              <div className="absolute z-0" style={{ inset: '-30%', pointerEvents: 'none' }}>
-                {/* Main fire core */}
+              <div className="absolute z-0" style={{ inset: '-35%', pointerEvents: 'none' }}>
+                {/* White-hot core */}
                 <motion.div
-                  className="absolute bottom-[15%] left-1/2 -translate-x-1/2"
+                  className="absolute bottom-[12%] left-1/2 -translate-x-1/2"
                   style={{
-                    width: '80%',
-                    height: '90%',
-                    background: 'radial-gradient(ellipse 70% 80% at 50% 80%, hsl(30 100% 50% / 0.7), hsl(20 100% 45% / 0.5) 30%, hsl(10 100% 40% / 0.3) 50%, transparent 70%)',
-                    filter: 'blur(20px)',
+                    width: '60%',
+                    height: '50%',
+                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(45 100% 95% / 0.9), hsl(40 100% 70% / 0.6) 30%, transparent 60%)',
+                    filter: 'blur(15px)',
+                  }}
+                  animate={{ opacity: [0.7, 1, 0.8, 1, 0.7], scaleX: [1, 1.08, 0.95, 1.1, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                />
+                {/* Main fire core - intense */}
+                <motion.div
+                  className="absolute bottom-[10%] left-1/2 -translate-x-1/2"
+                  style={{
+                    width: '90%',
+                    height: '95%',
+                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(35 100% 60% / 0.9), hsl(25 100% 50% / 0.7) 25%, hsl(10 100% 45% / 0.5) 45%, hsl(0 100% 35% / 0.3) 60%, transparent 75%)',
+                    filter: 'blur(18px)',
                   }}
                   animate={{ 
-                    opacity: [0.6, 0.9, 0.7, 1, 0.6],
-                    scaleX: [1, 1.05, 0.95, 1.08, 1],
-                    scaleY: [1, 1.1, 0.95, 1.15, 1],
+                    opacity: [0.7, 1, 0.8, 1, 0.7],
+                    scaleX: [1, 1.08, 0.93, 1.1, 1],
+                    scaleY: [1, 1.12, 0.94, 1.18, 1],
                   }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Rising flames */}
-                {[...Array(8)].map((_, i) => (
+                {/* Rising flames - more intense */}
+                {[...Array(12)].map((_, i) => (
                   <motion.div
-                    key={i}
+                    key={`flame-${i}`}
                     className="absolute rounded-full"
                     style={{
-                      left: `${20 + Math.random() * 60}%`,
-                      bottom: `${10 + Math.random() * 20}%`,
-                      width: `${30 + Math.random() * 40}px`,
-                      height: `${60 + Math.random() * 100}px`,
-                      background: `radial-gradient(ellipse at 50% 90%, hsl(${35 - i * 4} 100% ${55 - i * 3}% / 0.8), hsl(${20 - i * 2} 100% 45% / 0.4) 40%, transparent 70%)`,
-                      filter: 'blur(8px)',
+                      left: `${15 + Math.random() * 70}%`,
+                      bottom: `${8 + Math.random() * 25}%`,
+                      width: `${35 + Math.random() * 50}px`,
+                      height: `${70 + Math.random() * 130}px`,
+                      background: `radial-gradient(ellipse at 50% 90%, hsl(${40 - i * 3} 100% ${65 - i * 2}% / 0.95), hsl(${25 - i * 2} 100% 50% / 0.6) 35%, hsl(${5} 100% 40% / 0.2) 60%, transparent 75%)`,
+                      filter: 'blur(6px)',
                     }}
                     animate={{
-                      y: [0, -80 - Math.random() * 120, -200 - Math.random() * 100],
-                      opacity: [0, 0.9, 0],
-                      scaleX: [0.8, 1.2, 0.3],
-                      scaleY: [1, 1.5, 0.5],
+                      y: [0, -100 - Math.random() * 150, -250 - Math.random() * 120],
+                      opacity: [0, 1, 0],
+                      scaleX: [0.7, 1.3, 0.2],
+                      scaleY: [1, 1.6, 0.4],
                     }}
                     transition={{
-                      duration: 1.5 + Math.random() * 1.5,
+                      duration: 1.2 + Math.random() * 1.3,
                       repeat: Infinity,
                       delay: Math.random() * 2,
                       ease: "easeOut",
                     }}
                   />
                 ))}
-                {/* Outer glow */}
+                {/* Spark / Ember particles */}
+                {[...Array(20)].map((_, i) => (
+                  <motion.div
+                    key={`spark-${i}`}
+                    className="absolute rounded-full"
+                    style={{
+                      left: `${20 + Math.random() * 60}%`,
+                      bottom: `${15 + Math.random() * 30}%`,
+                      width: `${2 + Math.random() * 4}px`,
+                      height: `${2 + Math.random() * 4}px`,
+                      background: i % 3 === 0
+                        ? 'hsl(45 100% 80%)'
+                        : i % 3 === 1
+                        ? 'hsl(30 100% 60%)'
+                        : 'hsl(15 100% 50%)',
+                      boxShadow: `0 0 ${4 + Math.random() * 6}px ${i % 3 === 0 ? 'hsl(45 100% 70%)' : 'hsl(25 100% 55%)'}`,
+                    }}
+                    animate={{
+                      y: [0, -120 - Math.random() * 200],
+                      x: [(Math.random() - 0.5) * 20, (Math.random() - 0.5) * 80],
+                      opacity: [0, 1, 1, 0],
+                      scale: [1, 1.5, 0.5, 0],
+                    }}
+                    transition={{
+                      duration: 1 + Math.random() * 2,
+                      repeat: Infinity,
+                      delay: Math.random() * 3,
+                      ease: "easeOut",
+                    }}
+                  />
+                ))}
+                {/* Outer intense glow */}
                 <motion.div
-                  className="absolute bottom-[10%] left-1/2 -translate-x-1/2"
+                  className="absolute bottom-[5%] left-1/2 -translate-x-1/2"
                   style={{
-                    width: '120%',
-                    height: '80%',
-                    background: 'radial-gradient(ellipse 60% 70% at 50% 85%, hsl(var(--gold) / 0.35), hsl(var(--primary) / 0.15) 40%, transparent 65%)',
-                    filter: 'blur(30px)',
+                    width: '130%',
+                    height: '85%',
+                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.5), hsl(25 100% 45% / 0.25) 35%, hsl(var(--primary) / 0.1) 55%, transparent 70%)',
+                    filter: 'blur(25px)',
                   }}
-                  animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.05, 1] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.06, 1] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                 />
               </div>
               <div className="relative z-10">
