@@ -245,6 +245,7 @@ const translations: Record<Lang, any> = {
       s3Title: "الموسيقى والتأليف", s3Count: "٣٠ مكتمل", s3Desc: "مؤلفات موسيقية مقنعة تتردد مع العواطف.",
     },
     writings: { goBack: "العودة", waitMore: "المزيد من الفصول قريباً", chapters: "الفصول", author: "سيد سيف الإسلام", authorRole: "باحث • كاتب", comingSoon: "قريباً" },
+    songs: { pageTitle: "ألحاني", pageSubtitle: "التأليف والأغاني الأصلية" },
   },
   de: {
     nav: { home: "Startseite", about: "Über mich", skills: "Fähigkeiten", portfolio: "Portfolio", contact: "Kontakt", letsChat: "Kontaktieren", videos: "Videos" },
