@@ -361,6 +361,7 @@ const FloatingInstrumentsCSS = () => (
 const Songs = () => {
   const { t, lang, setLang } = useLanguage();
   const [pageShareCopied, setPageShareCopied] = useState(false);
+  const [currentPlaying, setCurrentPlaying] = useState<number | null>(null);
   const { toast } = useToast();
 
   // Generate tracks with translated placeholder titles
