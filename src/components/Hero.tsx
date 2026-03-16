@@ -142,10 +142,10 @@ const Hero = () => {
                     background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(45 100% 95% / 0.9), hsl(40 100% 70% / 0.6) 30%, transparent 60%)',
                     filter: 'blur(15px)',
                   }}
-                  animate={{ opacity: [0.7, 1, 0.8, 1, 0.7], scaleX: [1, 1.08, 0.95, 1.1, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.6, 0.85, 0.7, 0.9, 0.6] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Main fire core - intense */}
+                {/* Main fire core */}
                 <motion.div
                   className="absolute bottom-[10%] left-1/2 -translate-x-1/2"
                   style={{
@@ -155,13 +155,13 @@ const Hero = () => {
                     filter: 'blur(18px)',
                   }}
                   animate={{ 
-                    opacity: [0.7, 1, 0.8, 1, 0.7],
-                    scaleX: [1, 1.08, 0.93, 1.1, 1],
-                    scaleY: [1, 1.12, 0.94, 1.18, 1],
+                    opacity: [0.6, 0.9, 0.7, 0.85, 0.6],
+                    scaleX: [1, 1.03, 0.98, 1.02, 1],
+                    scaleY: [1, 1.04, 0.97, 1.03, 1],
                   }}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Rising flames - more intense */}
+                {/* Slow rising flames */}
                 {[...Array(12)].map((_, i) => (
                   <motion.div
                     key={`flame-${i}`}
@@ -171,24 +171,24 @@ const Hero = () => {
                       bottom: `${8 + Math.random() * 25}%`,
                       width: `${35 + Math.random() * 50}px`,
                       height: `${70 + Math.random() * 130}px`,
-                      background: `radial-gradient(ellipse at 50% 90%, hsl(${40 - i * 3} 100% ${65 - i * 2}% / 0.95), hsl(${25 - i * 2} 100% 50% / 0.6) 35%, hsl(${5} 100% 40% / 0.2) 60%, transparent 75%)`,
-                      filter: 'blur(6px)',
+                      background: `radial-gradient(ellipse at 50% 90%, hsl(${40 - i * 3} 100% ${65 - i * 2}% / 0.95), hsl(${25 - i * 2} 100% 50% / 0.6) 35%, hsl(5 100% 40% / 0.2) 60%, transparent 75%)`,
+                      filter: 'blur(8px)',
                     }}
                     animate={{
-                      y: [0, -100 - Math.random() * 150, -250 - Math.random() * 120],
-                      opacity: [0, 1, 0],
-                      scaleX: [0.7, 1.3, 0.2],
-                      scaleY: [1, 1.6, 0.4],
+                      y: [0, -60 - Math.random() * 80, -150 - Math.random() * 80],
+                      opacity: [0, 0.7, 0.5, 0],
+                      scaleX: [0.9, 1.1, 0.7],
+                      scaleY: [1, 1.2, 0.8],
                     }}
                     transition={{
-                      duration: 1.2 + Math.random() * 1.3,
+                      duration: 4 + Math.random() * 4,
                       repeat: Infinity,
-                      delay: Math.random() * 2,
-                      ease: "easeOut",
+                      delay: Math.random() * 4,
+                      ease: "easeInOut",
                     }}
                   />
                 ))}
-                {/* Spark / Ember particles */}
+                {/* Slow sparks */}
                 {[...Array(20)].map((_, i) => (
                   <motion.div
                     key={`spark-${i}`}
@@ -198,28 +198,24 @@ const Hero = () => {
                       bottom: `${15 + Math.random() * 30}%`,
                       width: `${2 + Math.random() * 4}px`,
                       height: `${2 + Math.random() * 4}px`,
-                      background: i % 3 === 0
-                        ? 'hsl(45 100% 80%)'
-                        : i % 3 === 1
-                        ? 'hsl(30 100% 60%)'
-                        : 'hsl(15 100% 50%)',
+                      background: i % 3 === 0 ? 'hsl(45 100% 80%)' : i % 3 === 1 ? 'hsl(30 100% 60%)' : 'hsl(15 100% 50%)',
                       boxShadow: `0 0 ${4 + Math.random() * 6}px ${i % 3 === 0 ? 'hsl(45 100% 70%)' : 'hsl(25 100% 55%)'}`,
                     }}
                     animate={{
-                      y: [0, -120 - Math.random() * 200],
-                      x: [(Math.random() - 0.5) * 20, (Math.random() - 0.5) * 80],
-                      opacity: [0, 1, 1, 0],
-                      scale: [1, 1.5, 0.5, 0],
+                      y: [0, -80 - Math.random() * 120],
+                      x: [(Math.random() - 0.5) * 10, (Math.random() - 0.5) * 50],
+                      opacity: [0, 0.8, 0.6, 0],
+                      scale: [1, 1.2, 0.8, 0],
                     }}
                     transition={{
-                      duration: 1 + Math.random() * 2,
+                      duration: 3 + Math.random() * 4,
                       repeat: Infinity,
-                      delay: Math.random() * 3,
-                      ease: "easeOut",
+                      delay: Math.random() * 5,
+                      ease: "easeInOut",
                     }}
                   />
                 ))}
-                {/* Outer intense glow */}
+                {/* Outer glow */}
                 <motion.div
                   className="absolute bottom-[5%] left-1/2 -translate-x-1/2"
                   style={{
@@ -228,8 +224,8 @@ const Hero = () => {
                     background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.5), hsl(25 100% 45% / 0.25) 35%, hsl(var(--primary) / 0.1) 55%, transparent 70%)',
                     filter: 'blur(25px)',
                   }}
-                  animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.06, 1] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.3, 0.6, 0.3] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Smoke / Dhoa effect - dense & slow */}
                 {[...Array(14)].map((_, i) => (
