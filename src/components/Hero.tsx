@@ -231,6 +231,33 @@ const Hero = () => {
                   animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.06, 1] }}
                   transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                 />
+                {/* Smoke / Dhoa effect */}
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={`smoke-${i}`}
+                    className="absolute rounded-full"
+                    style={{
+                      left: `${15 + Math.random() * 70}%`,
+                      bottom: `${20 + Math.random() * 25}%`,
+                      width: `${80 + Math.random() * 100}px`,
+                      height: `${80 + Math.random() * 100}px`,
+                      background: `radial-gradient(circle, hsl(220 10% 30% / ${0.15 + Math.random() * 0.15}), hsl(220 10% 20% / 0.08) 50%, transparent 70%)`,
+                      filter: `blur(${20 + Math.random() * 15}px)`,
+                    }}
+                    animate={{
+                      y: [0, -150 - Math.random() * 200, -350 - Math.random() * 150],
+                      x: [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 100],
+                      opacity: [0, 0.5, 0.3, 0],
+                      scale: [0.5, 1.5, 2.5],
+                    }}
+                    transition={{
+                      duration: 3 + Math.random() * 3,
+                      repeat: Infinity,
+                      delay: Math.random() * 4,
+                      ease: "easeOut",
+                    }}
+                  />
+                ))}
               </div>
               <div className="relative z-10">
                 <img src={heroImage} alt="Saiful Islam - Psychology & Real Life Researcher" className="w-full" loading="eager"
