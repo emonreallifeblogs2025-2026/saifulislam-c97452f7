@@ -323,7 +323,7 @@ const translations: Record<Lang, any> = {
       s3Title: "音乐与作曲", s3Count: "30完成", s3Desc: "充满情感的引人入胜的音乐作品。",
     },
     writings: { goBack: "返回", waitMore: "更多章节即将推出", chapters: "章节", author: "赛福尔·伊斯兰", authorRole: "研究员 • 作家", comingSoon: "即将推出" },
-    songs: { pageTitle: "我的旋律", pageSubtitle: "作曲与原创歌曲" },
+    songs: { pageTitle: "我的旋律", pageSubtitle: "作曲与原创歌曲", comingSoon: "即将推出...", artist: "赛福尔·伊斯兰", linkCopied: "链接已复制！", trackLabel: "曲目" },
   },
   ru: {
     nav: { home: "Главная", about: "Обо мне", skills: "Навыки", portfolio: "Портфолио", contact: "Контакт", letsChat: "Связаться", videos: "Видео" },
