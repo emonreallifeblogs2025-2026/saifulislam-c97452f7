@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
 import { ArrowRight, BookOpen, Music } from "lucide-react";
+import OrbitingPlanets from "@/components/OrbitingPlanets";
 
 const roles: Record<string, string[]> = {
   en: ["Psychology Researcher.", "Writer.", "AI Prompt Developer.", "Cinematographer.", "Music Composer."],
