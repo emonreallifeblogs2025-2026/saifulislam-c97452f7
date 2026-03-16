@@ -1,106 +1,77 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { ArrowLeft, Play, Pause, Music } from "lucide-react";
+import { ArrowLeft, Music } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState, useRef, useCallback, useEffect } from "react";
 import songsCover from "@/assets/songs-cover.png";
 
 interface Track {
   id: number;
   title: string;
-  url: string;
+  soundcloudUrl: string;
 }
 
 const tracks: Track[] = [
-  { id: 1, title: "গান ১", url: "" },
-  { id: 2, title: "গান ২", url: "" },
-  { id: 3, title: "গান ৩", url: "" },
-  { id: 4, title: "গান ৪", url: "" },
-  { id: 5, title: "গান ৫", url: "" },
-  { id: 6, title: "গান ৬", url: "" },
-  { id: 7, title: "গান ৭", url: "" },
-  { id: 8, title: "গান ৮", url: "" },
-  { id: 9, title: "গান ৯", url: "" },
-  { id: 10, title: "গান ১০", url: "" },
+  { id: 1, title: "Bhool Manush Ke Bhalobasha Oporadh", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Fbhool-manush-ke-bhalobasha&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+  { id: 2, title: "গান ২", soundcloudUrl: "" },
+  { id: 3, title: "গান ৩", soundcloudUrl: "" },
+  { id: 4, title: "গান ৪", soundcloudUrl: "" },
+  { id: 5, title: "গান ৫", soundcloudUrl: "" },
+  { id: 6, title: "গান ৬", soundcloudUrl: "" },
+  { id: 7, title: "গান ৭", soundcloudUrl: "" },
+  { id: 8, title: "গান ৮", soundcloudUrl: "" },
+  { id: 9, title: "গান ৯", soundcloudUrl: "" },
+  { id: 10, title: "গান ১০", soundcloudUrl: "" },
 ];
 
-// Generate random waveform bars
-const generateWaveform = (count: number) =>
-  Array.from({ length: count }, () => Math.random() * 0.7 + 0.3);
-
-const WaveformPlayer = ({ track, isPlaying, onToggle }: { track: Track; isPlaying: boolean; onToggle: () => void }) => {
-  const [bars] = useState(() => generateWaveform(80));
-  const [progress, setProgress] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (isPlaying) {
-      intervalRef.current = setInterval(() => {
-        setProgress((p) => {
-          if (p >= 100) {
-            onToggle();
-            return 0;
-          }
-          return p + 0.5;
-        });
-      }, 100);
-    } else if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
-  }, [isPlaying, onToggle]);
+const SoundCloudPlayer = ({ track }: { track: Track }) => {
+  if (track.soundcloudUrl) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 hover:border-primary/30 transition-all duration-300"
+      >
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+            {String(track.id).padStart(2, "0")}
+          </span>
+          <h3 className="text-sm sm:text-base font-semibold text-foreground">{track.title}</h3>
+        </div>
+        <iframe
+          width="100%"
+          height="166"
+          scrolling="no"
+          frameBorder="no"
+          allow="autoplay"
+          src={track.soundcloudUrl}
+          className="rounded-lg"
+        />
+        <p className="text-xs text-muted-foreground mt-2">Syed Saiful Islam</p>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 hover:border-primary/30 transition-all duration-300"
+      className="rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 opacity-60"
     >
       <div className="flex items-center gap-3 sm:gap-4">
-        {/* Play Button */}
-        <button
-          onClick={onToggle}
-          className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-        >
-          {isPlaying ? (
-            <Pause size={20} className="text-primary-foreground" />
-          ) : (
-            <Play size={20} className="text-primary-foreground ml-0.5" />
-          )}
-        </button>
-
-        {/* Waveform + Info */}
+        <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-muted flex items-center justify-center">
+          <Music size={20} className="text-muted-foreground" />
+        </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mb-1">
             <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
               {String(track.id).padStart(2, "0")}
             </span>
             <h3 className="text-sm sm:text-base font-semibold text-foreground truncate">{track.title}</h3>
           </div>
-
-          {/* Waveform visualization */}
-          <div className="flex items-end gap-[1.5px] h-10 sm:h-12 overflow-hidden">
-            {bars.map((height, i) => {
-              const barProgress = (i / bars.length) * 100;
-              const isActive = barProgress <= progress;
-              return (
-                <div
-                  key={i}
-                  className="flex-1 min-w-[1.5px] max-w-[3px] rounded-full transition-colors duration-150"
-                  style={{
-                    height: `${height * 100}%`,
-                    backgroundColor: isActive
-                      ? "hsl(var(--primary))"
-                      : "hsl(var(--muted-foreground) / 0.3)",
-                  }}
-                />
-              );
-            })}
-          </div>
-
-          {/* Author name */}
-          <p className="text-xs text-muted-foreground mt-1.5">Syed Saiful Islam</p>
+          <p className="text-xs text-muted-foreground">Coming soon...</p>
+          <p className="text-xs text-muted-foreground mt-1">Syed Saiful Islam</p>
         </div>
       </div>
     </motion.div>
@@ -109,11 +80,6 @@ const WaveformPlayer = ({ track, isPlaying, onToggle }: { track: Track; isPlayin
 
 const Songs = () => {
   const { t } = useLanguage();
-  const [playingId, setPlayingId] = useState<number | null>(null);
-
-  const handleToggle = useCallback((id: number) => {
-    setPlayingId((prev) => (prev === id ? null : id));
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -169,12 +135,7 @@ const Songs = () => {
       <div className="container mx-auto px-4 py-8 max-w-3xl">
         <div className="grid gap-4">
           {tracks.map((track) => (
-            <WaveformPlayer
-              key={track.id}
-              track={track}
-              isPlaying={playingId === track.id}
-              onToggle={() => handleToggle(track.id)}
-            />
+            <SoundCloudPlayer key={track.id} track={track} />
           ))}
         </div>
       </div>
