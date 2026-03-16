@@ -227,10 +227,10 @@ const Hero = () => {
                   style={{
                     width: '50%',
                     height: '40%',
-                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(var(--gold-light) / 0.45), hsl(var(--gold) / 0.25) 30%, transparent 60%)',
-                    filter: 'blur(20px)',
+                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(var(--gold-light) / 0.7), hsl(var(--gold) / 0.45) 30%, transparent 60%)',
+                    filter: 'blur(18px)',
                   }}
-                  animate={{ opacity: [0.25, 0.4, 0.3, 0.42, 0.25] }}
+                  animate={{ opacity: [0.45, 0.7, 0.5, 0.72, 0.45] }}
                   transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Main fire core - subtle */}
@@ -239,10 +239,10 @@ const Hero = () => {
                   style={{
                     width: '75%',
                     height: '80%',
-                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(var(--gold-light) / 0.35), hsl(var(--gold) / 0.22) 25%, hsl(var(--primary) / 0.12) 52%, transparent 75%)',
-                    filter: 'blur(22px)',
+                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(var(--gold-light) / 0.55), hsl(var(--gold) / 0.4) 25%, hsl(var(--primary) / 0.2) 52%, transparent 75%)',
+                    filter: 'blur(18px)',
                   }}
-                  animate={{ opacity: [0.2, 0.35, 0.25, 0.38, 0.2] }}
+                  animate={{ opacity: [0.4, 0.6, 0.45, 0.65, 0.4] }}
                   transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Stable flame layers */}
@@ -255,10 +255,10 @@ const Hero = () => {
                       bottom: `${particle.bottom}%`,
                       width: `${particle.width}px`,
                       height: `${particle.height}px`,
-                      background: `radial-gradient(ellipse at 50% 90%, hsl(var(--gold-light) / ${particle.opacity}), hsl(var(--gold) / 0.18) 38%, hsl(var(--primary) / 0.06) 62%, transparent 78%)`,
+                      background: `radial-gradient(ellipse at 50% 90%, hsl(var(--gold-light) / ${particle.opacity * 1.8}), hsl(var(--gold) / 0.35) 38%, hsl(var(--primary) / 0.15) 62%, transparent 78%)`,
                       filter: `blur(${particle.blur}px)`,
                     }}
-                    animate={{ opacity: [0.08, 0.2, 0.12, 0.22, 0.08] }}
+                    animate={{ opacity: [0.2, 0.45, 0.3, 0.48, 0.2] }}
                     transition={{
                       duration: particle.duration + i * 0.2,
                       repeat: Infinity,
@@ -280,7 +280,7 @@ const Hero = () => {
                       background: particle.color,
                       boxShadow: `0 0 ${particle.glow * 0.5}px ${particle.glowColor}`,
                     }}
-                    animate={{ opacity: [0.05, 0.25, 0.1, 0.28, 0.05], scale: [0.97, 1.04, 0.98, 1.05, 0.97] }}
+                    animate={{ opacity: [0.15, 0.5, 0.25, 0.55, 0.15], scale: [0.97, 1.06, 0.98, 1.07, 0.97] }}
                     transition={{
                       duration: particle.duration + 2,
                       repeat: Infinity,
@@ -295,10 +295,10 @@ const Hero = () => {
                   style={{
                     width: '110%',
                     height: '70%',
-                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.18), hsl(var(--primary) / 0.08) 40%, transparent 70%)',
-                    filter: 'blur(30px)',
+                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.35), hsl(var(--primary) / 0.18) 40%, transparent 70%)',
+                    filter: 'blur(25px)',
                   }}
-                  animate={{ opacity: [0.12, 0.22, 0.15, 0.24, 0.12] }}
+                  animate={{ opacity: [0.25, 0.45, 0.3, 0.48, 0.25] }}
                   transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Smoke / Dhoa effect - dense & slow */}
