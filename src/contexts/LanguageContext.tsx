@@ -60,7 +60,7 @@ const translations: Record<Lang, any> = {
       s3Title: "Music & Composition", s3Count: "30 Done", s3Desc: "Crafting compelling musical compositions that resonate with emotion and storytelling.",
     },
     writings: { goBack: "Go Back", waitMore: "More chapters coming soon", chapters: "Chapters", author: "Syed Saiful Islam", authorRole: "Real Life Researcher • Writer", comingSoon: "Coming Soon" },
-    songs: { pageTitle: "My Melodies", pageSubtitle: "Compositions & Original Songs" },
+    songs: { pageTitle: "My Melodies", pageSubtitle: "Compositions & Original Songs", comingSoon: "Coming soon...", artist: "Syed Saiful Islam", linkCopied: "Link copied!", trackLabel: "Track" },
   },
   bn: {
     nav: { home: "হোম", about: "আমার সম্পর্কে", skills: "দক্ষতা", portfolio: "পোর্টফোলিও", contact: "যোগাযোগ", letsChat: "যোগাযোগ করুন", videos: "ভিডিও" },
@@ -116,7 +116,7 @@ const translations: Record<Lang, any> = {
       s3Title: "সংগীত ও রচনা", s3Count: "৩০ সম্পন্ন", s3Desc: "আবেগ এবং গল্প বলার সাথে অনুরণিত চিত্তাকর্ষক সংগীত রচনা তৈরি।",
     },
     writings: { goBack: "ফিরে যান", waitMore: "আরো পড়তে অপেক্ষা করুন", chapters: "অধ্যায়সমূহ", author: "সৈয়দ সাইফুল ইসলাম", authorRole: "রিয়েল লাইফ রিসার্চার • লেখক", comingSoon: "শীঘ্রই আসছে" },
-    songs: { pageTitle: "আমার সুর", pageSubtitle: "কম্পোজিশন ও রচিত গান সমূহ" },
+    songs: { pageTitle: "আমার সুর", pageSubtitle: "কম্পোজিশন ও রচিত গান সমূহ", comingSoon: "শীঘ্রই আসছে...", artist: "সৈয়দ সাইফুল ইসলাম", linkCopied: "লিংক কপি হয়েছে!", trackLabel: "ট্র্যাক" },
   },
   hi: {
     nav: { home: "होम", about: "परिचय", skills: "कौशल", portfolio: "पोर्टफोलियो", contact: "संपर्क", letsChat: "बात करें", videos: "वीडियो" },
@@ -167,7 +167,7 @@ const translations: Record<Lang, any> = {
       s3Title: "संगीत और रचना", s3Count: "३० पूर्ण", s3Desc: "भावना और कथाकथन से गूँजती आकर्षक संगीत रचनाएँ।",
     },
     writings: { goBack: "वापस जाएँ", waitMore: "और अध्याय जल्द आ रहे हैं", chapters: "अध्याय", author: "सैयद सैफुल इस्लाम", authorRole: "रियल लाइफ रिसर्चर • लेखक", comingSoon: "जल्द आ रहा है" },
-    songs: { pageTitle: "मेरी धुन", pageSubtitle: "रचना एवं मूल गीत" },
+    songs: { pageTitle: "मेरी धुन", pageSubtitle: "रचना एवं मूल गीत", comingSoon: "जल्द आ रहा है...", artist: "सैयद सैफुल इस्लाम", linkCopied: "लिंक कॉपी हो गया!", trackLabel: "ट्रैक" },
   },
   fr: {
     nav: { home: "Accueil", about: "À propos", skills: "Compétences", portfolio: "Portfolio", contact: "Contact", letsChat: "Discutons", videos: "Vidéos" },
@@ -206,7 +206,7 @@ const translations: Record<Lang, any> = {
       s3Title: "Musique et composition", s3Count: "30 terminés", s3Desc: "Compositions musicales captivantes qui résonnent avec émotion.",
     },
     writings: { goBack: "Retour", waitMore: "Plus de chapitres bientôt", chapters: "Chapitres", author: "Syed Saiful Islam", authorRole: "Chercheur • Écrivain", comingSoon: "Bientôt" },
-    songs: { pageTitle: "Mes mélodies", pageSubtitle: "Compositions et chansons originales" },
+    songs: { pageTitle: "Mes mélodies", pageSubtitle: "Compositions et chansons originales", comingSoon: "Bientôt disponible...", artist: "Syed Saiful Islam", linkCopied: "Lien copié !", trackLabel: "Piste" },
   },
   ar: {
     nav: { home: "الرئيسية", about: "حول", skills: "المهارات", portfolio: "الأعمال", contact: "اتصل", letsChat: "تواصل معنا", videos: "فيديوهات" },
@@ -245,7 +245,7 @@ const translations: Record<Lang, any> = {
       s3Title: "الموسيقى والتأليف", s3Count: "٣٠ مكتمل", s3Desc: "مؤلفات موسيقية مقنعة تتردد مع العواطف.",
     },
     writings: { goBack: "العودة", waitMore: "المزيد من الفصول قريباً", chapters: "الفصول", author: "سيد سيف الإسلام", authorRole: "باحث • كاتب", comingSoon: "قريباً" },
-    songs: { pageTitle: "ألحاني", pageSubtitle: "التأليف والأغاني الأصلية" },
+    songs: { pageTitle: "ألحاني", pageSubtitle: "التأليف والأغاني الأصلية", comingSoon: "قريباً...", artist: "سيد سيف الإسلام", linkCopied: "تم نسخ الرابط!", trackLabel: "مسار" },
   },
   de: {
     nav: { home: "Startseite", about: "Über mich", skills: "Fähigkeiten", portfolio: "Portfolio", contact: "Kontakt", letsChat: "Kontaktieren", videos: "Videos" },
@@ -284,7 +284,7 @@ const translations: Record<Lang, any> = {
       s3Title: "Musik & Komposition", s3Count: "30 fertig", s3Desc: "Fesselnde Musikkompositionen voller Emotion.",
     },
     writings: { goBack: "Zurück", waitMore: "Weitere Kapitel folgen", chapters: "Kapitel", author: "Syed Saiful Islam", authorRole: "Forscher • Autor", comingSoon: "Demnächst" },
-    songs: { pageTitle: "Meine Melodien", pageSubtitle: "Kompositionen & Originallieder" },
+    songs: { pageTitle: "Meine Melodien", pageSubtitle: "Kompositionen & Originallieder", comingSoon: "Demnächst verfügbar...", artist: "Syed Saiful Islam", linkCopied: "Link kopiert!", trackLabel: "Titel" },
   },
   zh: {
     nav: { home: "首页", about: "关于", skills: "技能", portfolio: "作品集", contact: "联系", letsChat: "联系我们", videos: "视频" },
@@ -323,7 +323,7 @@ const translations: Record<Lang, any> = {
       s3Title: "音乐与作曲", s3Count: "30完成", s3Desc: "充满情感的引人入胜的音乐作品。",
     },
     writings: { goBack: "返回", waitMore: "更多章节即将推出", chapters: "章节", author: "赛福尔·伊斯兰", authorRole: "研究员 • 作家", comingSoon: "即将推出" },
-    songs: { pageTitle: "我的旋律", pageSubtitle: "作曲与原创歌曲" },
+    songs: { pageTitle: "我的旋律", pageSubtitle: "作曲与原创歌曲", comingSoon: "即将推出...", artist: "赛福尔·伊斯兰", linkCopied: "链接已复制！", trackLabel: "曲目" },
   },
   ru: {
     nav: { home: "Главная", about: "Обо мне", skills: "Навыки", portfolio: "Портфолио", contact: "Контакт", letsChat: "Связаться", videos: "Видео" },
@@ -362,7 +362,7 @@ const translations: Record<Lang, any> = {
       s3Title: "Музыка и композиция", s3Count: "30 готово", s3Desc: "Захватывающие музыкальные композиции полные эмоций.",
     },
     writings: { goBack: "Назад", waitMore: "Ещё главы скоро", chapters: "Главы", author: "Саифул Ислам", authorRole: "Исследователь • Писатель", comingSoon: "Скоро" },
-    songs: { pageTitle: "Мои мелодии", pageSubtitle: "Композиции и авторские песни" },
+    songs: { pageTitle: "Мои мелодии", pageSubtitle: "Композиции и авторские песни", comingSoon: "Скоро...", artist: "Саифул Ислам", linkCopied: "Ссылка скопирована!", trackLabel: "Трек" },
   },
 };
 
