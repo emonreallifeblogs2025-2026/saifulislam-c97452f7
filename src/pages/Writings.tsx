@@ -228,7 +228,7 @@ const Writings = () => {
         </motion.h2>
 
         <div className="space-y-3">
-          {chapters.map((ch, i) => (
+          {displayChapters.map((ch, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
