@@ -224,11 +224,11 @@ const SoundCloudPlayer = memo(({ track, t, currentPlaying, onPlay }: { track: Tr
             }`}
           >
             {!isVisible || !ready ? (
-              <Music size={20} className="animate-pulse" />
+              <Music size={18} className="animate-pulse" />
             ) : isPlaying ? (
-              <Pause size={20} fill="currentColor" />
+              <Pause size={18} fill="currentColor" />
             ) : (
-              <Play size={20} fill="currentColor" className="ml-0.5" />
+              <Play size={18} fill="currentColor" className="ml-0.5" />
             )}
           </motion.button>
 
