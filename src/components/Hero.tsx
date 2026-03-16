@@ -26,6 +26,91 @@ const generateParticles = (count: number): Particle[] =>
     id: i, x: Math.random() * 100, y: Math.random() * 100, size: Math.random() * 4 + 1, duration: Math.random() * 4 + 3, delay: Math.random() * 5,
   }));
 
+interface FireParticle {
+  id: number;
+  left: number;
+  bottom: number;
+  width: number;
+  height: number;
+  opacity: number;
+  blur: number;
+  duration: number;
+  delay: number;
+}
+
+interface SparkParticle {
+  id: number;
+  left: number;
+  bottom: number;
+  size: number;
+  glow: number;
+  duration: number;
+  delay: number;
+  color: string;
+  glowColor: string;
+}
+
+interface SmokeParticle {
+  id: number;
+  left: number;
+  bottom: number;
+  width: number;
+  height: number;
+  opacity: number;
+  blur: number;
+  duration: number;
+  delay: number;
+}
+
+const generateFireParticles = (count: number): FireParticle[] =>
+  Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: 15 + Math.random() * 70,
+    bottom: 8 + Math.random() * 25,
+    width: 35 + Math.random() * 50,
+    height: 70 + Math.random() * 130,
+    opacity: 0.7 + Math.random() * 0.2,
+    blur: 7 + Math.random() * 3,
+    duration: 6 + Math.random() * 4,
+    delay: Math.random() * 4,
+  }));
+
+const generateSparkParticles = (count: number): SparkParticle[] => {
+  const colors = [
+    { color: 'hsl(45 100% 80%)', glowColor: 'hsl(45 100% 70%)' },
+    { color: 'hsl(30 100% 60%)', glowColor: 'hsl(25 100% 55%)' },
+    { color: 'hsl(15 100% 50%)', glowColor: 'hsl(20 100% 50%)' },
+  ];
+
+  return Array.from({ length: count }, (_, i) => {
+    const tone = colors[i % colors.length];
+    return {
+      id: i,
+      left: 20 + Math.random() * 60,
+      bottom: 15 + Math.random() * 30,
+      size: 2 + Math.random() * 4,
+      glow: 4 + Math.random() * 6,
+      duration: 4 + Math.random() * 3,
+      delay: Math.random() * 5,
+      color: tone.color,
+      glowColor: tone.glowColor,
+    };
+  });
+};
+
+const generateSmokeParticles = (count: number): SmokeParticle[] =>
+  Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: 10 + Math.random() * 80,
+    bottom: 15 + Math.random() * 30,
+    width: 100 + Math.random() * 140,
+    height: 100 + Math.random() * 140,
+    opacity: 0.25 + Math.random() * 0.2,
+    blur: 25 + Math.random() * 20,
+    duration: 8 + Math.random() * 5,
+    delay: Math.random() * 6,
+  }));
+
 const Hero = () => {
   const { t, lang } = useLanguage();
 
