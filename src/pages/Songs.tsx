@@ -196,6 +196,18 @@ const Songs = () => {
   const [pageShareCopied, setPageShareCopied] = useState(false);
   const { toast } = useToast();
 
+  // Generate tracks with translated placeholder titles
+  const tracks = useMemo(() => {
+    const songPrefix = (t.songs as any)?.songPrefix || "Song";
+    return baseTracks.map(track => {
+      if (track.title.startsWith("__PLACEHOLDER_")) {
+        const num = track.id;
+        return { ...track, title: `${songPrefix} ${num}` };
+      }
+      return track;
+    });
+  }, [t.songs, lang]);
+
   const pageShareText = `🎵 ${t.songs?.pageTitle || "আমার সুর"} — ${t.songs?.artist || "Syed Saiful Islam"}`;
 
   const handlePageWhatsApp = () => {
