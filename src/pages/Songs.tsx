@@ -12,7 +12,7 @@ interface Track {
   soundcloudUrl: string;
 }
 
-const tracks: Track[] = [
+const baseTracks: Track[] = [
   { id: 1, title: "Bhool Manush Ke Bhalobasha", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Fbhool-manush-ke-bhalobasha&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
   { id: 2, title: "Bhuler Chhayay", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Fbhuler-chhayay-wav&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
   { id: 3, title: "Love Fact Saiful", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Flove-fact-saiful-wav&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
@@ -20,29 +20,7 @@ const tracks: Track[] = [
   { id: 5, title: "আয়না সবটা জানে", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Fwav-1&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
   { id: 6, title: "Ma, Tomar Ador Aar Tomar Bhalobasha", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Fma-tomar-ador-aar-tomar&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
   { id: 7, title: "Konna Sudur Amerikay", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Fkonna-sudur-amerikay-wav&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-  { id: 8, title: "গান ৮", soundcloudUrl: "" },
-  { id: 9, title: "গান ৯", soundcloudUrl: "" },
-  { id: 10, title: "গান ১০", soundcloudUrl: "" },
-  { id: 11, title: "গান ১১", soundcloudUrl: "" },
-  { id: 12, title: "গান ১২", soundcloudUrl: "" },
-  { id: 13, title: "গান ১৩", soundcloudUrl: "" },
-  { id: 14, title: "গান ১৪", soundcloudUrl: "" },
-  { id: 15, title: "গান ১৫", soundcloudUrl: "" },
-  { id: 16, title: "গান ১৬", soundcloudUrl: "" },
-  { id: 17, title: "গান ১৭", soundcloudUrl: "" },
-  { id: 18, title: "গান ১৮", soundcloudUrl: "" },
-  { id: 19, title: "গান ১৯", soundcloudUrl: "" },
-  { id: 20, title: "গান ২০", soundcloudUrl: "" },
-  { id: 21, title: "গান ২১", soundcloudUrl: "" },
-  { id: 22, title: "গান ২২", soundcloudUrl: "" },
-  { id: 23, title: "গান ২৩", soundcloudUrl: "" },
-  { id: 24, title: "গান ২৪", soundcloudUrl: "" },
-  { id: 25, title: "গান ২৫", soundcloudUrl: "" },
-  { id: 26, title: "গান ২৬", soundcloudUrl: "" },
-  { id: 27, title: "গান ২৭", soundcloudUrl: "" },
-  { id: 28, title: "গান ২৮", soundcloudUrl: "" },
-  { id: 29, title: "গান ২৯", soundcloudUrl: "" },
-  { id: 30, title: "গান ৩০", soundcloudUrl: "" },
+  ...Array.from({ length: 23 }, (_, i) => ({ id: i + 8, title: `__PLACEHOLDER_${i + 8}__`, soundcloudUrl: "" })),
 ];
 
 const PAGE_URL = "https://saifulislam.lovable.app/songs";
