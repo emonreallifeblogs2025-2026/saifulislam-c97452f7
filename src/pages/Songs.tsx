@@ -141,7 +141,7 @@ const ShareButtons = ({ track, t }: { track: Track; t: any }) => {
   );
 };
 
-const SoundCloudPlayer = ({ track }: { track: Track }) => {
+const SoundCloudPlayer = ({ track, t }: { track: Track; t: any }) => {
   if (track.soundcloudUrl) {
     return (
       <motion.div
@@ -157,7 +157,7 @@ const SoundCloudPlayer = ({ track }: { track: Track }) => {
             </span>
             <h3 className="text-sm sm:text-base font-semibold text-foreground truncate">{track.title}</h3>
           </div>
-          <ShareButtons track={track} />
+          <ShareButtons track={track} t={t} />
         </div>
         <iframe
           width="100%"
@@ -168,7 +168,7 @@ const SoundCloudPlayer = ({ track }: { track: Track }) => {
           src={track.soundcloudUrl}
           className="rounded-lg"
         />
-        <p className="text-xs text-muted-foreground mt-2">Syed Saiful Islam</p>
+        <p className="text-xs text-muted-foreground mt-2">{t.songs?.artist || "Syed Saiful Islam"}</p>
       </motion.div>
     );
   }
@@ -192,10 +192,10 @@ const SoundCloudPlayer = ({ track }: { track: Track }) => {
               </span>
               <h3 className="text-sm sm:text-base font-semibold text-foreground truncate">{track.title}</h3>
             </div>
-            <ShareButtons track={track} />
+            <ShareButtons track={track} t={t} />
           </div>
-          <p className="text-xs text-muted-foreground">Coming soon...</p>
-          <p className="text-xs text-muted-foreground mt-1">Syed Saiful Islam</p>
+          <p className="text-xs text-muted-foreground">{t.songs?.comingSoon || "Coming soon..."}</p>
+          <p className="text-xs text-muted-foreground mt-1">{t.songs?.artist || "Syed Saiful Islam"}</p>
         </div>
       </div>
     </motion.div>
