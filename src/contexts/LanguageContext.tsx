@@ -167,6 +167,7 @@ const translations: Record<Lang, any> = {
       s3Title: "संगीत और रचना", s3Count: "३० पूर्ण", s3Desc: "भावना और कथाकथन से गूँजती आकर्षक संगीत रचनाएँ।",
     },
     writings: { goBack: "वापस जाएँ", waitMore: "और अध्याय जल्द आ रहे हैं", chapters: "अध्याय", author: "सैयद सैफुल इस्लाम", authorRole: "रियल लाइफ रिसर्चर • लेखक", comingSoon: "जल्द आ रहा है" },
+    songs: { pageTitle: "मेरी धुन", pageSubtitle: "रचना एवं मूल गीत" },
   },
   fr: {
     nav: { home: "Accueil", about: "À propos", skills: "Compétences", portfolio: "Portfolio", contact: "Contact", letsChat: "Discutons", videos: "Vidéos" },
