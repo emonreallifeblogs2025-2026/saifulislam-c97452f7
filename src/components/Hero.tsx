@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
@@ -51,13 +51,13 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
+        <img src={heroBg} alt="" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
         <div className="absolute inset-0 bg-background/60" />
       </div>
       <div className="absolute inset-0 diagonal-lines" />
 
       <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
-        {particles.map((p) => (
+        {particles.slice(0, 20).map((p) => (
           <motion.div key={p.id} className="absolute rounded-full" style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: `hsl(40, 85%, ${50 + p.size * 5}%)` }}
             animate={{ y: [0, -60, -120], opacity: [0, 1, 0], scale: [0.5, 1.2, 0.3] }}
             transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }} />
@@ -110,10 +110,22 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.3, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
+          <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
+              {/* Glow behind hero pic */}
+              <motion.div
+                className="absolute inset-0 z-0 rounded-full"
+                style={{
+                  background: 'radial-gradient(ellipse 60% 55% at 50% 45%, hsl(var(--primary) / 0.25), hsl(var(--primary) / 0.08) 50%, transparent 75%)',
+                  filter: 'blur(40px)',
+                }}
+                animate={{ opacity: [0.4, 0.7, 0.4] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
               <div className="relative z-10">
                 <img src={heroImage} alt="Saiful Islam - Psychology & Real Life Researcher" className="w-full" loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   style={{
                     WebkitMaskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
                     maskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
@@ -131,4 +143,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);
