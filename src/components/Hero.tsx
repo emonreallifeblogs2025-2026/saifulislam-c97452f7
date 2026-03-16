@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { useState, useEffect, memo, useCallback, MouseEvent } from "react";
+import { useState, useEffect, memo, useCallback, MouseEvent, useMemo } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
@@ -26,6 +26,91 @@ const generateParticles = (count: number): Particle[] =>
     id: i, x: Math.random() * 100, y: Math.random() * 100, size: Math.random() * 4 + 1, duration: Math.random() * 4 + 3, delay: Math.random() * 5,
   }));
 
+interface FireParticle {
+  id: number;
+  left: number;
+  bottom: number;
+  width: number;
+  height: number;
+  opacity: number;
+  blur: number;
+  duration: number;
+  delay: number;
+}
+
+interface SparkParticle {
+  id: number;
+  left: number;
+  bottom: number;
+  size: number;
+  glow: number;
+  duration: number;
+  delay: number;
+  color: string;
+  glowColor: string;
+}
+
+interface SmokeParticle {
+  id: number;
+  left: number;
+  bottom: number;
+  width: number;
+  height: number;
+  opacity: number;
+  blur: number;
+  duration: number;
+  delay: number;
+}
+
+const generateFireParticles = (count: number): FireParticle[] =>
+  Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: 15 + Math.random() * 70,
+    bottom: 8 + Math.random() * 25,
+    width: 35 + Math.random() * 50,
+    height: 70 + Math.random() * 130,
+    opacity: 0.7 + Math.random() * 0.2,
+    blur: 7 + Math.random() * 3,
+    duration: 6 + Math.random() * 4,
+    delay: Math.random() * 4,
+  }));
+
+const generateSparkParticles = (count: number): SparkParticle[] => {
+  const colors = [
+    { color: 'hsl(45 100% 80%)', glowColor: 'hsl(45 100% 70%)' },
+    { color: 'hsl(30 100% 60%)', glowColor: 'hsl(25 100% 55%)' },
+    { color: 'hsl(15 100% 50%)', glowColor: 'hsl(20 100% 50%)' },
+  ];
+
+  return Array.from({ length: count }, (_, i) => {
+    const tone = colors[i % colors.length];
+    return {
+      id: i,
+      left: 20 + Math.random() * 60,
+      bottom: 15 + Math.random() * 30,
+      size: 2 + Math.random() * 4,
+      glow: 4 + Math.random() * 6,
+      duration: 4 + Math.random() * 3,
+      delay: Math.random() * 5,
+      color: tone.color,
+      glowColor: tone.glowColor,
+    };
+  });
+};
+
+const generateSmokeParticles = (count: number): SmokeParticle[] =>
+  Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: 10 + Math.random() * 80,
+    bottom: 15 + Math.random() * 30,
+    width: 100 + Math.random() * 140,
+    height: 100 + Math.random() * 140,
+    opacity: 0.25 + Math.random() * 0.2,
+    blur: 25 + Math.random() * 20,
+    duration: 8 + Math.random() * 5,
+    delay: Math.random() * 6,
+  }));
+
 const Hero = () => {
   const { t, lang } = useLanguage();
 
@@ -45,6 +130,9 @@ const Hero = () => {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [particles] = useState(() => generateParticles(40));
+  const fireParticles = useMemo(() => generateFireParticles(12), []);
+  const sparkParticles = useMemo(() => generateSparkParticles(20), []);
+  const smokeParticles = useMemo(() => generateSmokeParticles(14), []);
 
   const currentRoles = roles[lang] || roles.en;
 
@@ -139,11 +227,11 @@ const Hero = () => {
                   style={{
                     width: '60%',
                     height: '50%',
-                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(45 100% 95% / 0.9), hsl(40 100% 70% / 0.6) 30%, transparent 60%)',
+                    background: 'radial-gradient(ellipse 50% 60% at 50% 85%, hsl(var(--gold-light) / 0.95), hsl(var(--gold) / 0.65) 30%, transparent 60%)',
                     filter: 'blur(15px)',
                   }}
-                  animate={{ opacity: [0.6, 0.85, 0.7, 0.9, 0.6] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.5, 0.8, 0.58, 0.82, 0.5] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Main fire core */}
                 <motion.div
@@ -151,66 +239,52 @@ const Hero = () => {
                   style={{
                     width: '90%',
                     height: '95%',
-                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(35 100% 60% / 0.9), hsl(25 100% 50% / 0.7) 25%, hsl(10 100% 45% / 0.5) 45%, hsl(0 100% 35% / 0.3) 60%, transparent 75%)',
+                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(var(--gold-light) / 0.88), hsl(var(--gold) / 0.72) 25%, hsl(var(--primary) / 0.42) 52%, transparent 75%)',
                     filter: 'blur(18px)',
                   }}
-                  animate={{ 
-                    opacity: [0.6, 0.9, 0.7, 0.85, 0.6],
-                    scaleX: [1, 1.03, 0.98, 1.02, 1],
-                    scaleY: [1, 1.04, 0.97, 1.03, 1],
-                  }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.48, 0.74, 0.55, 0.78, 0.48] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* Slow rising flames */}
-                {[...Array(12)].map((_, i) => (
+                {/* Stable flame layers */}
+                {fireParticles.map((particle, i) => (
                   <motion.div
-                    key={`flame-${i}`}
+                    key={`flame-${particle.id}`}
                     className="absolute rounded-full"
                     style={{
-                      left: `${15 + Math.random() * 70}%`,
-                      bottom: `${8 + Math.random() * 25}%`,
-                      width: `${35 + Math.random() * 50}px`,
-                      height: `${70 + Math.random() * 130}px`,
-                      background: `radial-gradient(ellipse at 50% 90%, hsl(${40 - i * 3} 100% ${65 - i * 2}% / 0.95), hsl(${25 - i * 2} 100% 50% / 0.6) 35%, hsl(5 100% 40% / 0.2) 60%, transparent 75%)`,
-                      filter: 'blur(8px)',
+                      left: `${particle.left}%`,
+                      bottom: `${particle.bottom}%`,
+                      width: `${particle.width}px`,
+                      height: `${particle.height}px`,
+                      background: `radial-gradient(ellipse at 50% 90%, hsl(var(--gold-light) / ${particle.opacity}), hsl(var(--gold) / 0.45) 38%, hsl(var(--primary) / 0.16) 62%, transparent 78%)`,
+                      filter: `blur(${particle.blur}px)`,
                     }}
-                    animate={{
-                      y: [0, -60 - Math.random() * 80, -150 - Math.random() * 80],
-                      opacity: [0, 0.7, 0.5, 0],
-                      scaleX: [0.9, 1.1, 0.7],
-                      scaleY: [1, 1.2, 0.8],
-                    }}
+                    animate={{ opacity: [0.16, 0.38, 0.22, 0.4, 0.16] }}
                     transition={{
-                      duration: 4 + Math.random() * 4,
+                      duration: particle.duration + i * 0.15,
                       repeat: Infinity,
-                      delay: Math.random() * 4,
+                      delay: particle.delay,
                       ease: "easeInOut",
                     }}
                   />
                 ))}
-                {/* Slow sparks */}
-                {[...Array(20)].map((_, i) => (
+                {/* Stable ember glow */}
+                {sparkParticles.map((particle) => (
                   <motion.div
-                    key={`spark-${i}`}
+                    key={`spark-${particle.id}`}
                     className="absolute rounded-full"
                     style={{
-                      left: `${20 + Math.random() * 60}%`,
-                      bottom: `${15 + Math.random() * 30}%`,
-                      width: `${2 + Math.random() * 4}px`,
-                      height: `${2 + Math.random() * 4}px`,
-                      background: i % 3 === 0 ? 'hsl(45 100% 80%)' : i % 3 === 1 ? 'hsl(30 100% 60%)' : 'hsl(15 100% 50%)',
-                      boxShadow: `0 0 ${4 + Math.random() * 6}px ${i % 3 === 0 ? 'hsl(45 100% 70%)' : 'hsl(25 100% 55%)'}`,
+                      left: `${particle.left}%`,
+                      bottom: `${particle.bottom}%`,
+                      width: `${particle.size}px`,
+                      height: `${particle.size}px`,
+                      background: particle.color,
+                      boxShadow: `0 0 ${particle.glow}px ${particle.glowColor}`,
                     }}
-                    animate={{
-                      y: [0, -80 - Math.random() * 120],
-                      x: [(Math.random() - 0.5) * 10, (Math.random() - 0.5) * 50],
-                      opacity: [0, 0.8, 0.6, 0],
-                      scale: [1, 1.2, 0.8, 0],
-                    }}
+                    animate={{ opacity: [0.1, 0.55, 0.18, 0.6, 0.1], scale: [0.95, 1.08, 0.98, 1.12, 0.95] }}
                     transition={{
-                      duration: 3 + Math.random() * 4,
+                      duration: particle.duration,
                       repeat: Infinity,
-                      delay: Math.random() * 5,
+                      delay: particle.delay,
                       ease: "easeInOut",
                     }}
                   />
@@ -221,36 +295,31 @@ const Hero = () => {
                   style={{
                     width: '130%',
                     height: '85%',
-                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.5), hsl(25 100% 45% / 0.25) 35%, hsl(var(--primary) / 0.1) 55%, transparent 70%)',
+                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(var(--gold) / 0.42), hsl(var(--primary) / 0.18) 40%, transparent 70%)',
                     filter: 'blur(25px)',
                   }}
-                  animate={{ opacity: [0.3, 0.6, 0.3] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ opacity: [0.24, 0.46, 0.28, 0.5, 0.24] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Smoke / Dhoa effect - dense & slow */}
-                {[...Array(14)].map((_, i) => (
+                {smokeParticles.map((particle) => (
                   <motion.div
-                    key={`smoke-${i}`}
+                    key={`smoke-${particle.id}`}
                     className="absolute rounded-full"
                     style={{
-                      left: `${10 + Math.random() * 80}%`,
-                      bottom: `${15 + Math.random() * 30}%`,
-                      width: `${100 + Math.random() * 140}px`,
-                      height: `${100 + Math.random() * 140}px`,
-                      background: `radial-gradient(circle, hsl(220 8% 25% / ${0.25 + Math.random() * 0.2}), hsl(220 8% 18% / 0.12) 45%, transparent 70%)`,
-                      filter: `blur(${25 + Math.random() * 20}px)`,
+                      left: `${particle.left}%`,
+                      bottom: `${particle.bottom}%`,
+                      width: `${particle.width}px`,
+                      height: `${particle.height}px`,
+                      background: `radial-gradient(circle, hsl(220 8% 25% / ${particle.opacity}), hsl(220 8% 18% / 0.12) 45%, transparent 70%)`,
+                      filter: `blur(${particle.blur}px)`,
                     }}
-                    animate={{
-                      y: [0, -100 - Math.random() * 120, -280 - Math.random() * 180],
-                      x: [(Math.random() - 0.5) * 20, (Math.random() - 0.5) * 70],
-                      opacity: [0, 0.6, 0.4, 0],
-                      scale: [0.4, 1.8, 3.2],
-                    }}
+                    animate={{ opacity: [0, 0.26, 0.18, 0], scale: [0.82, 1.08, 1.35] }}
                     transition={{
-                      duration: 6 + Math.random() * 5,
+                      duration: particle.duration,
                       repeat: Infinity,
-                      delay: Math.random() * 6,
-                      ease: "easeOut",
+                      delay: particle.delay,
+                      ease: "easeInOut",
                     }}
                   />
                 ))}
