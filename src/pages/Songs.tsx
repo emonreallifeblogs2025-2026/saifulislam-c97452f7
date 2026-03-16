@@ -83,7 +83,8 @@ const scApiLoaded = (() => {
 })();
 
 const SoundCloudPlayer = memo(({ track, t, currentPlaying, onPlay }: { track: Track; t: any; currentPlaying: number | null; onPlay: (id: number | null) => void }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const hasUrl = !!track.soundcloudUrl;
+  const [isVisible, setIsVisible] = useState(hasUrl); // Real tracks load immediately
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
