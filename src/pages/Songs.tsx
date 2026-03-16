@@ -9,19 +9,20 @@ interface Track {
   id: number;
   title: string;
   url: string;
+  soundcloudUrl: string;
 }
 
 const tracks: Track[] = [
-  { id: 1, title: "গান ১", url: "" },
-  { id: 2, title: "গান ২", url: "" },
-  { id: 3, title: "গান ৩", url: "" },
-  { id: 4, title: "গান ৪", url: "" },
-  { id: 5, title: "গান ৫", url: "" },
-  { id: 6, title: "গান ৬", url: "" },
-  { id: 7, title: "গান ৭", url: "" },
-  { id: 8, title: "গান ৮", url: "" },
-  { id: 9, title: "গান ৯", url: "" },
-  { id: 10, title: "গান ১০", url: "" },
+  { id: 1, title: "Bhool Manush Ke Bhalobasha Oporadh", url: "", soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fsyed-saiful-islam-626619287%2Fbhool-manush-ke-bhalobasha&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+  { id: 2, title: "গান ২", url: "", soundcloudUrl: "" },
+  { id: 3, title: "গান ৩", url: "", soundcloudUrl: "" },
+  { id: 4, title: "গান ৪", url: "", soundcloudUrl: "" },
+  { id: 5, title: "গান ৫", url: "", soundcloudUrl: "" },
+  { id: 6, title: "গান ৬", url: "", soundcloudUrl: "" },
+  { id: 7, title: "গান ৭", url: "", soundcloudUrl: "" },
+  { id: 8, title: "গান ৮", url: "", soundcloudUrl: "" },
+  { id: 9, title: "গান ৯", url: "", soundcloudUrl: "" },
+  { id: 10, title: "গান ১০", url: "", soundcloudUrl: "" },
 ];
 
 // Generate random waveform bars
