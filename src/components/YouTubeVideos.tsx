@@ -73,7 +73,7 @@ const YouTubeVideos = () => {
             >
               <div className="relative aspect-video">
                 <iframe src={`https://www.youtube.com/embed/${v.id}`} title={(t.videos as any)[v.titleKey] || v.titleKey} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" loading="lazy" />
-                <YouTubePlayButton />
+                <YouTubePlayButton index={i} />
               </div>
               <div className="p-4">
                 <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">{(t.videos as any)[v.titleKey] || v.titleKey}</h3>
