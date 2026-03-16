@@ -314,7 +314,7 @@ const Hero = () => {
                       background: `radial-gradient(circle, hsl(220 8% 25% / ${particle.opacity}), hsl(220 8% 18% / 0.12) 45%, transparent 70%)`,
                       filter: `blur(${particle.blur}px)`,
                     }}
-                    animate={{ opacity: [0, 0.26, 0.18, 0], scale: [0.82, 1.08, 1.35] }}
+                    animate={{ opacity: [0, 0.12, 0.08, 0], scale: [0.9, 1.05, 1.15] }}
                     transition={{
                       duration: particle.duration,
                       repeat: Infinity,
