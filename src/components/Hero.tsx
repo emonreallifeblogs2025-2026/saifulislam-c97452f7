@@ -225,22 +225,22 @@ const Hero = () => {
                 <motion.div
                   className="absolute inset-0"
                   style={{
-                    background: 'radial-gradient(ellipse 90% 90% at 50% 60%, hsl(35 90% 55% / 0.2), hsl(45 85% 50% / 0.12) 30%, hsl(20 80% 40% / 0.08) 55%, transparent 85%)',
-                    filter: 'blur(20px)',
+                    background: 'radial-gradient(ellipse 90% 90% at 50% 60%, hsl(35 90% 55% / 0.4), hsl(45 85% 50% / 0.25) 30%, hsl(20 80% 40% / 0.15) 55%, transparent 85%)',
+                    filter: 'blur(18px)',
                   }}
-                  animate={{ opacity: [0.2, 0.38, 0.25, 0.4, 0.22, 0.36, 0.2] }}
+                  animate={{ opacity: [0.35, 0.6, 0.4, 0.65, 0.38, 0.58, 0.35] }}
                   transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Deep orange core - shifts to crimson */}
                 <motion.div
                   className="absolute bottom-[8%] left-1/2 -translate-x-1/2"
                   style={{
-                    width: '70%',
-                    height: '50%',
-                    background: 'radial-gradient(ellipse 60% 70% at 50% 85%, hsl(15 95% 55% / 0.35), hsl(30 90% 50% / 0.2) 35%, hsl(45 80% 45% / 0.1) 60%, transparent 80%)',
-                    filter: 'blur(20px)',
+                    width: '75%',
+                    height: '55%',
+                    background: 'radial-gradient(ellipse 65% 75% at 50% 85%, hsl(15 95% 55% / 0.55), hsl(30 90% 50% / 0.35) 35%, hsl(45 80% 45% / 0.18) 60%, transparent 80%)',
+                    filter: 'blur(18px)',
                   }}
-                  animate={{ opacity: [0.25, 0.45, 0.3, 0.48, 0.28, 0.42, 0.25] }}
+                  animate={{ opacity: [0.4, 0.7, 0.48, 0.72, 0.42, 0.65, 0.4] }}
                   transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Golden yellow layer */}
@@ -249,64 +249,64 @@ const Hero = () => {
                   style={{
                     width: '100%',
                     height: '90%',
-                    background: 'radial-gradient(ellipse 85% 90% at 50% 75%, hsl(50 90% 60% / 0.2), hsl(40 85% 50% / 0.14) 25%, hsl(25 80% 45% / 0.08) 50%, transparent 80%)',
-                    filter: 'blur(24px)',
+                    background: 'radial-gradient(ellipse 85% 90% at 50% 75%, hsl(50 90% 60% / 0.35), hsl(40 85% 50% / 0.22) 25%, hsl(25 80% 45% / 0.12) 50%, transparent 80%)',
+                    filter: 'blur(22px)',
                   }}
-                  animate={{ opacity: [0.18, 0.35, 0.22, 0.38, 0.2, 0.33, 0.18] }}
+                  animate={{ opacity: [0.3, 0.55, 0.35, 0.58, 0.32, 0.52, 0.3] }}
                   transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Left side - warm red-orange */}
                 <motion.div
                   className="absolute bottom-[15%] left-[5%]"
                   style={{
-                    width: '45%',
-                    height: '70%',
-                    background: 'radial-gradient(ellipse 80% 80% at 30% 70%, hsl(10 90% 48% / 0.18), hsl(30 85% 45% / 0.1) 40%, transparent 70%)',
-                    filter: 'blur(24px)',
+                    width: '48%',
+                    height: '72%',
+                    background: 'radial-gradient(ellipse 80% 80% at 30% 70%, hsl(10 90% 48% / 0.35), hsl(30 85% 45% / 0.2) 40%, transparent 70%)',
+                    filter: 'blur(22px)',
                   }}
-                  animate={{ opacity: [0.15, 0.3, 0.18, 0.32, 0.16, 0.28, 0.15] }}
+                  animate={{ opacity: [0.28, 0.5, 0.32, 0.52, 0.3, 0.48, 0.28] }}
                   transition={{ duration: 17, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                 />
                 {/* Right side - amber-gold */}
                 <motion.div
                   className="absolute bottom-[15%] right-[5%]"
                   style={{
-                    width: '45%',
-                    height: '70%',
-                    background: 'radial-gradient(ellipse 80% 80% at 70% 70%, hsl(40 95% 55% / 0.18), hsl(50 85% 50% / 0.1) 40%, transparent 70%)',
-                    filter: 'blur(24px)',
+                    width: '48%',
+                    height: '72%',
+                    background: 'radial-gradient(ellipse 80% 80% at 70% 70%, hsl(40 95% 55% / 0.35), hsl(50 85% 50% / 0.2) 40%, transparent 70%)',
+                    filter: 'blur(22px)',
                   }}
-                  animate={{ opacity: [0.12, 0.28, 0.16, 0.3, 0.14, 0.26, 0.12] }}
+                  animate={{ opacity: [0.25, 0.48, 0.3, 0.5, 0.27, 0.45, 0.25] }}
                   transition={{ duration: 19, repeat: Infinity, ease: "easeInOut", delay: 3 }}
                 />
                 {/* Top crimson haze */}
                 <motion.div
                   className="absolute top-[5%] left-1/2 -translate-x-1/2"
                   style={{
-                    width: '80%',
-                    height: '50%',
-                    background: 'radial-gradient(ellipse 70% 60% at 50% 40%, hsl(5 75% 42% / 0.1), hsl(20 70% 38% / 0.06) 40%, transparent 70%)',
-                    filter: 'blur(30px)',
+                    width: '85%',
+                    height: '55%',
+                    background: 'radial-gradient(ellipse 70% 60% at 50% 40%, hsl(5 75% 42% / 0.2), hsl(20 70% 38% / 0.12) 40%, transparent 70%)',
+                    filter: 'blur(28px)',
                   }}
-                  animate={{ opacity: [0.08, 0.2, 0.1, 0.22, 0.09, 0.18, 0.08] }}
+                  animate={{ opacity: [0.15, 0.35, 0.18, 0.38, 0.16, 0.32, 0.15] }}
                   transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Color-shifting center glow (gold → orange → crimson) */}
                 <motion.div
                   className="absolute bottom-[10%] left-1/2 -translate-x-1/2"
                   style={{
-                    width: '60%',
-                    height: '60%',
-                    filter: 'blur(22px)',
+                    width: '65%',
+                    height: '65%',
+                    filter: 'blur(20px)',
                   }}
                   animate={{
-                    opacity: [0.15, 0.3, 0.2, 0.32, 0.15],
+                    opacity: [0.3, 0.55, 0.35, 0.58, 0.3],
                     background: [
-                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(45 90% 58% / 0.25), transparent 75%)',
-                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(25 90% 50% / 0.25), transparent 75%)',
-                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(8 85% 45% / 0.22), transparent 75%)',
-                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(35 90% 55% / 0.25), transparent 75%)',
-                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(45 90% 58% / 0.25), transparent 75%)',
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(45 90% 58% / 0.45), transparent 75%)',
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(25 90% 50% / 0.45), transparent 75%)',
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(8 85% 45% / 0.4), transparent 75%)',
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(35 90% 55% / 0.45), transparent 75%)',
+                      'radial-gradient(ellipse 70% 80% at 50% 70%, hsl(45 90% 58% / 0.45), transparent 75%)',
                     ],
                   }}
                   transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
