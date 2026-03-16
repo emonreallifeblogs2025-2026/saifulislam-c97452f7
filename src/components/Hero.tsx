@@ -239,10 +239,10 @@ const Hero = () => {
                   style={{
                     width: '75%',
                     height: '80%',
-                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(var(--gold-light) / 0.35), hsl(var(--gold) / 0.22) 25%, hsl(var(--primary) / 0.12) 52%, transparent 75%)',
-                    filter: 'blur(22px)',
+                    background: 'radial-gradient(ellipse 75% 85% at 50% 80%, hsl(var(--gold-light) / 0.55), hsl(var(--gold) / 0.4) 25%, hsl(var(--primary) / 0.2) 52%, transparent 75%)',
+                    filter: 'blur(18px)',
                   }}
-                  animate={{ opacity: [0.2, 0.35, 0.25, 0.38, 0.2] }}
+                  animate={{ opacity: [0.4, 0.6, 0.45, 0.65, 0.4] }}
                   transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
                 />
                 {/* Stable flame layers */}
