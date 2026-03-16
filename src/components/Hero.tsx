@@ -67,11 +67,11 @@ const generateFireParticles = (count: number): FireParticle[] =>
     id: i,
     left: 15 + Math.random() * 70,
     bottom: 8 + Math.random() * 25,
-    width: 35 + Math.random() * 50,
-    height: 70 + Math.random() * 130,
-    opacity: 0.7 + Math.random() * 0.2,
-    blur: 7 + Math.random() * 3,
-    duration: 6 + Math.random() * 4,
+    width: 25 + Math.random() * 35,
+    height: 50 + Math.random() * 80,
+    opacity: 0.3 + Math.random() * 0.15,
+    blur: 10 + Math.random() * 5,
+    duration: 8 + Math.random() * 5,
     delay: Math.random() * 4,
   }));
 
