@@ -79,7 +79,7 @@ const Hero = () => {
 
       <div className="container mx-auto relative z-10 pt-20 pb-20 px-4">
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-8 flex flex-wrap gap-2.5">
-          <Link to="/writings" className="hero-3d-btn group">
+          <Link to="/writings" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
             <span className="hero-3d-btn-inner">
               <motion.span animate={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
@@ -89,7 +89,7 @@ const Hero = () => {
               <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-          <Link to="/songs" className="hero-3d-btn group">
+          <Link to="/songs" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
             <span className="hero-3d-btn-inner">
               <motion.span animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
