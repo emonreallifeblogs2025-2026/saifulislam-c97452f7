@@ -1,6 +1,6 @@
 import { useLanguage, Lang } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { ArrowLeft, Music, Copy, Check, Share2 } from "lucide-react";
+import { ArrowLeft, Music, Copy, Check, Share2, Play, Pause, Volume2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import songsCover from "@/assets/songs-cover.png";
 import { useState, useEffect, useRef, memo, useMemo } from "react";
