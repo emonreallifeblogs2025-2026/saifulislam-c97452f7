@@ -112,8 +112,11 @@ const YouTubeVideos = () => {
             <motion.div
               key={v.id}
               variants={fadeUpItem}
-              className="glass-card overflow-hidden group"
+              className="glass-card overflow-hidden group relative"
               whileHover={{ y: -5, boxShadow: "0 20px 40px hsl(0 0% 0% / 0.15)" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <FloatingPlayBg index={i} />
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <div className="relative aspect-video">
