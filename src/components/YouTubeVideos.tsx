@@ -16,6 +16,51 @@ const videos = [
   { id: "ecUpbCnX4QE", titleKey: "v9", views: "13K" },
 ];
 
+// Background floating play button behind each card
+const FloatingPlayBg = ({ index = 0 }: { index?: number }) => (
+  <motion.div
+    className="absolute -bottom-4 -right-4 z-0 pointer-events-none"
+    initial={{ opacity: 0, scale: 0.7 }}
+    animate={{
+      opacity: [0, 0.18, 0.08, 0.2, 0],
+      scale: [0.7, 1.1, 0.9, 1.15, 0.7],
+      rotateZ: [0, 8, -5, 6, 0],
+    }}
+    transition={{
+      duration: 8 + index * 1.2,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: index * 1.5,
+    }}
+  >
+    <div style={{ width: '80px', height: '80px', perspective: '400px' }}>
+      <motion.div
+        className="w-full h-full rounded-2xl flex items-center justify-center"
+        style={{
+          background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.25), hsl(0 90% 40% / 0.3))',
+          boxShadow: '0 12px 40px hsl(0 80% 40% / 0.2)',
+          transformStyle: 'preserve-3d',
+        }}
+        animate={{
+          rotateX: [5, -8, 5],
+          rotateY: [-6, 10, -6],
+        }}
+        transition={{
+          duration: 10 + index * 0.8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: index * 0.6,
+        }}
+      >
+        <svg viewBox="0 0 24 24" fill="hsl(0 70% 50% / 0.5)" className="w-[45%] h-[45%] ml-[6%]">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </motion.div>
+    </div>
+  </motion.div>
+);
+
+// Overlay play button on video thumbnail
 const YouTubePlayButton = ({ index = 0 }: { index?: number }) => (
   <motion.div
     className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
