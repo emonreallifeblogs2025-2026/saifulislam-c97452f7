@@ -112,10 +112,10 @@ const YouTubeVideos = () => {
           <p className="text-muted-foreground text-base">{t.videos.subtitle}</p>
         </AnimatedTitle>
 
-        {/* Floating background play buttons scattered across section */}
+        {/* 20 floating background play buttons */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          {videos.map((v, i) => (
-            <FloatingPlayBg key={`bg-${v.id}`} index={i} />
+          {bgButtonPositions.map((_, i) => (
+            <FloatingPlayBg key={`bg-${i}`} index={i} />
           ))}
         </div>
 
