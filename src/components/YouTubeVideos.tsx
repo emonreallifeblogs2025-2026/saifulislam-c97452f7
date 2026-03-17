@@ -45,7 +45,7 @@ const FloatingPlayBg = ({ index = 0 }: { index?: number }) => {
     >
       <div style={{ width: '20px', height: '20px', perspective: '300px' }}>
         <motion.div
-          className="w-full h-full rounded-xl flex items-center justify-center"
+          className="w-full h-full rounded-md flex items-center justify-center"
           style={{
             background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.4), hsl(0 90% 40% / 0.5))',
             boxShadow: '0 8px 25px hsl(0 80% 40% / 0.3), 0 0 15px hsl(0 70% 50% / 0.15)',
