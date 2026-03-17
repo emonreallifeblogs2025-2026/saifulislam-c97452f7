@@ -19,12 +19,12 @@ const videos = [
 // Background floating play button behind each card
 const FloatingPlayBg = ({ index = 0 }: { index?: number }) => (
   <motion.div
-    className="absolute -bottom-4 -right-4 z-0 pointer-events-none"
-    initial={{ opacity: 0, scale: 0.7 }}
+    className="absolute -bottom-8 -right-8 z-0 pointer-events-none"
+    initial={{ opacity: 0, scale: 0.8 }}
     animate={{
-      opacity: [0, 0.18, 0.08, 0.2, 0],
-      scale: [0.7, 1.1, 0.9, 1.15, 0.7],
-      rotateZ: [0, 8, -5, 6, 0],
+      opacity: [0.15, 0.45, 0.2, 0.5, 0.15],
+      scale: [0.8, 1.2, 0.95, 1.25, 0.8],
+      rotateZ: [0, 10, -6, 8, 0],
     }}
     transition={{
       duration: 8 + index * 1.2,
@@ -33,17 +33,17 @@ const FloatingPlayBg = ({ index = 0 }: { index?: number }) => (
       delay: index * 1.5,
     }}
   >
-    <div style={{ width: '80px', height: '80px', perspective: '400px' }}>
+    <div style={{ width: '120px', height: '120px', perspective: '500px' }}>
       <motion.div
-        className="w-full h-full rounded-2xl flex items-center justify-center"
+        className="w-full h-full rounded-3xl flex items-center justify-center"
         style={{
-          background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.25), hsl(0 90% 40% / 0.3))',
-          boxShadow: '0 12px 40px hsl(0 80% 40% / 0.2)',
+          background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.4), hsl(0 90% 40% / 0.5))',
+          boxShadow: '0 16px 50px hsl(0 80% 40% / 0.35), 0 0 30px hsl(0 70% 50% / 0.15)',
           transformStyle: 'preserve-3d',
         }}
         animate={{
-          rotateX: [5, -8, 5],
-          rotateY: [-6, 10, -6],
+          rotateX: [8, -12, 8],
+          rotateY: [-10, 14, -10],
         }}
         transition={{
           duration: 10 + index * 0.8,
@@ -52,7 +52,7 @@ const FloatingPlayBg = ({ index = 0 }: { index?: number }) => (
           delay: index * 0.6,
         }}
       >
-        <svg viewBox="0 0 24 24" fill="hsl(0 70% 50% / 0.5)" className="w-[45%] h-[45%] ml-[6%]">
+        <svg viewBox="0 0 24 24" fill="hsl(0 0% 100% / 0.7)" className="w-[45%] h-[45%] ml-[6%]" style={{ filter: 'drop-shadow(0 2px 6px hsl(0 0% 0% / 0.3))' }}>
           <path d="M8 5v14l11-7z" />
         </svg>
       </motion.div>
