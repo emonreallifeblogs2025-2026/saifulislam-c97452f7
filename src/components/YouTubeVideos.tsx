@@ -117,8 +117,6 @@ const YouTubeVideos = () => {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <FloatingPlayBg index={i} />
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
               <div className="relative aspect-video">
                 <iframe src={`https://www.youtube.com/embed/${v.id}`} title={(t.videos as any)[v.titleKey] || v.titleKey} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" loading="lazy" />
                 <YouTubePlayButton index={i} />
