@@ -16,49 +16,59 @@ const videos = [
   { id: "ecUpbCnX4QE", titleKey: "v9", views: "13K" },
 ];
 
-// Background floating play button behind each card
-const FloatingPlayBg = ({ index = 0 }: { index?: number }) => (
-  <motion.div
-    className="absolute -bottom-8 -right-8 z-0 pointer-events-none"
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{
-      opacity: [0.15, 0.45, 0.2, 0.5, 0.15],
-      scale: [0.8, 1.2, 0.95, 1.25, 0.8],
-      rotateZ: [0, 10, -6, 8, 0],
-    }}
-    transition={{
-      duration: 8 + index * 1.2,
-      repeat: Infinity,
-      ease: "easeInOut",
-      delay: index * 1.5,
-    }}
-  >
-    <div style={{ width: '120px', height: '120px', perspective: '500px' }}>
-      <motion.div
-        className="w-full h-full rounded-3xl flex items-center justify-center"
-        style={{
-          background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.4), hsl(0 90% 40% / 0.5))',
-          boxShadow: '0 16px 50px hsl(0 80% 40% / 0.35), 0 0 30px hsl(0 70% 50% / 0.15)',
-          transformStyle: 'preserve-3d',
-        }}
-        animate={{
-          rotateX: [8, -12, 8],
-          rotateY: [-10, 14, -10],
-        }}
-        transition={{
-          duration: 10 + index * 0.8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: index * 0.6,
-        }}
-      >
-        <svg viewBox="0 0 24 24" fill="hsl(0 0% 100% / 0.7)" className="w-[45%] h-[45%] ml-[6%]" style={{ filter: 'drop-shadow(0 2px 6px hsl(0 0% 0% / 0.3))' }}>
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </motion.div>
-    </div>
-  </motion.div>
-);
+// Background floating play buttons scattered across section
+const FloatingPlayBg = ({ index = 0 }: { index?: number }) => {
+  const positions = [
+    { top: '5%', left: '8%' }, { top: '15%', right: '5%' }, { bottom: '20%', left: '15%' },
+    { top: '40%', right: '12%' }, { bottom: '10%', right: '20%' }, { top: '60%', left: '5%' },
+    { top: '25%', left: '45%' }, { bottom: '35%', right: '40%' }, { top: '70%', right: '8%' },
+  ];
+  const pos = positions[index % positions.length];
+
+  return (
+    <motion.div
+      className="absolute pointer-events-none"
+      style={pos}
+      initial={{ opacity: 0, scale: 0.6 }}
+      animate={{
+        opacity: [0.1, 0.4, 0.15, 0.45, 0.1],
+        scale: [0.6, 1.15, 0.85, 1.2, 0.6],
+        rotateZ: [0, 12, -8, 10, 0],
+      }}
+      transition={{
+        duration: 9 + index * 1.3,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: index * 1.2,
+      }}
+    >
+      <div style={{ width: '120px', height: '120px', perspective: '500px' }}>
+        <motion.div
+          className="w-full h-full rounded-3xl flex items-center justify-center"
+          style={{
+            background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.35), hsl(0 90% 40% / 0.45))',
+            boxShadow: '0 16px 50px hsl(0 80% 40% / 0.3), 0 0 25px hsl(0 70% 50% / 0.12)',
+            transformStyle: 'preserve-3d',
+          }}
+          animate={{
+            rotateX: [8, -12, 8],
+            rotateY: [-10, 14, -10],
+          }}
+          transition={{
+            duration: 11 + index * 0.7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: index * 0.5,
+          }}
+        >
+          <svg viewBox="0 0 24 24" fill="hsl(0 0% 100% / 0.6)" className="w-[45%] h-[45%] ml-[6%]" style={{ filter: 'drop-shadow(0 2px 6px hsl(0 0% 0% / 0.3))' }}>
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
 
 // Overlay play button on video thumbnail
 const YouTubePlayButton = ({ index = 0 }: { index?: number }) => (
@@ -101,8 +111,15 @@ const YouTubeVideos = () => {
           <p className="text-muted-foreground text-base">{t.videos.subtitle}</p>
         </AnimatedTitle>
 
+        {/* Floating background play buttons scattered across section */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          {videos.map((v, i) => (
+            <FloatingPlayBg key={`bg-${v.id}`} index={i} />
+          ))}
+        </div>
+
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -112,11 +129,10 @@ const YouTubeVideos = () => {
             <motion.div
               key={v.id}
               variants={fadeUpItem}
-              className="glass-card overflow-hidden group relative"
+              className="glass-card overflow-hidden group"
               whileHover={{ y: -5, boxShadow: "0 20px 40px hsl(0 0% 0% / 0.15)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <FloatingPlayBg index={i} />
               <div className="relative aspect-video">
                 <iframe src={`https://www.youtube.com/embed/${v.id}`} title={(t.videos as any)[v.titleKey] || v.titleKey} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" loading="lazy" />
                 <YouTubePlayButton index={i} />
