@@ -75,6 +75,25 @@ const Skills = () => {
             <ProgressBar label={t.skills.videoEditing} percent={80} delay={3} />
           </motion.div>
         </div>
+
+        {/* প্রযুক্তিগত দক্ষতা */}
+        <motion.div
+          className="max-w-5xl mx-auto mt-16"
+          variants={fadeLeftItem}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
+            প্রযুক্তিগত দক্ষতা <span className="custom-line" />
+          </h3>
+          <div className="grid md:grid-cols-2 gap-x-16">
+            <ProgressBar label="React — শীর্ষ টেকনোলজি" percent={70} delay={0} />
+            <ProgressBar label="TypeScript — ইন্ডাস্ট্রি স্ট্যান্ডার্ড" percent={70} delay={1} />
+            <ProgressBar label="Tailwind CSS — জনপ্রিয় CSS ফ্রেমওয়ার্ক" percent={70} delay={2} />
+            <ProgressBar label="Framer Motion — সেরা এনিমেশন" percent={70} delay={3} />
+          </div>
+        </motion.div>
       </div>
     </section>
   );
