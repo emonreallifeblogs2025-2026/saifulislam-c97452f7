@@ -16,10 +16,10 @@ const videos = [
   { id: "ecUpbCnX4QE", titleKey: "v9", views: "13K" },
 ];
 
-// Generate many scattered positions
-const bgButtonPositions = Array.from({ length: 20 }, (_, i) => ({
-  top: `${5 + (i * 17) % 85}%`,
-  left: `${3 + (i * 23 + 7) % 90}%`,
+// Generate 50 scattered positions
+const bgButtonPositions = Array.from({ length: 50 }, (_, i) => ({
+  top: `${(i * 13 + 3) % 92}%`,
+  left: `${(i * 19 + 5) % 94}%`,
 }));
 
 // Background floating play buttons scattered across section
@@ -43,9 +43,9 @@ const FloatingPlayBg = ({ index = 0 }: { index?: number }) => {
         delay: index * 0.7,
       }}
     >
-      <div style={{ width: '60px', height: '60px', perspective: '400px' }}>
+      <div style={{ width: '20px', height: '20px', perspective: '300px' }}>
         <motion.div
-          className="w-full h-full rounded-xl flex items-center justify-center"
+          className="w-full h-full rounded-md flex items-center justify-center"
           style={{
             background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.4), hsl(0 90% 40% / 0.5))',
             boxShadow: '0 8px 25px hsl(0 80% 40% / 0.3), 0 0 15px hsl(0 70% 50% / 0.15)',
