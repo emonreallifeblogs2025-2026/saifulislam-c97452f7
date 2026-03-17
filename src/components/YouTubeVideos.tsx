@@ -16,10 +16,10 @@ const videos = [
   { id: "ecUpbCnX4QE", titleKey: "v9", views: "13K" },
 ];
 
-// Generate 50 scattered positions
-const bgButtonPositions = Array.from({ length: 50 }, (_, i) => ({
-  top: `${(i * 13 + 3) % 92}%`,
-  left: `${(i * 19 + 5) % 94}%`,
+// Generate 100 scattered positions
+const bgButtonPositions = Array.from({ length: 100 }, (_, i) => ({
+  top: `${(i * 7 + 2) % 95}%`,
+  left: `${(i * 11 + 3) % 96}%`,
 }));
 
 // Background floating play buttons scattered across section
