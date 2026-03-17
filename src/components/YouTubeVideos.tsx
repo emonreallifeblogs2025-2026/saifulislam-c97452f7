@@ -43,7 +43,7 @@ const FloatingPlayBg = ({ index = 0 }: { index?: number }) => {
         delay: index * 0.7,
       }}
     >
-      <div style={{ width: '60px', height: '60px', perspective: '400px' }}>
+      <div style={{ width: '20px', height: '20px', perspective: '300px' }}>
         <motion.div
           className="w-full h-full rounded-xl flex items-center justify-center"
           style={{
