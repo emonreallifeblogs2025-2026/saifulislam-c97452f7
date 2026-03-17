@@ -101,8 +101,15 @@ const YouTubeVideos = () => {
           <p className="text-muted-foreground text-base">{t.videos.subtitle}</p>
         </AnimatedTitle>
 
+        {/* Floating background play buttons scattered across section */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          {videos.map((v, i) => (
+            <FloatingPlayBg key={`bg-${v.id}`} index={i} />
+          ))}
+        </div>
+
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -112,11 +119,10 @@ const YouTubeVideos = () => {
             <motion.div
               key={v.id}
               variants={fadeUpItem}
-              className="glass-card overflow-hidden group relative"
+              className="glass-card overflow-hidden group"
               whileHover={{ y: -5, boxShadow: "0 20px 40px hsl(0 0% 0% / 0.15)" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <FloatingPlayBg index={i} />
               <div className="relative aspect-video">
                 <iframe src={`https://www.youtube.com/embed/${v.id}`} title={(t.videos as any)[v.titleKey] || v.titleKey} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" loading="lazy" />
                 <YouTubePlayButton index={i} />
