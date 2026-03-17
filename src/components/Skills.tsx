@@ -84,9 +84,6 @@ const Skills = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
-            প্রযুক্তিগত দক্ষতা <span className="custom-line" />
-          </h3>
           <div className="grid md:grid-cols-2 gap-x-16">
             <ProgressBar label="React — শীর্ষ টেকনোলজি" percent={70} delay={0} />
             <ProgressBar label="TypeScript — ইন্ডাস্ট্রি স্ট্যান্ডার্ড" percent={70} delay={1} />
