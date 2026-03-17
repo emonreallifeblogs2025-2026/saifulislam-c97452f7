@@ -16,52 +16,53 @@ const videos = [
   { id: "ecUpbCnX4QE", titleKey: "v9", views: "13K" },
 ];
 
+// Generate many scattered positions
+const bgButtonPositions = Array.from({ length: 20 }, (_, i) => ({
+  top: `${5 + (i * 17) % 85}%`,
+  left: `${3 + (i * 23 + 7) % 90}%`,
+}));
+
 // Background floating play buttons scattered across section
 const FloatingPlayBg = ({ index = 0 }: { index?: number }) => {
-  const positions = [
-    { top: '5%', left: '8%' }, { top: '15%', right: '5%' }, { bottom: '20%', left: '15%' },
-    { top: '40%', right: '12%' }, { bottom: '10%', right: '20%' }, { top: '60%', left: '5%' },
-    { top: '25%', left: '45%' }, { bottom: '35%', right: '40%' }, { top: '70%', right: '8%' },
-  ];
-  const pos = positions[index % positions.length];
+  const pos = bgButtonPositions[index % bgButtonPositions.length];
 
   return (
     <motion.div
       className="absolute pointer-events-none"
       style={pos}
-      initial={{ opacity: 0, scale: 0.6 }}
+      initial={{ opacity: 0, scale: 0.5 }}
       animate={{
-        opacity: [0.1, 0.4, 0.15, 0.45, 0.1],
-        scale: [0.6, 1.15, 0.85, 1.2, 0.6],
-        rotateZ: [0, 12, -8, 10, 0],
+        opacity: [0.15, 0.55, 0.2, 0.6, 0.15],
+        scale: [0.5, 1.1, 0.7, 1.15, 0.5],
+        rotateZ: [0, 10, -6, 8, 0],
       }}
       transition={{
-        duration: 9 + index * 1.3,
+        duration: 7 + index * 0.8,
         repeat: Infinity,
         ease: "easeInOut",
-        delay: index * 1.2,
+        delay: index * 0.7,
       }}
     >
-      <div style={{ width: '120px', height: '120px', perspective: '500px' }}>
+      <div style={{ width: '60px', height: '60px', perspective: '400px' }}>
         <motion.div
-          className="w-full h-full rounded-3xl flex items-center justify-center"
+          className="w-full h-full rounded-xl flex items-center justify-center"
           style={{
-            background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.35), hsl(0 90% 40% / 0.45))',
-            boxShadow: '0 16px 50px hsl(0 80% 40% / 0.3), 0 0 25px hsl(0 70% 50% / 0.12)',
+            background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.4), hsl(0 90% 40% / 0.5))',
+            boxShadow: '0 8px 25px hsl(0 80% 40% / 0.3), 0 0 15px hsl(0 70% 50% / 0.15)',
             transformStyle: 'preserve-3d',
           }}
           animate={{
-            rotateX: [8, -12, 8],
-            rotateY: [-10, 14, -10],
+            rotateX: [6, -10, 6],
+            rotateY: [-8, 12, -8],
           }}
           transition={{
-            duration: 11 + index * 0.7,
+            duration: 9 + index * 0.6,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: index * 0.5,
+            delay: index * 0.4,
           }}
         >
-          <svg viewBox="0 0 24 24" fill="hsl(0 0% 100% / 0.6)" className="w-[45%] h-[45%] ml-[6%]" style={{ filter: 'drop-shadow(0 2px 6px hsl(0 0% 0% / 0.3))' }}>
+          <svg viewBox="0 0 24 24" fill="hsl(0 0% 100% / 0.7)" className="w-[45%] h-[45%] ml-[6%]" style={{ filter: 'drop-shadow(0 1px 3px hsl(0 0% 0% / 0.3))' }}>
             <path d="M8 5v14l11-7z" />
           </svg>
         </motion.div>
