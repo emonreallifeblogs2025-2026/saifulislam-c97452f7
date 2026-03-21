@@ -7,14 +7,14 @@ import heroBg from "@/assets/hero-bg-dark.jpg";
 import { ArrowRight, BookOpen, Music } from "lucide-react";
 
 const roles: Record<string, string[]> = {
-  en: ["Psychology Researcher.", "Writer.", "AI Prompt Developer.", "Cinematographer.", "Music Composer."],
-  bn: ["সাইকোলজি রিসার্চার।", "লেখক।", "AI প্রম্পট ডেভেলপার।", "সিনেমাটোগ্রাফার।", "সংগীত রচয়িতা।"],
-  hi: ["मनोविज्ञान शोधकर्ता।", "लेखक।", "AI प्रॉम्प्ट डेवलपर।", "सिनेमैटोग्राफर।", "संगीत रचयिता।"],
-  fr: ["Chercheur en psychologie.", "Écrivain.", "Développeur IA.", "Cinéaste.", "Compositeur."],
-  ar: ["باحث في علم النفس.", "كاتب.", "مطور ذكاء اصطناعي.", "مصور سينمائي.", "ملحن."],
-  de: ["Psychologieforscher.", "Autor.", "KI-Entwickler.", "Kameramann.", "Komponist."],
-  zh: ["心理学研究员。", "作家。", "AI开发者。", "摄影师。", "作曲家。"],
-  ru: ["Исследователь психологии.", "Писатель.", "Разработчик ИИ.", "Кинематографист.", "Композитор."],
+  en: ["Psychology Researcher.", "Writer.", "AI Prompt Engineer.", "AI Film Creator.", "Website Builder.", "React — Top Technology.", "Tailwind CSS Framework.", "Cinematographer.", "Music Composer."],
+  bn: ["সাইকোলজি রিসার্চার।", "লেখক।", "AI প্রম্পট ইন্জিনিয়ার।", "AI ফিল্ম ক্রিয়েটর।", "ওয়েবসাইট বিল্ডার।", "React — শীর্ষ টেকনোলজি।", "Tailwind CSS ফ্রেমওয়ার্ক।", "সিনেমাটোগ্রাফার।", "সংগীত রচয়িতা।"],
+  hi: ["मनोविज्ञान शोधकर्ता।", "लेखक।", "AI प्रॉम्प्ट इंजीनियर।", "AI फिल्म क्रिएटर।", "वेबसाइट बिल्डर।", "React — शीर्ष तकनीक।", "Tailwind CSS फ्रेमवर्क।", "सिनेमैटोग्राफर।", "संगीत रचयिता।"],
+  fr: ["Chercheur en psychologie.", "Écrivain.", "Ingénieur IA Prompt.", "Créateur de films IA.", "Constructeur de sites web.", "React — Technologie de pointe.", "Tailwind CSS Framework.", "Cinéaste.", "Compositeur."],
+  ar: ["باحث في علم النفس.", "كاتب.", "مهندس ذكاء اصطناعي.", "صانع أفلام بالذكاء الاصطناعي.", "مطور مواقع.", "React — أفضل تقنية.", "Tailwind CSS إطار عمل.", "مصور سينمائي.", "ملحن."],
+  de: ["Psychologieforscher.", "Autor.", "KI-Prompt-Ingenieur.", "KI-Filmemacher.", "Website-Entwickler.", "React — Spitzentechnologie.", "Tailwind CSS Framework.", "Kameramann.", "Komponist."],
+  zh: ["心理学研究员。", "作家。", "AI提示工程师。", "AI电影创作者。", "网站建设者。", "React — 顶级技术。", "Tailwind CSS 框架。", "摄影师。", "作曲家。"],
+  ru: ["Исследователь психологии.", "Писатель.", "AI-промпт-инженер.", "Создатель AI-фильмов.", "Веб-разработчик.", "React — лучшая технология.", "Tailwind CSS фреймворк.", "Кинематографист.", "Композитор."],
 };
 
 interface Particle {
