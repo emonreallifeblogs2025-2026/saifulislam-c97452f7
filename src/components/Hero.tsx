@@ -138,7 +138,7 @@ const Hero = () => {
 
   useEffect(() => {
     const currentRole = currentRoles[roleIndex];
-    const speed = isDeleting ? 40 : 80;
+    const speed = isDeleting ? 60 : 120;
     if (!isDeleting && text === currentRole) { setTimeout(() => setIsDeleting(true), 1800); return; }
     if (isDeleting && text === "") { setIsDeleting(false); setRoleIndex((prev) => (prev + 1) % currentRoles.length); return; }
     const timer = setTimeout(() => {
