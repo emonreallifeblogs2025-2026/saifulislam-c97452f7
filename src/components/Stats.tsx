@@ -60,7 +60,7 @@ const Stats = () => {
           >
             <div className="relative text-center lg:text-left">
               <motion.div
-                className="text-[12rem] sm:text-[16rem] md:text-[20rem] font-black leading-none"
+                className="text-[10rem] sm:text-[14rem] md:text-[18rem] font-black leading-none px-4"
                 initial={{ scale: 0.5, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
