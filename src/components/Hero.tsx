@@ -23,7 +23,7 @@ interface Particle {
 
 const generateParticles = (count: number): Particle[] =>
   Array.from({ length: count }, (_, i) => ({
-    id: i, x: Math.random() * 100, y: Math.random() * 100, size: Math.random() * 4 + 1, duration: Math.random() * 4 + 3, delay: Math.random() * 5,
+    id: i, x: Math.random() * 100, y: 60 + Math.random() * 40, size: Math.random() * 6 + 2, duration: Math.random() * 5 + 4, delay: Math.random() * 8,
   }));
 
 
@@ -46,7 +46,7 @@ const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [particles] = useState(() => generateParticles(40));
+  const [particles] = useState(() => generateParticles(80));
 
   const currentRoles = roles[lang] || roles.en;
 
@@ -72,9 +72,13 @@ const Hero = () => {
       <div className="absolute inset-0 diagonal-lines" />
 
       <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
-        {particles.slice(0, 20).map((p) => (
-          <motion.div key={p.id} className="absolute rounded-full" style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: `hsl(40, 85%, ${50 + p.size * 5}%)` }}
-            animate={{ y: [0, -60, -120], opacity: [0, 1, 0], scale: [0.5, 1.2, 0.3] }}
+        {particles.map((p) => (
+          <motion.div key={p.id} className="absolute rounded-full" style={{
+            left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size,
+            background: `radial-gradient(circle, hsl(43, 90%, 70%), hsl(40, 85%, ${50 + p.size * 4}%), transparent)`,
+            boxShadow: `0 0 ${p.size * 2}px hsl(43, 80%, 55% / 0.5)`,
+          }}
+            animate={{ y: [0, -150, -350], x: [0, (Math.random() - 0.5) * 60], opacity: [0, 0.9, 0], scale: [0.3, 1.2, 0.1] }}
             transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }} />
         ))}
       </div>
