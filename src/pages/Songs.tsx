@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import songsCover from "@/assets/songs-cover.png";
 import { useState, useEffect, useRef, memo, useMemo } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { openExternalLink } from "@/lib/openLink";
 
 interface Track {
   id: number;
@@ -373,10 +374,10 @@ const Songs = () => {
   const pageShareText = `🎵 ${t.songs?.pageTitle || "আমার সুর"} — ${t.songs?.artist || "Syed Saiful Islam"}`;
 
   const handlePageWhatsApp = () => {
-    window.open(`https://wa.me/?text=${encodeURIComponent(pageShareText + " " + PAGE_URL)}`, "_blank");
+    openExternalLink(`https://wa.me/?text=${encodeURIComponent(pageShareText + " " + PAGE_URL)}`);
   };
   const handlePageMessenger = () => {
-    window.open(`https://www.facebook.com/dialog/send?link=${encodeURIComponent(PAGE_URL)}&app_id=966242223397117&redirect_uri=${encodeURIComponent(PAGE_URL)}`, "_blank");
+    openExternalLink(`https://www.facebook.com/dialog/send?link=${encodeURIComponent(PAGE_URL)}&app_id=966242223397117&redirect_uri=${encodeURIComponent(PAGE_URL)}`);
   };
   const handlePageCopy = async () => {
     await navigator.clipboard.writeText(PAGE_URL);
