@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-xl shadow-lg shadow-background/50" : "bg-transparent"}`}>
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
-        <a href="#home" className="text-2xl font-bold text-foreground flex items-center gap-2">
+        <a href="#home" className="text-4xl font-bold text-foreground flex items-center gap-2">
           <span className="text-primary">⟐</span> Saiful
         </a>
 
@@ -104,7 +104,7 @@ const Navbar = () => {
           </div>
           <div className="container mx-auto px-8 py-8 flex flex-col lg:flex-row gap-12">
             <div className="flex-1">
-              <a href="#home" className="text-2xl font-bold text-foreground flex items-center gap-2 mb-8">
+              <a href="#home" className="text-4xl font-bold text-foreground flex items-center gap-2 mb-8">
                 <span className="text-primary">⟐</span> Saiful
               </a>
               <p className="text-muted-foreground text-sm mb-6 max-w-sm leading-relaxed">
