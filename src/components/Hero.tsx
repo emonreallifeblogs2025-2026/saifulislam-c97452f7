@@ -85,25 +85,23 @@ const Hero = () => {
 
       <div className="container mx-auto relative z-10 pt-20 sm:pt-12 lg:pt-20 pb-10 sm:pb-16 lg:pb-20 px-4 lg:px-4">
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-4 sm:mb-6 md:mb-4 lg:hidden flex flex-wrap justify-center gap-3">
-          <Link to="/writings" className="hero-3d-btn group" onClick={handleRipple}>
-            <span className="hero-3d-btn-glow" />
-            <span className="hero-3d-btn-inner text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3">
-              <motion.span animate={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
-                <BookOpen size={16} />
-              </motion.span>
-              <span>{t.hero.writingsBtn}</span>
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </span>
+          <Link to="/writings" className="relative text-sm sm:text-base font-semibold px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-primary transition-all duration-300 hover:scale-105 group"
+            style={{
+              background: 'linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)',
+              boxShadow: '0 0 15px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.1), 0 4px 6px hsl(0 0% 0% / 0.3), 0 1px 3px hsl(0 0% 0% / 0.2)',
+              border: '1.5px solid hsl(var(--primary) / 0.6)',
+              textShadow: '0 0 10px hsl(var(--primary) / 0.5)',
+            }}>
+            📖 {t.hero.writingsBtn} <ArrowRight size={14} className="inline ml-1 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link to="/songs" className="hero-3d-btn group" onClick={handleRipple}>
-            <span className="hero-3d-btn-glow" />
-            <span className="hero-3d-btn-inner text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3">
-              <motion.span animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
-                <Music size={16} />
-              </motion.span>
-              <span>{t.hero.songsBtn || "আমার রচিত গান"}</span>
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </span>
+          <Link to="/songs" className="relative text-sm sm:text-base font-semibold px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-primary transition-all duration-300 hover:scale-105 group"
+            style={{
+              background: 'linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)',
+              boxShadow: '0 0 15px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.1), 0 4px 6px hsl(0 0% 0% / 0.3), 0 1px 3px hsl(0 0% 0% / 0.2)',
+              border: '1.5px solid hsl(var(--primary) / 0.6)',
+              textShadow: '0 0 10px hsl(var(--primary) / 0.5)',
+            }}>
+            🎵 {t.hero.songsBtn || "আমার রচিত গান"} <ArrowRight size={14} className="inline ml-1 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
 
