@@ -56,7 +56,7 @@ const Stats = () => {
           >
             <div className="relative text-center lg:text-left">
               <motion.div
-                className="text-[16rem] sm:text-[22rem] md:text-[28rem] font-black leading-none"
+                className="text-[12rem] sm:text-[16rem] md:text-[20rem] font-black leading-none"
                 initial={{ scale: 0.5, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
@@ -70,7 +70,7 @@ const Stats = () => {
                   <Counter target={21} />
                 </motion.span>
               </motion.div>
-              <h3 className="text-3xl md:text-4xl font-bold text-foreground -mt-14 sm:-mt-20 md:-mt-28">{t.stats.experience}</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground -mt-10 sm:-mt-14 md:-mt-16">{t.stats.experience}</h3>
             </div>
           </motion.div>
 
