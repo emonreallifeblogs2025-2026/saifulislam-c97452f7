@@ -166,25 +166,25 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto relative z-10 pt-20 pb-20 px-4">
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-8 flex flex-wrap justify-center gap-4">
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-8 flex flex-wrap justify-center gap-3">
           <Link to="/writings" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
-            <span className="hero-3d-btn-inner text-base sm:text-lg px-6 py-3 sm:px-8 sm:py-4">
+            <span className="hero-3d-btn-inner text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3">
               <motion.span animate={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
-                <BookOpen size={20} />
+                <BookOpen size={16} />
               </motion.span>
               <span>{t.hero.writingsBtn}</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
           <Link to="/songs" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
-            <span className="hero-3d-btn-inner text-base sm:text-lg px-6 py-3 sm:px-8 sm:py-4">
+            <span className="hero-3d-btn-inner text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3">
               <motion.span animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
-                <Music size={20} />
+                <Music size={16} />
               </motion.span>
               <span>{t.hero.songsBtn || "আমার রচিত গান"}</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
         </motion.div>
