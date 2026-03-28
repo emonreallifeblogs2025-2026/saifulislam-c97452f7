@@ -46,7 +46,7 @@ const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [particles] = useState(() => generateParticles(40));
+  const [particles] = useState(() => generateParticles(80));
 
   const currentRoles = roles[lang] || roles.en;
 
