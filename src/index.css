@@ -46,6 +46,16 @@
     --gold-light: 43 80% 60%;
     --gold-dark: 43 70% 38%;
 
+    --gradient-brand: linear-gradient(135deg, hsl(0 100% 65%), hsl(350 100% 55%), hsl(0 90% 50%), hsl(10 100% 60%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--pink-light)));
+    --gradient-hero-glow: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--pink-light)), hsl(var(--gold)), hsl(var(--primary)));
+    --surface-glass: hsl(var(--card) / 0.68);
+    --surface-glass-strong: hsl(var(--card) / 0.94);
+    --shadow-primary-soft: 0 8px 25px hsl(var(--primary) / 0.4);
+    --shadow-button: 0 2px 8px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(var(--foreground) / 0.08), 0 4px 12px hsl(var(--background) / 0.5);
+    --shadow-button-hover: 0 4px 20px hsl(var(--primary) / 0.35), inset 0 1px 0 hsl(var(--foreground) / 0.1), 0 8px 24px hsl(var(--background) / 0.6);
+    --shadow-text-glow: 0 0 1px hsl(0 0% 100% / 0.3);
+
     --sidebar-background: 220 18% 6%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 340 82% 52%;
@@ -67,12 +77,14 @@
     -webkit-touch-callout: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: geometricPrecision;
+    text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     text-size-adjust: 100%;
     font-variant-ligatures: common-ligatures;
     -webkit-font-variant-ligatures: common-ligatures;
+    font-synthesis-weight: none;
+    font-synthesis-style: none;
   }
   input, textarea {
     -webkit-user-select: text;
@@ -91,7 +103,12 @@
     font-optical-sizing: auto;
     font-feature-settings: "kern" 1, "liga" 1;
     -webkit-tap-highlight-color: transparent;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    isolation: isolate;
   }
   body[data-lang="bn"] {
     font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', 'Rajdhani', sans-serif;
@@ -121,12 +138,12 @@
   body[data-lang] label {
     color: hsl(0 0% 100%);
     -webkit-text-fill-color: hsl(0 0% 100%);
-    text-shadow: 0 0 1px hsl(0 0% 100% / 0.3);
+    text-shadow: var(--shadow-text-glow);
   }
-  /* Override for gradient-text elements - let gradient show through */
   body[data-lang] .gradient-text {
     color: transparent;
     -webkit-text-fill-color: transparent;
+    text-shadow: none;
   }
   body[data-lang="bn"] h1,
   body[data-lang="bn"] h2,
@@ -155,20 +172,30 @@
 @layer components {
   .glass-card {
     @apply bg-card/60 backdrop-blur-xl border border-border/50 rounded-2xl;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    background-color: var(--surface-glass);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 8px 32px 0 hsl(var(--background) / 0.36);
   }
   .glass-card:hover {
     border-color: hsl(var(--primary) / 0.4);
   }
   .glass-button {
     @apply px-8 py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center gap-2;
-    background: hsl(var(--primary));
+    background-color: hsl(var(--primary));
+    background-image: var(--gradient-primary);
     color: hsl(var(--primary-foreground));
+    box-shadow: 0 10px 28px hsl(var(--primary) / 0.22);
+    text-shadow: 0 0 8px hsl(var(--primary-foreground) / 0.12);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   .glass-button:hover {
-    background: hsl(var(--pink-light));
+    background-color: hsl(var(--pink-light));
+    background-image: linear-gradient(135deg, hsl(var(--pink-light)), hsl(var(--primary)));
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px hsl(var(--primary) / 0.4);
+    box-shadow: var(--shadow-primary-soft);
   }
   .glass-button-outline {
     @apply px-8 py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center gap-2;
@@ -183,12 +210,18 @@
   }
   .gradient-text {
     @apply bg-clip-text text-transparent;
+    color: hsl(var(--pink-light));
+    background-image: var(--gradient-brand);
+    -webkit-background-image: var(--gradient-brand);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(135deg, hsl(0 100% 65%), hsl(350 100% 55%), hsl(0 90% 50%), hsl(10 100% 60%));
-    -webkit-background-image: linear-gradient(135deg, hsl(0 100% 65%), hsl(350 100% 55%), hsl(0 90% 50%), hsl(10 100% 60%));
-    filter: brightness(1.3);
-    -webkit-filter: brightness(1.3);
+    filter: brightness(1.3) saturate(1.08);
+    -webkit-filter: brightness(1.3) saturate(1.08);
+    transform: translateZ(0);
+    will-change: filter;
   }
   .section-padding {
     @apply py-20 md:py-28 px-4 md:px-8;
@@ -213,21 +246,20 @@
 html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  background-color: hsl(var(--background));
+  color-scheme: dark;
 }
 
-/* Stable root container */
 #root {
   min-height: 100vh;
   min-height: 100dvh;
 }
 
-/* Safe area padding for notched devices (iPhone X+, Android cutout) */
 .safe-area-top { padding-top: env(safe-area-inset-top, 0px); }
 .safe-area-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
 .safe-area-left { padding-left: env(safe-area-inset-left, 0px); }
 .safe-area-right { padding-right: env(safe-area-inset-right, 0px); }
 
-/* Universal touch target minimum (48px for accessibility) */
 @media (pointer: coarse) {
   button, a, [role="button"] {
     min-height: 44px;
@@ -235,7 +267,6 @@ html {
   }
 }
 
-/* Tablet-specific optimizations (iPad, Android tablets) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .section-padding {
     padding-top: 4rem;
@@ -245,27 +276,23 @@ html {
   }
 }
 
-/* Large tablet / iPad Pro */
 @media (min-width: 1024px) and (max-width: 1366px) {
   .container {
     max-width: 960px;
   }
 }
 
-/* Desktop HD */
 @media (min-width: 1920px) {
   .container {
     max-width: 1400px;
   }
 }
 
-/* Prevent horizontal overflow on all devices */
 html, body {
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-/* Landscape phone orientation fix */
 @media (max-height: 500px) and (orientation: landscape) {
   .section-padding {
     padding-top: 2rem;
@@ -284,7 +311,6 @@ html, body {
   border-radius: 3px;
 }
 
-/* Typing cursor animation */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -296,8 +322,8 @@ html, body {
   font-weight: 100;
 }
 
-/* Diagonal lines background */
 .diagonal-lines {
+  background-color: transparent;
   background-image: repeating-linear-gradient(
     -45deg,
     transparent,
@@ -305,9 +331,9 @@ html, body {
     hsl(var(--primary) / 0.04) 40px,
     hsl(var(--primary) / 0.04) 41px
   );
+  background-position: center;
 }
 
-/* Floating animation */
 @keyframes up-down {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
@@ -323,7 +349,6 @@ html, body {
   animation: up-down-2 3s ease-in-out infinite;
 }
 
-/* Clip typing animation */
 @keyframes clip-in {
   0% { width: 0; }
   100% { width: 100%; }
@@ -339,7 +364,6 @@ html, body {
   border-right: 3px solid hsl(var(--primary));
 }
 
-/* WhatsApp floating button */
 @keyframes whatsapp-pulse {
   0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
   70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
@@ -355,7 +379,6 @@ html, body {
   100% { background-position: 0% 50%; }
 }
 
-/* Hero 3D Smart Buttons */
 .hero-3d-btn {
   position: relative;
   display: inline-flex;
@@ -364,6 +387,10 @@ html, body {
   transform-style: preserve-3d;
   perspective: 600px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 .hero-3d-btn:hover {
   transform: translateY(-3px) rotateX(6deg);
@@ -376,17 +403,22 @@ html, body {
   position: absolute;
   inset: -1px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--pink-light)), hsl(var(--gold)), hsl(var(--primary)));
+  background-color: hsl(var(--primary) / 0.7);
+  background-image: var(--gradient-hero-glow);
   background-size: 300% 300%;
   animation: borderGlow 3s ease infinite;
   opacity: 0.7;
   filter: blur(3px);
+  -webkit-filter: blur(3px);
   z-index: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  transform: translateZ(0);
+  will-change: opacity, filter, background-position;
 }
 .hero-3d-btn:hover .hero-3d-btn-glow {
   opacity: 1;
   filter: blur(5px);
+  -webkit-filter: blur(5px);
 }
 
 .hero-3d-btn-inner {
@@ -397,26 +429,25 @@ html, body {
   gap: 6px;
   padding: 7px 16px;
   border-radius: 9999px;
-  background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--secondary)));
+  background-color: var(--surface-glass-strong);
+  background-image: linear-gradient(145deg, hsl(var(--card) / 0.96), hsl(var(--secondary) / 0.94));
   border: 1px solid hsl(var(--primary) / 0.3);
   color: hsl(var(--foreground));
   font-weight: 600;
-  box-shadow:
-    0 2px 8px hsl(var(--primary) / 0.2),
-    inset 0 1px 0 hsl(var(--foreground) / 0.08),
-    0 4px 12px hsl(var(--background) / 0.5);
+  box-shadow: var(--shadow-button);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   transition: all 0.3s ease;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
 }
 .hero-3d-btn:hover .hero-3d-btn-inner {
   border-color: hsl(var(--primary) / 0.6);
-  box-shadow:
-    0 4px 20px hsl(var(--primary) / 0.35),
-    inset 0 1px 0 hsl(var(--foreground) / 0.1),
-    0 8px 24px hsl(var(--background) / 0.6);
+  box-shadow: var(--shadow-button-hover);
 }
 
-/* Ripple effect */
 .hero-ripple {
   position: absolute;
   border-radius: 50%;
@@ -425,10 +456,28 @@ html, body {
   animation: ripple-anim 0.6s ease-out forwards;
   pointer-events: none;
   z-index: 5;
+  will-change: transform, opacity;
 }
 @keyframes ripple-anim {
   to {
     transform: scale(4);
     opacity: 0;
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-card,
+  .hero-3d-btn-inner {
+    background-color: hsl(var(--card) / 0.96);
+  }
+}
+
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+  .gradient-text {
+    background-image: none;
+    -webkit-background-image: none;
+    color: hsl(var(--pink-light));
+    -webkit-text-fill-color: hsl(var(--pink-light));
+    text-shadow: 0 0 12px hsl(var(--primary) / 0.28);
   }
 }
