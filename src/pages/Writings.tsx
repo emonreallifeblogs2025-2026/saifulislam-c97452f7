@@ -117,7 +117,7 @@ const chapters = [
 const Writings = () => {
   const { t, lang } = useLanguage();
   const [openChapter, setOpenChapter] = useState<number | null>(null);
-  const displayChapters = useMemo(() => lang === "bn" ? chapters : getTranslatedChapters(lang), [lang]);
+  const displayChapters = useMemo(() => getTranslatedChapters(lang), [lang]);
   const [particles] = useState(() => generateGoldParticles(80));
 
   const [floatingBooks] = useState(() => generateFloatingBooks(12));
