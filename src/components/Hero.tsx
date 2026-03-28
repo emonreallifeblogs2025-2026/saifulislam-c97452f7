@@ -84,6 +84,28 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto relative z-10 pt-20 sm:pt-12 lg:pt-20 pb-10 sm:pb-16 lg:pb-20 px-4 lg:px-4">
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-4 sm:mb-6 md:mb-4 lg:hidden flex flex-wrap justify-center gap-3">
+          <Link to="/writings" className="hero-3d-btn group" onClick={handleRipple}>
+            <span className="hero-3d-btn-glow" />
+            <span className="hero-3d-btn-inner text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3">
+              <motion.span animate={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+                <BookOpen size={16} />
+              </motion.span>
+              <span>{t.hero.writingsBtn}</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
+          <Link to="/songs" className="hero-3d-btn group" onClick={handleRipple}>
+            <span className="hero-3d-btn-glow" />
+            <span className="hero-3d-btn-inner text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3">
+              <motion.span animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
+                <Music size={16} />
+              </motion.span>
+              <span>{t.hero.songsBtn || "আমার রচিত গান"}</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="order-2 lg:order-1">
