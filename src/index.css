@@ -81,9 +81,9 @@
     letter-spacing: 0.01em;
   }
   body[data-lang="bn"] p,
-  body[data-lang="bn"] span,
   body[data-lang="bn"] li,
-  body[data-lang="bn"] a {
+  body[data-lang="bn"] a,
+  body[data-lang="bn"] :not(h1):not(h2):not(h3):not(h4) > span {
     font-size: 1.05em;
     line-height: 1.9;
   }
