@@ -43,7 +43,7 @@ const Stats = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="section-padding pt-20 relative overflow-hidden">
+    <section className="section-padding pt-4 relative overflow-hidden">
       <FloatingOrbs colors={["hsl(var(--primary) / 0.06)", "hsl(var(--gold) / 0.05)"]} />
 
       <div className="container mx-auto relative z-10">
