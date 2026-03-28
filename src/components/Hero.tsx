@@ -394,10 +394,7 @@ const Hero = () => {
                 <img src={heroImage} alt="Saiful Islam - Psychology & Real Life Researcher" className="w-full" loading="eager"
                   fetchPriority="high"
                   decoding="sync"
-                  width="672"
-                  height="672"
                   style={{
-                    aspectRatio: '1/1',
                     WebkitMaskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
                     maskImage: 'radial-gradient(ellipse 68% 65% at 48% 45%, black 55%, rgba(0,0,0,0.3) 70%, transparent 82%)',
                   }} />
