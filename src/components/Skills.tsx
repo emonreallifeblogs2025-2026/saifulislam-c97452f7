@@ -85,10 +85,10 @@ const Skills = () => {
           viewport={{ once: true }}
         >
           <div className="grid md:grid-cols-2 gap-x-16">
-            <ProgressBar label="React — শীর্ষ টেকনোলজি" percent={70} delay={0} />
-            <ProgressBar label="TypeScript — ইন্ডাস্ট্রি স্ট্যান্ডার্ড" percent={70} delay={1} />
-            <ProgressBar label="Tailwind CSS — জনপ্রিয় CSS ফ্রেমওয়ার্ক" percent={70} delay={2} />
-            <ProgressBar label="Framer Motion — সেরা এনিমেশন" percent={70} delay={3} />
+            <ProgressBar label="React" percent={70} delay={0} />
+            <ProgressBar label="TypeScript" percent={70} delay={1} />
+            <ProgressBar label="Tailwind CSS" percent={70} delay={2} />
+            <ProgressBar label="Framer Motion" percent={70} delay={3} />
           </div>
         </motion.div>
       </div>
