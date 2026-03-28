@@ -165,8 +165,8 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto relative z-10 pt-20 sm:pt-12 md:pt-16 lg:pt-20 pb-10 sm:pb-16 md:pb-20 px-4 md:px-8 lg:px-4">
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-4 sm:mb-8 flex flex-wrap justify-center gap-3">
+      <div className="container mx-auto relative z-10 pt-20 sm:pt-12 md:pt-10 lg:pt-20 pb-10 sm:pb-16 md:pb-12 lg:pb-20 px-4 md:px-6 lg:px-4">
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-4 sm:mb-6 md:mb-4 lg:mb-8 flex flex-wrap justify-center gap-3">
           <Link to="/writings" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
             <span className="hero-3d-btn-inner text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3">
@@ -189,14 +189,14 @@ const Hero = () => {
           </Link>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-4 sm:gap-8 md:gap-10 lg:gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-6 lg:gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="order-2 md:order-1">
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-normal text-muted-foreground font-bold mb-1">
+            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="inline-block text-3xl sm:text-4xl md:text-3xl lg:text-5xl xl:text-6xl uppercase tracking-normal text-muted-foreground font-bold mb-1">
               {t.hero.hello}
             </motion.span>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="text-foreground mb-1">
-              <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1]">
+              <span className="block text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold leading-[1.1]">
                 {t.hero.im}
                 <span className="text-foreground">{t.hero.name}</span>
               </span>
@@ -218,7 +218,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="flex flex-col items-center relative order-1 md:order-2">
-            <div className="relative w-[18rem] sm:w-[22rem] md:w-[24rem] lg:w-[32rem] xl:w-[42rem]">
+            <div className="relative w-[18rem] sm:w-[22rem] md:w-[18rem] lg:w-[28rem] xl:w-[42rem]">
               {/* Fire effect behind hero */}
               <div className="absolute z-0" style={{ inset: '-30%', pointerEvents: 'none' }}>
                 {/* Amber warm ambient - base layer */}
@@ -401,7 +401,7 @@ const Hero = () => {
               </div>
             </div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black uppercase text-foreground/80 tracking-[0.15em] mt-[-2rem] z-20">
+              className="text-center text-xl sm:text-2xl md:text-xl lg:text-3xl xl:text-5xl font-black uppercase text-foreground/80 tracking-[0.15em] mt-[-1rem] md:mt-[-0.5rem] lg:mt-[-2rem] z-20">
               {t.hero.researcher}
             </motion.h2>
           </motion.div>
