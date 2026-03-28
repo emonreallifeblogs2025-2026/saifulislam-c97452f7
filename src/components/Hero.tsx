@@ -23,7 +23,7 @@ interface Particle {
 
 const generateParticles = (count: number): Particle[] =>
   Array.from({ length: count }, (_, i) => ({
-    id: i, x: Math.random() * 100, y: Math.random() * 100, size: Math.random() * 4 + 1, duration: Math.random() * 4 + 3, delay: Math.random() * 5,
+    id: i, x: Math.random() * 100, y: 60 + Math.random() * 40, size: Math.random() * 6 + 2, duration: Math.random() * 5 + 4, delay: Math.random() * 8,
   }));
 
 
