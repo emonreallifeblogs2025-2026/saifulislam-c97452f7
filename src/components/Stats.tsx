@@ -44,7 +44,7 @@ const Stats = () => {
 
   return (
     <motion.section
-      className="section-padding pt-0 -mt-16 relative overflow-hidden"
+      className="section-padding pt-12 relative overflow-hidden"
       animate={{ backgroundColor: bgFlashColors }}
       transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
     >
