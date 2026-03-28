@@ -70,7 +70,7 @@ const Stats = () => {
                   <Counter target={21} />
                 </motion.span>
               </motion.div>
-              <h3 className="text-3xl md:text-4xl font-bold text-foreground -mt-6 sm:-mt-10 md:-mt-14">{t.stats.experience}</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground -mt-14 sm:-mt-20 md:-mt-28">{t.stats.experience}</h3>
             </div>
           </motion.div>
 
