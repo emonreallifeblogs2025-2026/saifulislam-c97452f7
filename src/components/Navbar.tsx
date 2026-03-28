@@ -44,7 +44,7 @@ const Navbar = () => {
 
   const socialLinks = [
     { icon: <Facebook size={14} />, href: "https://www.facebook.com/realliferesearcher" },
-    { icon: <TikTokIcon />, href: "https://www.tiktok.com/@saifulislam.live?_r=1&_t=ZS-94bFZ1rkh1g" },
+    { icon: <TikTokIcon />, href: "https://www.tiktok.com/@saifulislam.live" },
   ];
 
   const allLangs: Lang[] = ["bn", "en", "hi", "fr", "ar", "de", "zh", "ru"];
@@ -67,7 +67,7 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <div className="hidden lg:flex items-center gap-2">
             {socialLinks.map((s, i) => (
-              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
+              <a key={i} href={s.href} target="_blank" rel="noopener" onClick={(e) => { e.preventDefault(); window.open(s.href, '_blank', 'noopener'); }} className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
                 {s.icon}
               </a>
             ))}
@@ -115,7 +115,7 @@ const Navbar = () => {
               </div>
               <div className="flex gap-3 mt-6">
                 {socialLinks.map((s, i) => (
-                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
+                  <a key={i} href={s.href} target="_blank" rel="noopener" onClick={(e) => { e.preventDefault(); window.open(s.href, '_blank', 'noopener'); }} className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
                     {s.icon}
                   </a>
                 ))}
