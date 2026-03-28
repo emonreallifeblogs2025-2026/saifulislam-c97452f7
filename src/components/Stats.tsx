@@ -58,7 +58,7 @@ const Stats = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <div className="relative text-center lg:text-left">
+            <div className="relative flex flex-col items-center justify-center text-center lg:text-center">
                 <motion.div
                 className="text-[8rem] sm:text-[10rem] md:text-[14rem] lg:text-[18rem] font-black leading-none px-4"
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -67,7 +67,7 @@ const Stats = () => {
                 transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <span
-                  className="block"
+                  className="block text-center"
                   style={{
                     background: "linear-gradient(180deg, hsl(45, 100%, 65%) 0%, hsl(35, 100%, 50%) 40%, hsl(25, 90%, 35%) 100%)",
                     WebkitBackgroundClip: "text",
@@ -79,7 +79,7 @@ const Stats = () => {
                   <Counter target={21} />
                 </span>
               </motion.div>
-              <h3 className="text-3xl md:text-4xl font-bold text-foreground -mt-10 sm:-mt-14 md:-mt-16">{t.stats.experience}</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground -mt-10 sm:-mt-14 md:-mt-16 text-center">{t.stats.experience}</h3>
             </div>
           </motion.div>
 
