@@ -81,7 +81,7 @@ const Contact = () => {
             />
             <motion.button
               type="submit"
-              className="glass-button text-xl sm:text-2xl md:text-3xl w-full justify-center items-center py-5 sm:py-6"
+              className="glass-button text-xl sm:text-2xl md:text-3xl w-full justify-center items-center"
               whileHover={{ scale: 1.03, boxShadow: "0 10px 30px hsl(var(--primary) / 0.3)" }}
               whileTap={{ scale: 0.97 }}
             >
