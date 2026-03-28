@@ -352,7 +352,8 @@ const FloatingInstrumentsCSS = () => (
 );
 
 const Songs = () => {
-  const { t, lang, setLang } = useLanguage();
+  const { t: rawT, lang, setLang } = useLanguage();
+  const t = { ...rawT, songs: rawT.songs || { pageTitle: "My Melodies", pageSubtitle: "Compositions & Original Songs", comingSoon: "Coming soon...", artist: "Syed Saiful Islam", linkCopied: "Link copied!", trackLabel: "Track", sharePageLabel: "Share", songPrefix: "Song" } };
   const [pageShareCopied, setPageShareCopied] = useState(false);
   const [currentPlaying, setCurrentPlaying] = useState<number | null>(null);
   const { toast } = useToast();
