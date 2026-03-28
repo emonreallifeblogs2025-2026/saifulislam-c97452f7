@@ -4,14 +4,14 @@ import { useRef, useState, useEffect } from "react";
 import { staggerContainer, fadeUpItem, fadeLeftItem } from "@/lib/animations";
 import { TiltCard, FloatingOrbs } from "@/components/AnimatedSection";
 
-const colorCycle = [
-  "hsl(var(--primary))",
-  "hsl(45, 100%, 55%)",
-  "hsl(150, 80%, 50%)",
-  "hsl(280, 80%, 60%)",
-  "hsl(0, 85%, 60%)",
-  "hsl(200, 90%, 55%)",
-  "hsl(30, 100%, 55%)",
+const bgFlashColors = [
+  "hsl(var(--primary) / 0.08)",
+  "hsl(45, 100%, 55%, 0.06)",
+  "hsl(280, 80%, 60%, 0.06)",
+  "hsl(200, 90%, 55%, 0.06)",
+  "hsl(0, 85%, 60%, 0.06)",
+  "hsl(150, 80%, 50%, 0.06)",
+  "hsl(var(--primary) / 0.08)",
 ];
 
 const Counter = ({ target, suffix = "" }: { target: number; suffix?: string }) => {
@@ -43,7 +43,11 @@ const Stats = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="section-padding pt-0 -mt-16 relative overflow-hidden">
+    <motion.section
+      className="section-padding pt-0 -mt-16 relative overflow-hidden"
+      animate={{ backgroundColor: bgFlashColors }}
+      transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+    >
       <FloatingOrbs colors={["hsl(var(--primary) / 0.06)", "hsl(var(--gold) / 0.05)"]} />
 
       <div className="container mx-auto relative z-10">
@@ -62,13 +66,18 @@ const Stats = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <motion.span
+                <span
                   className="block"
-                  animate={{ color: colorCycle }}
-                  transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+                  style={{
+                    background: "linear-gradient(180deg, hsl(45, 100%, 65%) 0%, hsl(35, 100%, 50%) 40%, hsl(25, 90%, 35%) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    textShadow: "none",
+                    filter: "drop-shadow(0 4px 20px hsl(45, 100%, 50%, 0.4)) drop-shadow(0 8px 40px hsl(35, 100%, 40%, 0.2))",
+                  }}
                 >
                   <Counter target={21} />
-                </motion.span>
+                </span>
               </motion.div>
               <h3 className="text-3xl md:text-4xl font-bold text-foreground -mt-10 sm:-mt-14 md:-mt-16">{t.stats.experience}</h3>
             </div>
