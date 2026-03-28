@@ -93,6 +93,7 @@
   }
   body[data-lang="bn"] {
     font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', 'Rajdhani', sans-serif;
+    font-size: 105%;
   }
   body[data-lang="hi"] {
     font-family: 'Noto Sans Bengali', 'Rajdhani', sans-serif;
