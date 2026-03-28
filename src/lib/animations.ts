@@ -10,37 +10,37 @@ export const staggerContainer: Variants = {
 
 // Fade up items
 export const fadeUpItem: Variants = {
-  hidden: { opacity: 0, y: 40, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 20 },
   visible: {
-    opacity: 1, y: 0, filter: "blur(0px)",
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    opacity: 1, y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
 // Fade in from left
 export const fadeLeftItem: Variants = {
-  hidden: { opacity: 0, x: -50, filter: "blur(6px)" },
+  hidden: { opacity: 0, x: -30 },
   visible: {
-    opacity: 1, x: 0, filter: "blur(0px)",
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    opacity: 1, x: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
 // Fade in from right
 export const fadeRightItem: Variants = {
-  hidden: { opacity: 0, x: 50, filter: "blur(6px)" },
+  hidden: { opacity: 0, x: 30 },
   visible: {
-    opacity: 1, x: 0, filter: "blur(0px)",
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    opacity: 1, x: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
 // Scale up
 export const scaleUpItem: Variants = {
-  hidden: { opacity: 0, scale: 0.85, filter: "blur(10px)" },
+  hidden: { opacity: 0, scale: 0.95 },
   visible: {
-    opacity: 1, scale: 1, filter: "blur(0px)",
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    opacity: 1, scale: 1,
+    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 

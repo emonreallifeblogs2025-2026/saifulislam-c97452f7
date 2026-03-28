@@ -17,6 +17,18 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload critical fonts to prevent FOUT/layout shift -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" />
+    <!-- Preload hero assets -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/LiAdorNoirrit.woff2" crossorigin />
+    <style>
+      /* Critical inline CSS to prevent blank flash */
+      html, body { background: #0a0c10; color: #f2f2f2; margin: 0; padding: 0; }
+      #root { min-height: 100vh; min-height: 100dvh; }
+      /* Font fallback sizing to prevent CLS */
+      body { font-family: 'Rajdhani', Arial, sans-serif; }
+    </style>
 
     <!-- Open Graph -->
     <meta property="og:type" content="profile" />
