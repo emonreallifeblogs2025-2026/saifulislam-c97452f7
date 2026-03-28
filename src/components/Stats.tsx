@@ -44,9 +44,9 @@ const Stats = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <div className="relative">
+            <div className="relative text-center lg:text-left">
               <motion.span
-                className="text-[10rem] md:text-[14rem] font-black text-primary/15 leading-none block"
+                className="text-[12rem] sm:text-[16rem] md:text-[20rem] font-black text-primary leading-none block"
                 initial={{ scale: 0.5, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
@@ -54,12 +54,7 @@ const Stats = () => {
               >
                 <Counter target={21} />
               </motion.span>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-3xl md:text-4xl font-bold text-foreground">{t.stats.experience}</h3>
-                <p className="text-muted-foreground mt-3 max-w-sm text-sm leading-relaxed whitespace-pre-line">
-                  {t.stats.longBio}
-                </p>
-              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground mt-2">{t.stats.experience}</h3>
             </div>
           </motion.div>
 
