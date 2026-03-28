@@ -4,6 +4,16 @@ import { useRef, useState, useEffect } from "react";
 import { staggerContainer, fadeUpItem, fadeLeftItem } from "@/lib/animations";
 import { TiltCard, FloatingOrbs } from "@/components/AnimatedSection";
 
+const colorCycle = [
+  "hsl(var(--primary))",
+  "hsl(45, 100%, 55%)",
+  "hsl(150, 80%, 50%)",
+  "hsl(280, 80%, 60%)",
+  "hsl(0, 85%, 60%)",
+  "hsl(200, 90%, 55%)",
+  "hsl(30, 100%, 55%)",
+];
+
 const Counter = ({ target, suffix = "" }: { target: number; suffix?: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
@@ -46,13 +56,27 @@ const Stats = () => {
           >
             <div className="relative text-center lg:text-left">
               <motion.span
-                className="text-[12rem] sm:text-[16rem] md:text-[20rem] font-black text-primary leading-none block"
+                className="text-[16rem] sm:text-[22rem] md:text-[28rem] font-black leading-none block"
                 initial={{ scale: 0.5, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                animate={{
+                  color: colorCycle,
+                }}
+                // @ts-ignore
+                transition2={{}}
+                style={{
+                  // @ts-ignore
+                  transition: "color 2s ease-in-out",
+                }}
               >
-                <Counter target={21} />
+                <motion.span
+                  animate={{ color: colorCycle }}
+                  transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Counter target={21} />
+                </motion.span>
               </motion.span>
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mt-2">{t.stats.experience}</h3>
             </div>
