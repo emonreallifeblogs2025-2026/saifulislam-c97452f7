@@ -165,7 +165,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto relative z-10 pt-4 sm:pt-12 pb-10 sm:pb-20 px-4">
+      <div className="container mx-auto relative z-10 pt-20 sm:pt-12 pb-10 sm:pb-20 px-4">
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-4 sm:mb-8 flex flex-wrap justify-center gap-3">
           <Link to="/writings" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
