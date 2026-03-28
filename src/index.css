@@ -77,6 +77,15 @@
   }
   body[data-lang="bn"] {
     font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', 'Rajdhani', sans-serif;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+  body[data-lang="bn"] p,
+  body[data-lang="bn"] span,
+  body[data-lang="bn"] li,
+  body[data-lang="bn"] a {
+    font-size: 1.05em;
+    line-height: 1.9;
   }
   body[data-lang="ar"],
   body[data-lang="zh"],
@@ -84,14 +93,18 @@
   body[data-lang="de"] {
     font-family: 'Noto Sans Bengali', 'Rajdhani', sans-serif;
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 700;
-  }
   body[data-lang="bn"] h1,
   body[data-lang="bn"] h2,
   body[data-lang="bn"] h3 {
     font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', serif;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+  body[data-lang="bn"] h4,
+  body[data-lang="bn"] h5,
+  body[data-lang="bn"] h6 {
+    font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', serif;
+    line-height: 1.5;
   }
 }
 
