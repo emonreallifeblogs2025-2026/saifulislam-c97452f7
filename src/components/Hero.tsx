@@ -150,7 +150,7 @@ const Hero = () => {
   useEffect(() => { setText(""); setRoleIndex(0); setIsDeleting(false); }, [lang]);
 
   return (
-    <section id="home" className="relative flex items-center overflow-hidden" style={{ minHeight: '100dvh', contain: 'layout style' }}>
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden" style={{ minHeight: '100dvh' }}>
       <div className="absolute inset-0">
         <img src={heroBg} alt="" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="sync" />
         <div className="absolute inset-0 bg-background/60" />
@@ -190,7 +190,7 @@ const Hero = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="order-2 lg:order-1">
+          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="order-2 lg:order-1">
             <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="inline-block text-xs uppercase tracking-[0.35em] text-muted-foreground font-semibold mb-6">
               {t.hero.hello}
             </motion.span>
@@ -217,7 +217,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
             <div className="relative w-[22rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
               {/* Fire effect behind hero */}
               <div className="absolute z-0" style={{ inset: '-30%', pointerEvents: 'none' }}>
