@@ -105,14 +105,14 @@ const Hero = () => {
 
         <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="order-2 lg:order-1">
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="inline-block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl uppercase tracking-normal text-muted-foreground font-bold mb-1">
+            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="gradient-text inline-block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl uppercase tracking-normal font-bold mb-1">
               {t.hero.hello}
             </motion.span>
 
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="text-foreground mb-1">
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="mb-1">
               <span className="block text-4xl lg:text-5xl xl:text-7xl font-extrabold leading-[1.1]">
-                {t.hero.im}
-                <span className="text-foreground">{t.hero.name}</span>
+                <span className="gradient-text">{t.hero.im}</span>{" "}
+                <span className="gradient-text">{t.hero.name}</span>
               </span>
               <span className="block mt-4 clip-text gradient-text text-lg lg:text-xl xl:text-2xl font-bold min-h-[2em]">
                 {text}
