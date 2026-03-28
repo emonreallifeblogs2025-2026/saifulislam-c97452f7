@@ -401,7 +401,7 @@ const Hero = () => {
               </div>
             </div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase text-foreground/80 tracking-[0.15em] mt-[-2rem] z-20">
+              className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black uppercase text-foreground/80 tracking-[0.15em] mt-[-2rem] z-20">
               {t.hero.researcher}
             </motion.h2>
           </motion.div>
