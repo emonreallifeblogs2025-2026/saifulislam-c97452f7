@@ -85,7 +85,7 @@ const Contact = () => {
               whileHover={{ scale: 1.03, boxShadow: "0 10px 30px hsl(var(--primary) / 0.3)" }}
               whileTap={{ scale: 0.97 }}
             >
-              {t.contact.send} <Send size={16} />
+              {t.contact.send} <Send size={22} />
             </motion.button>
           </motion.form>
         </div>
