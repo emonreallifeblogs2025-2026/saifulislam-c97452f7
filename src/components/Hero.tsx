@@ -150,7 +150,7 @@ const Hero = () => {
   useEffect(() => { setText(""); setRoleIndex(0); setIsDeleting(false); }, [lang]);
 
   return (
-    <section id="home" className="relative flex items-center overflow-hidden" style={{ minHeight: '100vh', minHeight: '100dvh', contain: 'layout style' }}>
+    <section id="home" className="relative flex items-center overflow-hidden" style={{ minHeight: '100dvh', contain: 'layout style' }}>
       <div className="absolute inset-0">
         <img src={heroBg} alt="" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="sync" />
         <div className="absolute inset-0 bg-background/60" />
