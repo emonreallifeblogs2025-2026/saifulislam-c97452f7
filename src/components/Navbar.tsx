@@ -67,9 +67,9 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="hidden lg:flex items-center gap-4 lg:gap-8">
+        <div className="hidden lg:flex items-center gap-5 lg:gap-10">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-base lg:text-lg text-muted-foreground hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
+            <a key={l.href} href={l.href} className="text-lg lg:text-xl xl:text-2xl font-medium text-muted-foreground hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
               {l.label}
             </a>
           ))}
