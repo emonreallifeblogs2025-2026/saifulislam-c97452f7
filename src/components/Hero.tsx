@@ -115,7 +115,17 @@ const Hero = () => {
                 <span className="gradient-text">{t.hero.name}</span>
               </span>
               <span className="block mt-4 clip-text gradient-text text-lg lg:text-xl xl:text-2xl font-bold min-h-[2em]">
+                <span style={{
+                  color: 'transparent',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundImage: 'linear-gradient(135deg, hsl(0 100% 60%), hsl(350 100% 50%), hsl(10 100% 55%), hsl(0 90% 65%))',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  filter: 'brightness(1.3) saturate(1.2)',
+                  WebkitFilter: 'brightness(1.3) saturate(1.2)',
+                }}>
                 {text}
+                </span>
               </span>
             </motion.h1>
 
