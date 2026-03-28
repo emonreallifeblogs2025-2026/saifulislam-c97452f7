@@ -51,7 +51,7 @@ const Stats = () => {
       <FloatingOrbs colors={["hsl(var(--primary) / 0.06)", "hsl(var(--gold) / 0.05)"]} />
 
       <div className="container mx-auto relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <motion.div
             variants={fadeLeftItem}
             initial="hidden"

@@ -40,7 +40,7 @@ const Contact = () => {
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <motion.div variants={fadeLeftItem} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3">{t.contact.getInTouch}</p>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">{t.contact.subtitle}</h2>

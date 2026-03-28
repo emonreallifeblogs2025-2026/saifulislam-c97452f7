@@ -54,7 +54,7 @@ const Skills = () => {
       <FloatingOrbs colors={["hsl(var(--primary) / 0.04)", "hsl(var(--gold) / 0.04)"]} />
 
       <div className="container mx-auto relative z-10">
-        <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
           <motion.div variants={fadeLeftItem} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <h3 className="text-2xl font-bold text-foreground mb-8">
               {t.skills.design} <span className="custom-line" />
@@ -84,7 +84,7 @@ const Skills = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div className="grid md:grid-cols-2 gap-x-16">
+          <div className="grid lg:grid-cols-2 gap-x-16">
             <ProgressBar label="React" percent={70} delay={0} />
             <ProgressBar label="TypeScript" percent={70} delay={1} />
             <ProgressBar label="Tailwind CSS" percent={70} delay={2} />
