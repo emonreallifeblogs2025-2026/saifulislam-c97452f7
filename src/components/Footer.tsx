@@ -37,15 +37,14 @@ const Footer = () => {
         {/* Tech stack info */}
         <motion.div variants={fadeUpItem} className="text-center mb-6">
           <p className="text-white/90 text-sm mb-3 font-semibold">
-            তৈরী করেছেন সৈয়দ সাইফুল ইসলাম, সাইটের অবস্থান:
+            {t.footer.madeWith}
           </p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-white/80 text-xs">
-            <span>✅ React — শীর্ষ টেকনোলজি</span>
-            <span>✅ TypeScript — ইন্ডাস্ট্রি স্ট্যান্ডার্ড</span>
-            <span>✅ Tailwind CSS — সবচেয়ে জনপ্রিয় CSS ফ্রেমওয়ার্ক</span>
-            <span>✅ Framer Motion — সেরা এনিমেশন লাইব্রেরি</span>
+            <span>✅ React</span>
+            <span>✅ TypeScript</span>
+            <span>✅ Tailwind CSS</span>
+            <span>✅ Framer Motion</span>
           </div>
-          <p className="text-white/70 text-xs mt-2">বর্তমান সময়ের সেরা টেকনোলজি স্ট্যাক ব্যবহার হয়েছে।</p>
         </motion.div>
 
         <motion.div variants={fadeUpItem} className="flex flex-col md:flex-row items-center justify-between gap-6">

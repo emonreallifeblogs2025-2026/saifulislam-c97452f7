@@ -16,8 +16,8 @@ const videos = [
   { id: "ecUpbCnX4QE", titleKey: "v9", views: "13K" },
 ];
 
-// Generate 100 scattered positions
-const bgButtonPositions = Array.from({ length: 100 }, (_, i) => ({
+// Generate 15 scattered positions (reduced for mobile performance)
+const bgButtonPositions = Array.from({ length: 15 }, (_, i) => ({
   top: `${(i * 7 + 2) % 95}%`,
   left: `${(i * 11 + 3) % 96}%`,
 }));

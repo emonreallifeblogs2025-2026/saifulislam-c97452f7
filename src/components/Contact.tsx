@@ -17,7 +17,7 @@ const generateGoldParticles = (count: number): GoldParticle[] =>
 const Contact = () => {
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [particles] = useState(() => generateGoldParticles(60));
+  const [particles] = useState(() => generateGoldParticles(20));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -6,7 +6,7 @@ import { ArrowLeft, Lock, LogOut, Save, RotateCcw, ChevronDown, ChevronRight } f
 import { toast } from "sonner";
 
 const langLabels: Record<string, string> = {
-  bn: "বাংলা", en: "English", fr: "Français", ar: "العربية", de: "Deutsch", zh: "中文", ru: "Русский",
+  bn: "বাংলা", en: "English", hi: "हिन्दी", fr: "Français", ar: "العربية", de: "Deutsch", zh: "中文", ru: "Русский",
 };
 
 const sectionLabels: Record<string, string> = {
