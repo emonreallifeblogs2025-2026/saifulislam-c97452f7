@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLanguage, Lang } from "@/contexts/LanguageContext";
 import { Menu, X, Facebook, ChevronDown } from "lucide-react";
+import { openExternalLink } from "@/lib/openLink";
 
 const TikTokIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -67,7 +68,7 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <div className="hidden md:flex items-center gap-2">
             {socialLinks.map((s, i) => (
-              <a key={i} href={s.href} target="_blank" rel="noopener" onClick={(e) => { e.preventDefault(); window.open(s.href, '_blank', 'noopener'); }} className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
+              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" onClick={(e) => openExternalLink(s.href, e)} className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
                 {s.icon}
               </a>
             ))}
@@ -115,7 +116,7 @@ const Navbar = () => {
               </div>
               <div className="flex gap-3 mt-6">
                 {socialLinks.map((s, i) => (
-                  <a key={i} href={s.href} target="_blank" rel="noopener" onClick={(e) => { e.preventDefault(); window.open(s.href, '_blank', 'noopener'); }} className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
+                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" onClick={(e) => openExternalLink(s.href, e)} className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
                     {s.icon}
                   </a>
                 ))}

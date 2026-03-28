@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
+import { openExternalLink } from "@/lib/openLink";
 import { fadeLeftItem, fadeRightItem } from "@/lib/animations";
 
 interface GoldParticle {
@@ -22,7 +23,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappMessage = `${t.contact.name}: ${form.name}%0A${t.contact.email}: ${form.email}%0A${t.contact.message}: ${form.message}`;
-    window.open(`https://wa.me/8801999708880?text=${whatsappMessage}`, '_blank');
+    openExternalLink(`https://wa.me/8801999708880?text=${whatsappMessage}`);
     toast.success(t.contact.success);
     setForm({ name: "", email: "", message: "" });
   };

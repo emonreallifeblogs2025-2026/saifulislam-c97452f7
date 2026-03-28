@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowUp, Facebook } from "lucide-react";
 import { staggerContainer, fadeUpItem } from "@/lib/animations";
+import { openExternalLink } from "@/lib/openLink";
 
 const TikTokIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -58,7 +59,7 @@ const Footer = () => {
                 href={s.href}
                 target="_blank"
                 rel="noopener"
-                onClick={(e: React.MouseEvent) => { e.preventDefault(); window.open(s.href, '_blank', 'noopener'); }}
+                onClick={(e: React.MouseEvent) => openExternalLink(s.href, e)}
                 className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all"
                 style={{
                   background: "linear-gradient(145deg, hsl(0, 60%, 55%), hsl(0, 70%, 38%))",
