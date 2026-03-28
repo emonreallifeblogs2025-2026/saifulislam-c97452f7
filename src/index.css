@@ -95,19 +95,13 @@
     font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', 'Rajdhani', sans-serif;
     font-size: 122%;
   }
-  body[data-lang="bn"] p,
-  body[data-lang="bn"] span,
-  body[data-lang="bn"] a,
-  body[data-lang="bn"] li,
-  body[data-lang="bn"] label {
-    color: hsl(0 0% 100%);
-    text-shadow: 0 0 1px hsl(0 0% 100% / 0.3);
-  }
   body[data-lang="hi"] {
     font-family: 'Noto Sans Bengali', 'Rajdhani', sans-serif;
+    font-size: 122%;
   }
   body[data-lang="ar"] {
     font-family: 'Rajdhani', sans-serif;
+    font-size: 122%;
     direction: rtl;
   }
   body[data-lang="zh"],
@@ -116,6 +110,15 @@
   body[data-lang="fr"],
   body[data-lang="en"] {
     font-family: 'Rajdhani', sans-serif;
+    font-size: 122%;
+  }
+  body[data-lang] p,
+  body[data-lang] span,
+  body[data-lang] a,
+  body[data-lang] li,
+  body[data-lang] label {
+    color: hsl(0 0% 100%);
+    text-shadow: 0 0 1px hsl(0 0% 100% / 0.3);
   }
   body[data-lang="bn"] h1,
   body[data-lang="bn"] h2,
