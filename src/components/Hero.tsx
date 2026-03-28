@@ -166,25 +166,25 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto relative z-10 pt-20 pb-20 px-4">
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-8 flex flex-wrap gap-2.5">
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-8 flex flex-wrap justify-center gap-4">
           <Link to="/writings" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
-            <span className="hero-3d-btn-inner">
+            <span className="hero-3d-btn-inner text-base sm:text-lg px-6 py-3 sm:px-8 sm:py-4">
               <motion.span animate={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
-                <BookOpen size={13} />
+                <BookOpen size={20} />
               </motion.span>
-              <span className="text-[11px] sm:text-xs">{t.hero.writingsBtn}</span>
-              <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" />
+              <span>{t.hero.writingsBtn}</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
           <Link to="/songs" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
-            <span className="hero-3d-btn-inner">
+            <span className="hero-3d-btn-inner text-base sm:text-lg px-6 py-3 sm:px-8 sm:py-4">
               <motion.span animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
-                <Music size={13} />
+                <Music size={20} />
               </motion.span>
-              <span className="text-[11px] sm:text-xs">{t.hero.songsBtn || "আমার রচিত গান"}</span>
-              <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" />
+              <span>{t.hero.songsBtn || "আমার রচিত গান"}</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
         </motion.div>
