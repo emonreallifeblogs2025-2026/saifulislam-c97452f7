@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap');
 
+@font-face {
+  font-family: 'Li Ador Noirrit';
+  src: url('/fonts/LiAdorNoirrit.woff2') format('woff2'),
+       url('/fonts/LiAdorNoirrit.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -66,7 +75,9 @@
     @apply bg-background text-foreground;
     font-family: 'Rajdhani', sans-serif;
   }
-  body[data-lang="bn"],
+  body[data-lang="bn"] {
+    font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', 'Rajdhani', sans-serif;
+  }
   body[data-lang="ar"],
   body[data-lang="zh"],
   body[data-lang="ru"],
@@ -80,7 +91,7 @@
   body[data-lang="bn"] h1,
   body[data-lang="bn"] h2,
   body[data-lang="bn"] h3 {
-    font-family: 'Noto Sans Bengali', serif;
+    font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', serif;
   }
 }
 
