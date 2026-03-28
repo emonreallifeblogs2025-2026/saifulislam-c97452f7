@@ -61,10 +61,10 @@ export const FloatingOrbs = ({ colors = ["hsl(var(--primary) / 0.08)", "hsl(var(
 // Animated section title with text reveal
 export const AnimatedTitle = ({ children, className = "" }: { children: ReactNode; className?: string }) => (
   <motion.div
-    initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+    transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
     className={className}
   >
     {children}
