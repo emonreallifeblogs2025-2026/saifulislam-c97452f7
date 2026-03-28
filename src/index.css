@@ -4,9 +4,10 @@
   font-family: 'Li Ador Noirrit';
   src: url('/fonts/LiAdorNoirrit.woff2') format('woff2'),
        url('/fonts/LiAdorNoirrit.woff') format('woff');
-  font-weight: normal;
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
 }
 
 @tailwind base;
@@ -94,24 +95,16 @@
     font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', 'Rajdhani', sans-serif;
   }
   body[data-lang="hi"] {
-    font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
+    font-family: 'Noto Sans Bengali', 'Rajdhani', sans-serif;
   }
   body[data-lang="ar"] {
-    font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     direction: rtl;
   }
-  body[data-lang="zh"] {
-    font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-  }
-  body[data-lang="ru"] {
-    font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-  }
-  body[data-lang="de"] {
-    font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-  }
-  body[data-lang="fr"] {
-    font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-  }
+  body[data-lang="zh"],
+  body[data-lang="ru"],
+  body[data-lang="de"],
+  body[data-lang="fr"],
   body[data-lang="en"] {
     font-family: 'Rajdhani', sans-serif;
   }
