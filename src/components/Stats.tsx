@@ -55,29 +55,21 @@ const Stats = () => {
             viewport={{ once: true }}
           >
             <div className="relative text-center lg:text-left">
-              <motion.span
-                className="text-[16rem] sm:text-[22rem] md:text-[28rem] font-black leading-none block"
+              <motion.div
+                className="text-[16rem] sm:text-[22rem] md:text-[28rem] font-black leading-none"
                 initial={{ scale: 0.5, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                animate={{
-                  color: colorCycle,
-                }}
-                // @ts-ignore
-                transition2={{}}
-                style={{
-                  // @ts-ignore
-                  transition: "color 2s ease-in-out",
-                }}
               >
                 <motion.span
+                  className="block"
                   animate={{ color: colorCycle }}
                   transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
                 >
                   <Counter target={21} />
                 </motion.span>
-              </motion.span>
+              </motion.div>
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mt-2">{t.stats.experience}</h3>
             </div>
           </motion.div>
