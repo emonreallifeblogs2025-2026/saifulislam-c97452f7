@@ -191,7 +191,7 @@ const Hero = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="order-2 lg:order-1">
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="inline-block text-xs uppercase tracking-[0.35em] text-muted-foreground font-semibold mb-6">
+            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.35em] text-muted-foreground font-bold mb-6">
               {t.hero.hello}
             </motion.span>
 
