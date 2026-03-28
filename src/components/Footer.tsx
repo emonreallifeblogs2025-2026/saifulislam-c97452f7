@@ -37,7 +37,7 @@ const Footer = () => {
         {/* Tech stack info */}
         <motion.div variants={fadeUpItem} className="text-center mb-6">
           <p className="text-white/90 text-sm mb-3 font-semibold">
-            {t.footer.madeWith}
+            {t.footer.createdBy}
           </p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-white/80 text-xs">
             <span>✅ React</span>
