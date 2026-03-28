@@ -36,7 +36,7 @@ const defaultStructure: Record<string, string[]> = {
   portfolio: ["title", "subtitle", "p1", "p2", "p3", "p4", "p5", "p6"],
   articles: ["title", "subtitle"],
   contact: ["title", "subtitle", "name", "email", "message", "send", "success", "getInTouch", "contactDesc"],
-  footer: ["rights", "madeWith"],
+  footer: ["rights", "createdBy"],
   music: ["label", "title", "subtitle", "listenMore"],
   skillCards: ["mySkill", "elevatedDesigns", "personalizedExp", "readMore", "s1Title", "s1Count", "s1Desc", "s2Title", "s2Count", "s2Desc", "s3Title", "s3Count", "s3Desc"],
   writings: ["goBack", "waitMore", "chapters", "author", "authorRole", "comingSoon"],
