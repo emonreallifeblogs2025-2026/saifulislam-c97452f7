@@ -190,6 +190,21 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent layout shift during load */
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  contain: layout style;
+}
+
+/* Stable section containers - prevent CLS */
+section {
+  contain: layout style;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 
 ::-webkit-scrollbar {
