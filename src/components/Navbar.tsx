@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-xl shadow-lg shadow-background/50" : "bg-transparent"}`}>
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
-        <a href="#home" className="text-[2.5rem] font-bold text-foreground flex items-center gap-2">
+        <a href="#home" className="text-[2.5rem] font-bold text-foreground flex items-center gap-2" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
           <span className="text-primary">⟐</span> Saiful
         </a>
 
