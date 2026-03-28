@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, useMemo, ReactNode } from "react";
 import { useContent } from "@/contexts/ContentContext";
 
-export type Lang = "bn" | "en" | "hi" | "fr" | "ar" | "de" | "zh" | "ru";
+export type Lang = "bn" | "en" | "hi" | "fr" | "ar" | "de" | "zh" | "ru"; // all supported languages
 
 const LANG_KEY = "saiful-lang";
 
