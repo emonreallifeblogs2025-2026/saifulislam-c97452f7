@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { useState, useEffect, memo, useCallback, MouseEvent, useMemo } from "react";
+import { useState, useEffect, memo, useCallback, MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
@@ -130,9 +130,6 @@ const Hero = () => {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [particles] = useState(() => generateParticles(40));
-  const fireParticles = useMemo(() => generateFireParticles(6), []);
-  const sparkParticles = useMemo(() => generateSparkParticles(10), []);
-  const smokeParticles = useMemo(() => generateSmokeParticles(8), []);
 
   const currentRoles = roles[lang] || roles.en;
 
