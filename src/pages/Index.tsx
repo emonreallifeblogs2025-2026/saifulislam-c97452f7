@@ -14,7 +14,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background safe-area-top safe-area-bottom overflow-x-hidden">
       <Navbar />
       <Hero />
       <YouTubeVideos />
