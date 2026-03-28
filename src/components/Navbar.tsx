@@ -57,12 +57,24 @@ const Navbar = () => {
           <a href="#home" className="text-[2.5rem] font-bold text-foreground flex items-center gap-2" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
             <span className="text-primary">⟐</span> Saiful
           </a>
-          <div className="hidden lg:flex items-center gap-2 -mt-1">
-            <a href="/writings" className="text-xs font-medium px-3 py-1 rounded-full border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all">
-              {t.hero.writingsBtn}
+          <div className="hidden lg:flex items-center gap-4 mt-3">
+            <a href="/writings" className="relative text-base font-semibold px-6 py-2.5 rounded-full text-primary transition-all duration-300 hover:scale-105"
+              style={{
+                background: 'linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)',
+                boxShadow: '0 0 15px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.1), 0 4px 6px hsl(0 0% 0% / 0.3), 0 1px 3px hsl(0 0% 0% / 0.2)',
+                border: '1.5px solid hsl(var(--primary) / 0.6)',
+                textShadow: '0 0 10px hsl(var(--primary) / 0.5)',
+              }}>
+              📖 {t.hero.writingsBtn}
             </a>
-            <a href="/songs" className="text-xs font-medium px-3 py-1 rounded-full border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all">
-              {t.hero.songsBtn}
+            <a href="/songs" className="relative text-base font-semibold px-6 py-2.5 rounded-full text-primary transition-all duration-300 hover:scale-105"
+              style={{
+                background: 'linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)',
+                boxShadow: '0 0 15px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.1), 0 4px 6px hsl(0 0% 0% / 0.3), 0 1px 3px hsl(0 0% 0% / 0.2)',
+                border: '1.5px solid hsl(var(--primary) / 0.6)',
+                textShadow: '0 0 10px hsl(var(--primary) / 0.5)',
+              }}>
+              🎵 {t.hero.songsBtn}
             </a>
           </div>
         </div>
