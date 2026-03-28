@@ -14,7 +14,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: <Facebook size={16} />, href: "https://www.facebook.com/realliferesearcher" },
-    { icon: <TikTokIcon />, href: "https://www.tiktok.com/@saifulislam.live?_r=1&_t=ZS-94bFZ1rkh1g" },
+    { icon: <TikTokIcon />, href: "https://www.tiktok.com/@saifulislam.live" },
   ];
 
   return (
@@ -58,7 +58,8 @@ const Footer = () => {
                 key={i}
                 href={s.href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
+                onClick={(e: React.MouseEvent) => { e.preventDefault(); window.open(s.href, '_blank', 'noopener'); }}
                 className="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all"
                 style={{
                   background: "linear-gradient(145deg, hsl(0, 60%, 55%), hsl(0, 70%, 38%))",
