@@ -84,7 +84,7 @@ const Stats = () => {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 gap-6"
+            className="grid grid-cols-2 gap-4 sm:gap-6"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -97,15 +97,15 @@ const Stats = () => {
               { value: 500, suffix: " +", label: t.stats.clients },
             ].map((stat, i) => (
               <motion.div key={i} variants={fadeUpItem}>
-                <TiltCard className="glass-card p-6 text-center">
+                <TiltCard className="glass-card p-4 sm:p-6 text-center aspect-square flex flex-col items-center justify-center">
                   <motion.h4
-                    className="text-2xl md:text-3xl font-bold text-foreground mb-2"
+                    className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 sm:mb-2 whitespace-nowrap"
                     whileHover={{ scale: 1.1, color: "hsl(var(--primary))" }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Counter target={stat.value} suffix={stat.suffix} />
                   </motion.h4>
-                  <p className="text-muted-foreground text-xs uppercase tracking-widest">{stat.label}</p>
+                  <p className="text-muted-foreground text-[10px] sm:text-xs uppercase tracking-widest leading-tight text-center">{stat.label}</p>
                 </TiltCard>
               </motion.div>
             ))}
