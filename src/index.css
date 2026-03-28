@@ -75,7 +75,9 @@
     @apply bg-background text-foreground;
     font-family: 'Rajdhani', sans-serif;
   }
-  body[data-lang="bn"],
+  body[data-lang="bn"] {
+    font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', 'Rajdhani', sans-serif;
+  }
   body[data-lang="ar"],
   body[data-lang="zh"],
   body[data-lang="ru"],
@@ -89,7 +91,7 @@
   body[data-lang="bn"] h1,
   body[data-lang="bn"] h2,
   body[data-lang="bn"] h3 {
-    font-family: 'Noto Sans Bengali', serif;
+    font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', serif;
   }
 }
 
