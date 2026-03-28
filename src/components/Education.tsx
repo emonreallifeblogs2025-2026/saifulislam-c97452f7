@@ -28,7 +28,7 @@ const Education = () => {
           <h2 className="text-2xl md:text-4xl font-bold text-foreground leading-tight">{t.education.heading}</h2>
         </AnimatedTitle>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           <motion.div variants={fadeLeftItem} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <h3 className="text-xl font-bold text-foreground mb-8">
               {t.education.eduTitle} <span className="custom-line" />
