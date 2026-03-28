@@ -53,13 +53,23 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-xl shadow-lg shadow-background/50" : "bg-transparent"}`}>
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
-        <a href="#home" className="text-[2.5rem] font-bold text-foreground flex items-center gap-2" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
-          <span className="text-primary">⟐</span> Saiful
-        </a>
+        <div className="flex flex-col items-start">
+          <a href="#home" className="text-[2.5rem] font-bold text-foreground flex items-center gap-2" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
+            <span className="text-primary">⟐</span> Saiful
+          </a>
+          <div className="hidden lg:flex items-center gap-2 -mt-1">
+            <a href="/writings" className="text-xs font-medium px-3 py-1 rounded-full border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all">
+              {t.hero.writingsBtn}
+            </a>
+            <a href="/songs" className="text-xs font-medium px-3 py-1 rounded-full border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all">
+              {t.hero.songsBtn}
+            </a>
+          </div>
+        </div>
 
         <div className="hidden lg:flex items-center gap-4 lg:gap-8">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
+            <a key={l.href} href={l.href} className="text-base lg:text-lg text-muted-foreground hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
               {l.label}
             </a>
           ))}
