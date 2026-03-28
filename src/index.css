@@ -114,6 +114,11 @@
     font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', 'Rajdhani', sans-serif;
     font-size: 122%;
   }
+  @media (min-width: 1024px) {
+    body[data-lang="bn"] {
+      font-size: 130%;
+    }
+  }
   body[data-lang="hi"] {
     font-family: 'Noto Sans Bengali', 'Rajdhani', sans-serif;
     font-size: 122%;
