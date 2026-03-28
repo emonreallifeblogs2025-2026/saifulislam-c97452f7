@@ -41,7 +41,7 @@ const ShareButtons = ({ track, t }: { track: Track; t: any }) => {
   const shareText = `🎵 ${track.title} — ${t.songs?.artist || "Syed Saiful Islam"}`;
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`, "_blank");
+    openExternalLink(`https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`);
   };
 
 
