@@ -56,7 +56,7 @@ const Navbar = () => {
           <span className="text-primary">⟐</span> Saiful
         </a>
 
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4 lg:gap-8">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
               {l.label}
@@ -65,7 +65,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             {socialLinks.map((s, i) => (
               <a key={i} href={s.href} target="_blank" rel="noopener" onClick={(e) => { e.preventDefault(); window.open(s.href, '_blank', 'noopener'); }} className="w-9 h-9 rounded-full border border-border hover:border-primary hover:text-primary flex items-center justify-center transition-all text-muted-foreground">
                 {s.icon}
@@ -89,7 +89,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <button className="lg:hidden w-10 h-10 rounded-full bg-primary flex items-center justify-center" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="md:hidden w-10 h-10 rounded-full bg-primary flex items-center justify-center" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={18} className="text-primary-foreground" /> : <Menu size={18} className="text-primary-foreground" />}
           </button>
         </div>
@@ -102,7 +102,7 @@ const Navbar = () => {
               <X size={20} />
             </button>
           </div>
-          <div className="container mx-auto px-8 py-8 flex flex-col lg:flex-row gap-12">
+          <div className="container mx-auto px-8 py-8 flex flex-col md:flex-row gap-12">
             <div className="flex-1">
               <a href="#home" className="text-[2.5rem] font-bold text-foreground flex items-center gap-2 mb-8">
                 <span className="text-primary">⟐</span> Saiful

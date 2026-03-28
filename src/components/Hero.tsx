@@ -165,7 +165,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto relative z-10 pt-20 sm:pt-12 pb-10 sm:pb-20 px-4">
+      <div className="container mx-auto relative z-10 pt-20 sm:pt-12 md:pt-16 lg:pt-20 pb-10 sm:pb-16 md:pb-20 px-4 md:px-8 lg:px-4">
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="mb-4 sm:mb-8 flex flex-wrap justify-center gap-3">
           <Link to="/writings" className="hero-3d-btn group" onClick={handleRipple}>
             <span className="hero-3d-btn-glow" />
@@ -189,8 +189,8 @@ const Hero = () => {
           </Link>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
-          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="order-2 lg:order-1">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-8 md:gap-10 lg:gap-12 items-center">
+          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="order-2 md:order-1">
             <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-normal text-muted-foreground font-bold mb-1">
               {t.hero.hello}
             </motion.span>
@@ -217,8 +217,8 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="flex flex-col items-center relative order-1 lg:order-2">
-            <div className="relative w-[20rem] sm:w-[26rem] md:w-[32rem] lg:w-[36rem] xl:w-[42rem]">
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="flex flex-col items-center relative order-1 md:order-2">
+            <div className="relative w-[18rem] sm:w-[22rem] md:w-[24rem] lg:w-[32rem] xl:w-[42rem]">
               {/* Fire effect behind hero */}
               <div className="absolute z-0" style={{ inset: '-30%', pointerEvents: 'none' }}>
                 {/* Amber warm ambient - base layer */}
