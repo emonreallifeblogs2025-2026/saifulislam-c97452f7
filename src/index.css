@@ -64,6 +64,12 @@
     -ms-user-select: none;
     user-select: none;
     -webkit-touch-callout: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   input, textarea {
     -webkit-user-select: text;
@@ -74,39 +80,40 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Rajdhani', sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+    letter-spacing: 0;
+    word-spacing: 0;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
   }
   body[data-lang="bn"] {
     font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', 'Rajdhani', sans-serif;
-    line-height: 1.7;
   }
   body[data-lang="hi"] {
     font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-    line-height: 1.7;
   }
   body[data-lang="ar"] {
     font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-    line-height: 1.7;
     direction: rtl;
   }
   body[data-lang="zh"] {
     font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-    line-height: 1.7;
   }
   body[data-lang="ru"] {
     font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-    line-height: 1.7;
   }
   body[data-lang="de"] {
     font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-    line-height: 1.7;
   }
   body[data-lang="fr"] {
     font-family: 'Rajdhani', 'Noto Sans Bengali', sans-serif;
-    line-height: 1.7;
   }
   body[data-lang="en"] {
     font-family: 'Rajdhani', sans-serif;
-    line-height: 1.7;
   }
   body[data-lang="bn"] h1,
   body[data-lang="bn"] h2,
@@ -115,6 +122,16 @@
   body[data-lang="bn"] h5,
   body[data-lang="bn"] h6 {
     font-family: 'Li Ador Noirrit', 'Noto Sans Bengali', serif;
+  }
+  h1, h2, h3, h4, h5, h6, p, span, a, li, button, input, textarea, label, div {
+    line-height: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+  }
+  img, video, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 }
 
