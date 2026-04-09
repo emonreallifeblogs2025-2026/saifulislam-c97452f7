@@ -99,13 +99,13 @@ const Stats = () => {
               <motion.div key={i} variants={fadeUpItem}>
                 <TiltCard className="glass-card p-4 sm:p-6 text-center aspect-square flex flex-col items-center justify-center">
                   <motion.h4
-                    className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 sm:mb-2 whitespace-nowrap"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-1 sm:mb-2 whitespace-nowrap"
                     whileHover={{ scale: 1.1, color: "hsl(var(--primary))" }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Counter target={stat.value} suffix={stat.suffix} />
                   </motion.h4>
-                  <p className="text-muted-foreground text-[10px] sm:text-xs uppercase tracking-widest leading-tight text-center">{stat.label}</p>
+                  <p className="text-xs sm:text-sm uppercase tracking-widest leading-tight text-center text-muted-foreground">{stat.label}</p>
                 </TiltCard>
               </motion.div>
             ))}
