@@ -89,13 +89,13 @@ const Portfolio = () => {
         >
           {articles.map((article, i) => (
             <motion.div key={i} variants={fadeUpItem}>
-              <TiltCard className="glass-card p-6 cursor-pointer group relative overflow-hidden">
+              <TiltCard className="glass-card p-6 cursor-pointer group relative overflow-hidden h-full flex flex-col">
                 {/* Hover gradient */}
                 <motion.div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
                   style={{ background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.06), transparent 70%)" }}
                 />
-                <div className="relative z-10" onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}>
+                <div className="relative z-10 flex flex-col flex-1" onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}>
                   <div className="flex items-center gap-3 mb-4">
                     <motion.span
                       className="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center text-lg font-bold"
@@ -112,7 +112,7 @@ const Portfolio = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className={`text-muted-foreground text-sm leading-relaxed whitespace-pre-line ${expandedIndex === i ? "" : "line-clamp-6"}`}
+                      className={`text-muted-foreground text-sm leading-relaxed whitespace-pre-line flex-1 ${expandedIndex === i ? "" : "line-clamp-4 lg:line-clamp-5"}`}
                     >
                       {article}
                     </motion.p>
