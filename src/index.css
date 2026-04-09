@@ -116,7 +116,7 @@
   }
   @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
     body[data-lang="bn"] {
-      font-size: 110%;
+      font-size: 100%;
     }
   }
   /* Bump small Bengali text sizes up by 2 levels */
