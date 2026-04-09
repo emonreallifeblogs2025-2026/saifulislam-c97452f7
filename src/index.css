@@ -284,6 +284,34 @@ html {
   }
 }
 
+/* ── Cross-platform mobile normalization ── */
+@supports (-webkit-overflow-scrolling: touch) {
+  /* iOS Safari */
+  body { -webkit-text-size-adjust: 100%; }
+}
+@media (max-width: 1023px) {
+  /* Force identical mobile layout on ALL OS */
+  * {
+    -webkit-text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+  }
+  .glass-card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  /* Normalize font rendering across Android Chrome, Samsung Browser, iOS Safari */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision;
+  }
+  /* Prevent Android auto font-boosting */
+  p, span, h1, h2, h3, h4, h5, h6, a, li, label, button {
+    max-height: 999999px;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .section-padding {
     padding-top: 4rem;
