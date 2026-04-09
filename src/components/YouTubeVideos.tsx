@@ -72,32 +72,18 @@ const FloatingPlayBg = ({ index = 0 }: { index?: number }) => {
 };
 
 // Overlay play button on video thumbnail
-const YouTubePlayButton = ({ index = 0 }: { index?: number }) => (
-  <motion.div
-    className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: [0.3, 0.85, 0.3] }}
-    transition={{ duration: 4 + index * 0.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.8 }}
-  >
-    <div className="relative flex items-center justify-center" style={{ width: '70%', maxWidth: '72px', aspectRatio: '1', perspective: '600px' }}>
-      <motion.div
-        className="w-full h-full rounded-2xl flex items-center justify-center"
-        style={{
-          background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.9), hsl(0 90% 40% / 0.95))',
-          boxShadow: '0 8px 32px hsl(0 80% 40% / 0.5), 0 2px 8px hsl(0 0% 0% / 0.3), inset 0 1px 2px hsl(0 0% 100% / 0.2)',
-          transformStyle: 'preserve-3d',
-        }}
-        animate={{ rotateX: [2, -2, 2], rotateY: [-3, 3, -3], scale: [1, 1.06, 1] }}
-        transition={{ duration: 7 + index * 0.3, repeat: Infinity, ease: "easeInOut", delay: index * 0.4 }}
-      >
-        <svg viewBox="0 0 24 24" fill="white" className="w-[40%] h-[40%] ml-[6%]">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </motion.div>
+const YouTubePlayButton = () => (
+  <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+    <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{
+      background: 'linear-gradient(145deg, hsl(0 80% 50% / 0.9), hsl(0 90% 40% / 0.95))',
+      boxShadow: '0 8px 32px hsl(0 80% 40% / 0.5), 0 2px 8px hsl(0 0% 0% / 0.3)',
+    }}>
+      <svg viewBox="0 0 24 24" fill="white" className="w-[40%] h-[40%] ml-[6%]">
+        <path d="M8 5v14l11-7z" />
+      </svg>
     </div>
-  </motion.div>
+  </div>
 );
-
 const YouTubeVideos = () => {
   const { t } = useLanguage();
 
@@ -136,10 +122,9 @@ const YouTubeVideos = () => {
             >
               <div className="relative aspect-video">
                 <iframe src={`https://www.youtube.com/embed/${v.id}`} title={(t.videos as any)[v.titleKey] || v.titleKey} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" loading="lazy" />
-                <YouTubePlayButton index={i} />
+                <YouTubePlayButton />
               </div>
               <div className="p-4">
-                <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">{(t.videos as any)[v.titleKey] || v.titleKey}</h3>
                 <div className="flex items-center gap-1 text-muted-foreground text-xs">
                   <Eye size={12} />
                   <span>{v.views} {t.videos.views}</span>
