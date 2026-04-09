@@ -100,7 +100,7 @@ const YouTubeVideos = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {videos.map((v, i) => (
+          {videos.map((v) => (
             <motion.div
               key={v.id}
               variants={fadeUpItem}
@@ -110,7 +110,6 @@ const YouTubeVideos = () => {
             >
               <div className="relative aspect-video">
                 <iframe src={`https://www.youtube.com/embed/${v.id}`} title={(t.videos as any)[v.titleKey] || v.titleKey} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" loading="lazy" />
-                <YouTubePlayButton />
               </div>
               <div className="p-4">
                 <div className="flex items-center gap-1 text-muted-foreground text-xs">
