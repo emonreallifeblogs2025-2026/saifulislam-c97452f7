@@ -120,7 +120,7 @@ const Portfolio = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className={`flex-1 whitespace-pre-line break-words text-muted-foreground ${isBengali ? "text-[0.95rem] leading-[1.8] lg:text-[0.9rem]" : "text-sm leading-relaxed"} ${expandedIndex === i ? "" : "line-clamp-4 lg:line-clamp-5"}`}
+                      className={`flex-1 whitespace-pre-line break-words text-muted-foreground ${isBengali ? "text-[0.95rem] leading-[1.8] lg:text-[0.9rem]" : "text-sm leading-relaxed"} ${expandedIndex === i ? "" : "lg:line-clamp-5"}`}
                     >
                       {article}
                     </motion.p>
