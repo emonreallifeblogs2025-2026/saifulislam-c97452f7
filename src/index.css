@@ -118,6 +118,9 @@
     body[data-lang="bn"] {
       font-size: 100%;
     }
+    body[data-lang="bn"] .text-\[10px\] { font-size: 0.75rem !important; }
+    body[data-lang="bn"] .text-xs { font-size: 0.875rem !important; }
+    body[data-lang="bn"] .text-sm { font-size: 1rem !important; }
   }
   /* Bump small Bengali text sizes up by 2 levels */
   body[data-lang="bn"] .text-\[10px\] { font-size: 0.875rem !important; }
