@@ -81,7 +81,7 @@ const Portfolio = () => {
         </AnimatedTitle>
 
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto auto-rows-fr"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
