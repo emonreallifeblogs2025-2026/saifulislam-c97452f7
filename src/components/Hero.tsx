@@ -30,6 +30,14 @@ const generateParticles = (count: number): Particle[] =>
 
 const Hero = () => {
   const { t, lang } = useLanguage();
+  const [isApple, setIsApple] = useState(true);
+
+  useEffect(() => {
+    const ua = navigator.userAgent || '';
+    const apple = /iPhone|iPad|iPod|Macintosh/.test(ua) && 'ontouchend' in document;
+    const mac = /Macintosh/.test(ua) && !('ontouchend' in document);
+    setIsApple(apple || mac || /Mac OS X/.test(ua));
+  }, []);
 
   const handleRipple = useCallback((e: MouseEvent<HTMLAnchorElement>) => {
     const btn = e.currentTarget;
