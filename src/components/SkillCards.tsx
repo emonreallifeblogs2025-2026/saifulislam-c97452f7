@@ -34,7 +34,7 @@ const SkillCards = () => {
         >
           {skills.map((skill, i) => (
             <motion.div key={i} variants={fadeUpItem} className="h-full">
-              <TiltCard className="glass-card h-full min-h-[270px] lg:min-h-[300px] p-8 group hover:-translate-y-2 transition-all duration-500 relative overflow-hidden flex flex-col">
+              <TiltCard className="glass-card h-full min-h-[230px] lg:min-h-[250px] p-6 group hover:-translate-y-2 transition-all duration-500 relative overflow-hidden flex flex-col">
                 <motion.div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{ background: "radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.08), transparent 70%)" }}

@@ -48,7 +48,7 @@ const Articles = () => {
         >
           {columns.map((col, i) => (
             <motion.div key={i} variants={fadeUpItem} className="h-full">
-              <TiltCard className="glass-card h-full min-h-[280px] lg:min-h-[310px] p-6 lg:p-7 relative overflow-hidden group flex flex-col">
+              <TiltCard className="glass-card h-full min-h-[240px] lg:min-h-[260px] p-5 lg:p-6 relative overflow-hidden group flex flex-col">
                 <motion.div
                   className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
                 />
