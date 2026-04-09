@@ -5,7 +5,8 @@ import { staggerContainer, fadeUpItem, scaleUpItem } from "@/lib/animations";
 import { TiltCard, FloatingOrbs, AnimatedTitle } from "@/components/AnimatedSection";
 
 const Articles = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const isBengali = lang === "bn";
 
   const columns = [
     { title: t.articles.a1Title, content: t.articles.a1Content },
@@ -39,20 +40,24 @@ const Articles = () => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:auto-rows-fr"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           {columns.map((col, i) => (
-            <motion.div key={i} variants={fadeUpItem}>
-              <TiltCard className="glass-card p-6 relative overflow-hidden group">
+            <motion.div key={i} variants={fadeUpItem} className="h-full">
+              <TiltCard className="glass-card h-full min-h-[280px] lg:min-h-[310px] p-6 lg:p-7 relative overflow-hidden group flex flex-col">
                 <motion.div
                   className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
                 />
-                <h3 className="text-lg font-bold text-primary mb-4">{col.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{col.content}</p>
+                <h3 className={`font-bold text-primary mb-4 leading-snug break-words ${isBengali ? "text-base lg:text-[1.05rem]" : "text-lg"}`}>
+                  {col.title}
+                </h3>
+                <p className={`text-muted-foreground leading-relaxed whitespace-pre-line break-words flex-1 ${isBengali ? "text-sm lg:text-[0.9rem] lg:leading-[1.75]" : "text-sm"}`}>
+                  {col.content}
+                </p>
               </TiltCard>
             </motion.div>
           ))}
