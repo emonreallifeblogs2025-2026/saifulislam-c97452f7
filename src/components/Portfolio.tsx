@@ -68,6 +68,7 @@ const Portfolio = () => {
 
   const articles = allArticles[lang] || allArticles.en;
   const titles = [t.portfolio.t1, t.portfolio.t2, t.portfolio.t3, t.portfolio.t4];
+  const isBengali = lang === "bn";
 
   return (
     <section id="portfolio" className="section-padding bg-secondary/20 relative overflow-hidden">
@@ -81,30 +82,29 @@ const Portfolio = () => {
         </AnimatedTitle>
 
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto auto-rows-fr"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           {articles.map((article, i) => (
-            <motion.div key={i} variants={fadeUpItem}>
-              <TiltCard className="glass-card p-6 cursor-pointer group relative overflow-hidden h-full flex flex-col">
-                {/* Hover gradient */}
+            <motion.div key={i} variants={fadeUpItem} className="h-full">
+              <TiltCard className="glass-card h-full min-h-[320px] lg:min-h-[360px] xl:min-h-[380px] p-6 lg:p-7 cursor-pointer group relative overflow-hidden flex flex-col">
                 <motion.div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
                   style={{ background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.06), transparent 70%)" }}
                 />
-                <div className="relative z-10 flex flex-col flex-1" onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}>
-                  <div className="flex items-center gap-3 mb-4">
+                <div className="relative z-10 flex h-full flex-col" onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}>
+                  <div className="mb-4 flex items-start gap-3 lg:mb-5">
                     <motion.span
-                      className="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center text-lg font-bold"
+                      className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary/20 text-lg font-bold text-primary"
                       whileHover={{ scale: 1.2, rotate: 360 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       {i + 1}
                     </motion.span>
-                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">{titles[i]}</h3>
+                    <h3 className={`font-bold leading-snug break-words text-foreground transition-colors group-hover:text-primary ${isBengali ? "text-base lg:text-[1.05rem]" : "text-lg"}`}>{titles[i]}</h3>
                   </div>
                   <AnimatePresence mode="wait">
                     <motion.p
@@ -112,13 +112,13 @@ const Portfolio = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className={`text-muted-foreground text-sm leading-relaxed whitespace-pre-line flex-1 ${expandedIndex === i ? "" : "line-clamp-4 lg:line-clamp-5"}`}
+                      className={`flex-1 whitespace-pre-line break-words text-muted-foreground ${isBengali ? "text-[0.95rem] leading-[1.8] lg:text-[0.9rem]" : "text-sm leading-relaxed"} ${expandedIndex === i ? "" : "line-clamp-4 lg:line-clamp-5"}`}
                     >
                       {article}
                     </motion.p>
                   </AnimatePresence>
                   <motion.button
-                    className="mt-4 text-primary text-sm font-medium hover:underline"
+                    className="mt-5 inline-flex items-center text-primary text-sm font-medium hover:underline"
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
