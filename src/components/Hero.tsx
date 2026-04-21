@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { useState, useEffect, memo, useCallback, MouseEvent } from "react";
-import { Link } from "react-router-dom";
+
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
 import { ArrowRight, BookOpen, Music } from "lucide-react";
