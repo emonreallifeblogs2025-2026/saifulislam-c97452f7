@@ -58,7 +58,7 @@ const Navbar = () => {
             <span className="text-primary">⟐</span> Saiful
           </a>
           <div className="hidden lg:flex items-center gap-4 mt-3">
-            <a href="/writings" className="relative text-base font-semibold px-6 py-2.5 rounded-full text-primary transition-all duration-300 hover:scale-105"
+            <a href="#writings" className="relative text-base font-semibold px-6 py-2.5 rounded-full text-primary transition-all duration-300 hover:scale-105"
               style={{
                 background: 'linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)',
                 boxShadow: '0 0 15px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.1), 0 4px 6px hsl(0 0% 0% / 0.3), 0 1px 3px hsl(0 0% 0% / 0.2)',
@@ -67,7 +67,7 @@ const Navbar = () => {
               }}>
               📖 {t.hero.writingsBtn}
             </a>
-            <a href="/songs" className="relative text-base font-semibold px-6 py-2.5 rounded-full text-primary transition-all duration-300 hover:scale-105"
+            <a href="#songs" className="relative text-base font-semibold px-6 py-2.5 rounded-full text-primary transition-all duration-300 hover:scale-105"
               style={{
                 background: 'linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)',
                 boxShadow: '0 0 15px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.1), 0 4px 6px hsl(0 0% 0% / 0.3), 0 1px 3px hsl(0 0% 0% / 0.2)',
