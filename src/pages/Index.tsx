@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import YouTubeVideos from "@/components/YouTubeVideos";
+import InlinePageLinks from "@/components/InlinePageLinks";
 import SoundCloudMusic from "@/components/SoundCloudMusic";
 import Stats from "@/components/Stats";
 import Skills from "@/components/Skills";
@@ -18,6 +19,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <YouTubeVideos />
+      <InlinePageLinks />
       <SoundCloudMusic />
       <Stats />
       <Skills />
