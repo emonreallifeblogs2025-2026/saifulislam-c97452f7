@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { useState, useEffect, memo, useCallback, MouseEvent } from "react";
-import { Link } from "react-router-dom";
+
 import heroImage from "@/assets/hero-person.png";
 import heroBg from "@/assets/hero-bg-dark.jpg";
 import { ArrowRight, BookOpen, Music } from "lucide-react";
@@ -93,7 +93,7 @@ const Hero = () => {
 
       <div className="container mx-auto relative z-10 pt-20 sm:pt-12 lg:pt-20 pb-10 sm:pb-16 lg:pb-20 px-4 lg:px-4">
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className={`mb-4 sm:mb-6 md:mb-4 lg:hidden flex justify-center ${isApple ? 'flex-wrap gap-3' : 'flex-nowrap gap-2'}`}>
-          <Link to="/writings" className={`relative font-semibold rounded-full text-primary transition-all duration-300 hover:scale-105 group inline-flex items-center justify-center leading-none ${isApple ? 'text-sm sm:text-base px-5 py-2 sm:px-6 sm:py-2.5' : 'text-xs px-3 py-1.5'}`}
+          <a href="#writings" className={`relative font-semibold rounded-full text-primary transition-all duration-300 hover:scale-105 group inline-flex items-center justify-center leading-none ${isApple ? 'text-sm sm:text-base px-5 py-2 sm:px-6 sm:py-2.5' : 'text-xs px-3 py-1.5'}`}
             style={{
               background: 'linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)',
               boxShadow: '0 0 15px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.1), 0 4px 6px hsl(0 0% 0% / 0.3), 0 1px 3px hsl(0 0% 0% / 0.2)',
@@ -103,8 +103,8 @@ const Hero = () => {
               lineHeight: '1',
             }}>
             <span className="inline-flex items-center gap-1" style={{ lineHeight: '1', verticalAlign: 'middle' }}>📖 {t.hero.writingsBtn} <ArrowRight size={isApple ? 14 : 12} className="group-hover:translate-x-1 transition-transform" /></span>
-          </Link>
-          <Link to="/songs" className={`relative font-semibold rounded-full text-primary transition-all duration-300 hover:scale-105 group inline-flex items-center justify-center leading-none ${isApple ? 'text-sm sm:text-base px-5 py-2 sm:px-6 sm:py-2.5' : 'text-xs px-3 py-1.5'}`}
+          </a>
+          <a href="#songs" className={`relative font-semibold rounded-full text-primary transition-all duration-300 hover:scale-105 group inline-flex items-center justify-center leading-none ${isApple ? 'text-sm sm:text-base px-5 py-2 sm:px-6 sm:py-2.5' : 'text-xs px-3 py-1.5'}`}
             style={{
               background: 'linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)',
               boxShadow: '0 0 15px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.1), 0 4px 6px hsl(0 0% 0% / 0.3), 0 1px 3px hsl(0 0% 0% / 0.2)',
@@ -114,7 +114,7 @@ const Hero = () => {
               lineHeight: '1',
             }}>
             <span className="inline-flex items-center gap-1" style={{ lineHeight: '1', verticalAlign: 'middle' }}>🎵 {t.hero.songsBtn || "আমার রচিত গান"} <ArrowRight size={isApple ? 14 : 12} className="group-hover:translate-x-1 transition-transform" /></span>
-          </Link>
+          </a>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 items-center">

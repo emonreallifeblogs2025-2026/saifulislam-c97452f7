@@ -6,8 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ContentProvider } from "@/contexts/ContentContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
-import Writings from "./pages/Writings";
-import Songs from "./pages/Songs";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -23,8 +21,9 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/writings" element={<Writings />} />
-              <Route path="/songs" element={<Songs />} />
+              {/* Legacy routes redirect to in-page anchors on the single-page site */}
+              <Route path="/writings" element={<Index />} />
+              <Route path="/songs" element={<Index />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
